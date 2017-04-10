@@ -26,7 +26,7 @@ int main()
             break;
         }
     if (flag1 && flag2)
-        ans = abs(min(a,b) - m);
+        ans = min(abs(a-m), abs(b-m));
     else if (flag1 && !flag2)
         ans = abs(a - m);
     else
