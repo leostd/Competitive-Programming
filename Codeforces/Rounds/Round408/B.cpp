@@ -20,6 +20,7 @@ int main()
         return 0;
     }
     cs[1] = 2; // bone
+    ans = 1;
     for (int i = 0; i < k; i++)
     {
         scanf("%d %d", &a, &b);
