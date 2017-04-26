@@ -51,8 +51,8 @@ struct line2 {
 
 /* VECTOR 2D */
 struct vec2 { 
-    double x, y, z;
-    vec2() {x = y = z = 0;}
+    double x, y;
+    vec2() {x = y = 0;}
     vec2(double _x, double _y) : x(_x), y(_y) {} 
 };
 
