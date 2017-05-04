@@ -2,24 +2,26 @@
 #include <vector>
 #include <stdlib.h>
 #include <stdio.h>
+#include <set>
 
 using namespace std;
 
 typedef vector<int> vi;
 typedef vector < vi > vvi;
 
+vi numbers[1000007];
+
 int main()
 {
-    freopen("EasyProblemFrom.in", "r", stdin);
-    vvi numbers;
+    //freopen("in", "r", stdin);
     int m, n, num, rep;
-    vi vp;
     while(scanf("%d %d", &n, &m) != EOF)
     {
-        numbers = vvi(n+1, vp);
+        set<int> ns;
         for(int i = 1; i <= n; i++)
         {
             scanf("%d", &num);
+            ns.insert(num);
             numbers[num].push_back(i);
         }
         for(int i = 0; i < m; i++)
@@ -31,6 +33,9 @@ int main()
                 printf("%d", numbers[num][rep-1]);
             printf("\n");
         }
+        for (auto it = ns.begin(); it != ns.end(); ++it)
+            numbers[*it].clear();
+
     }
     return 0;
 }
