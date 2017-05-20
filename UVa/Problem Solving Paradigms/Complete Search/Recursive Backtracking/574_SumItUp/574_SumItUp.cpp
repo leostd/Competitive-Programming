@@ -2,26 +2,28 @@
 using namespace std;
 
 typedef vector<int> vi;
-typedef vector<vi> vvi;
 
 int n, t, ns[20];
-vvi ans;
+set<vi> ans;
 
 void solve(int idx, int sum, vi ac) {
     if (sum == t) {
-        ans.push_back(ac);
+        ans.insert(ac);
         return;
     }
-    
-    for (int i = idx+1; i < n; ++i) {
+    if (sum > t || idx == n)
+        return;
+    for (int i = idx; i < n; ++i) {
         sum += ns[i];
         ac.push_back(ns[i]);
-        solve(i, sum, ac);
-        ac.
+        solve(i+1, sum, ac);
+        ac.pop_back();
+        sum -= ns[i];
     }
 }
 
 int main() {
+    //freopen("in", "r", stdin);
     while(scanf("%d %d", &t, &n), n) {
         for(int i = 0; i < n; ++i)
             scanf("%d", &ns[i]);
@@ -29,16 +31,16 @@ int main() {
         ans.clear();
         sort(ns, ns+n, greater<int>());
         solve(0, 0, a);
+        printf("Sums of %d:\n", t);
         if (ans.size() == 0)
             printf("NONE\n");
         else {
-            printf("Sums of %d:\n", t);
-            for (int i = 0; i < ans.size(); ++i) {
-                for (int j = 0; j < ans[i].size(); ++j) {
-                    if (j < (int)ans[i].size()-1)
-                        printf("%d+", ans[i][j]);
+            for (auto it = ans.rbegin(); it != ans.rend(); ++it) {
+                for (int j = 0; j < (*it).size(); ++j) {
+                    if (j < (int)(*it).size()-1)
+                        printf("%d+", (*it)[j]);
                     else
-                        printf("%d", ans[i][j]);
+                        printf("%d", (*it)[j]);
                 }
                 printf("\n");
             }
