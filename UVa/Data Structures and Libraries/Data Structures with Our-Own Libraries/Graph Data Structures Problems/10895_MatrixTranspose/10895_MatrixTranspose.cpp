@@ -1,93 +1,48 @@
-#include <iostream>
-#include <vector>
-#include <stdlib.h>
-#include <stdio.h>
-
+#include <bits/stdc++.h>
 using namespace std;
 
-typedef pair<int, int> ii;
-typedef vector< vector < ii > > vii;
-typedef unsigned int ui;
+typedef vector<int> vi;
 
-vii smTranspose(vii sm, int m, int n)
-{
-    vii smt;
-    vector<ii> vp;
-    for(int i = 0; i <= n; ++i)
-        smt.push_back(vp);
-    for(int i = 1; i <= m; ++i)
-    {
-        for(int j = 0; j < sm[i].size(); ++j)
-        {
-            int row = sm[i][j].first;
-            int col = i;
-            int val = sm[i][j].second;
-            ii p(i,val);
-            smt[row].push_back(p);
-        }
-    }
-    return smt;
-}
+vi g[10007], idx[10007];
 
-void printSparseMatrix(vii sm, int m, int n)
-{
-    printf("%d %d\n", m, n);
-    for(int i = 1; i <= m; ++i)
-    {
-        int r = sm[i].size();
-        printf("%d ", r);
-        for(int j = 0; j < r; ++j)
-        {
-            printf("%d ", sm[i][j].first);
+int main(){
+    //freopen("in", "r", stdin);
+    int n, m, e, a;
+    while(scanf("%d %d", &n, &m) != EOF){
+        for (int i = 0; i <= 10007; i++){
+            g[i].clear();
+            idx[i].clear();
         }
-        printf("\n");
-        if(r != 0)
-        {
-            for(int j = 0; j < r; ++j)
-            {
-                printf("%d ", sm[i][j].second);
+        for (int i = 0; i < n; i++){
+            scanf("%d", &e);
+            vi elems, cols;
+            for (int j = 0; j < e; j++){
+                scanf("%d", &a);
+                cols.push_back(a);
+            }
+            for (int j = 0; j < e; j++){
+                scanf("%d", &a);
+                elems.push_back(a);
+            }
+            for (int j = 0; j < e; ++j){
+                g[cols[j]].push_back(elems[j]);
+                idx[cols[j]].push_back(i+1);
             }
         }
-        printf("\n");
-    }
-}
-int main()
-{
-    freopen("MatrixTranspose.in", "r", stdin);
-    vii sm;
-    int n, m,r;
-    scanf("%d %d", &m, &n);
-    vector<ii> ve;
-    sm.push_back(ve);
-    for(ui i = 0; i < m; ++i)
-    {
-        scanf("%d", &r);
-        if(r == 0)
-        {
-            vector<ii> vp;
-            sm.push_back(vp);
-        }
-        else
-        {
-            vector<ii> vp;
-            int col, val;
-            for(ui j = 0; j < r; ++j)
-            {
-                scanf("%d", &col);
-                vp.push_back(pair<int, int>(col,0));
+        printf("%d %d\n", m, n);
+        for (int i = 1; i <= m; i++){
+            printf("%d", (int)g[i].size());
+            for (int j = 0; j < (int)g[i].size(); ++j){
+                printf("% d", idx[i][j]);
             }
-            for(ui j = 0; j < r; ++j)
-            {
-                scanf("%d", &val);
-                vp[j].second = val;
+            printf("\n");
+            for (int j = 0; j < (int)idx[i].size(); ++j){
+                printf("%d", g[i][j]);
+                if (j < idx[i].size()-1)
+                    printf(" ");
             }
-            sm.push_back(vp);
-
+            printf("\n");
         }
     }
-    printSparseMatrix(sm, m, n);
-    cout << endl;
-    vii smt = smTranspose(sm,m,n);
-    printSparseMatrix(smt,n,m);
     return 0;
 }
