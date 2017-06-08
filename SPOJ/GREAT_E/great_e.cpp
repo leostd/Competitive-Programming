@@ -69,7 +69,7 @@ int main() {
                 a = mid;
             }
         }
-        if (d == INF)
+        if (sol == -1)
             printf("Primo can't escape\n");
         else
             printf("Primo can escape in %d minute(s)\n", a);
