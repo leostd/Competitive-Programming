@@ -1,7 +1,9 @@
+/*
+    Este algoritmo calcula el numero de inversiones en un arreglo en O(NlogN)
+*/
+
 #include <bits/stdc++.h>
 using namespace std;
-
-typedef vector<int> vi;
 
 long long inv;
 

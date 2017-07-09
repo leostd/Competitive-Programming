@@ -2,38 +2,33 @@
 using namespace std;
 
 struct card {
-    int n, s;
+	int val;
+	char suit;
 };
 
-bool check(card a, card b) {
-    return (a.s == b.s || a.n == b.n);
-}
+card cs[50];
 
 int main() {
-    //freopen("in", "r", stdin);
-    int t;
-    scanf("%d", &t);
-    while(t--) {
-        card cs[58];
-        int n;
-        scanf("%d", &n);
-        int a, b;
-        for(int i = 0; i < n; i++){
-            scanf("%d %c", &a, &b);
-            cs[i].n = a;
-            cs[i].s = b;
-        }
-        bool flag = true;
-        for(int i = 1; i < n; ++i) {
-            if (check(cs[i-1], cs[i])){
-                flag = false;
-                break;
-            }
-        }
-        if (flag)
-            printf("B\n");
-        else
-            printf("M\n");
-    }
-    return 0;
+	int t;
+	scanf("%d", &t);
+
+	while(t--) {
+		int n;
+		scanf("%d", &n);
+		card prev, cur;
+		bool flag = true;
+		scanf("%d %c", &prev.val, &prev.suit);
+		for (int i = 1; i < n; ++i){
+			scanf("%d %c", &cur.val, &cur.suit);
+			if (flag && (cur.suit == prev.suit || cur.val == prev.val))
+				flag = false;
+			prev = cur;
+		}
+		if (flag)
+			printf("B\n");
+		else
+			printf("M\n");
+
+	}
+	return 0;
 }
