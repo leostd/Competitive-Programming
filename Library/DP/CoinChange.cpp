@@ -3,9 +3,15 @@
     Minima cantidad necesaria de monedas para dar un cambio de S
 
     Relacion de recurrencia:
-    dp(0): 0
-    dp(<0): inf
+    dp(sum): 0    si sum == 0
+    dp(sum): INF  si sum < 0
     dp(sum): 1 + min(dp(sum-coins[i])). 0 <= i < NCOINS
+
+    Complejidad en tiempo(Sn)
+    Complejidad en espacio(S)
+
+    Donde S es la suma de dinero y n es el numero
+    de diferentes denominaciones que se tienen
 */
 
 #include <bits/stdc++.h>
