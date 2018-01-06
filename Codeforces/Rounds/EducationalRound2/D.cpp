@@ -9,15 +9,15 @@ int main(){
     cin >> x1 >> y1 >> r1 >> x2 >> y2 >> r2;
     dsqr = sqr(x1-x2) + sqr(y1-y2);
     d = sqrt(dsqr);
-    if (dsqr > sqr(r1+r2)){
+    if (dsqr >= sqr(r1+r2)){
         printf("%.20Lf\n", 0.0L);
         return 0;
     }
-    if (r1 > r2 && dsqr < sqr(r1)){
+    if (r1 > r2 && dsqr <= sqr(r1-r2)){
         printf("%.20Lf\n", PI*(long double)sqr(r2));
         return 0;
     }
-    if (r2 > r1 && dsqr < sqr(r2)){
+    if (r2 > r1 && dsqr < sqr(r1-r2)){
         printf("%.20Lf\n", PI*(long double)sqr(r1));
         return 0;
     }
