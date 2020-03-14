@@ -9,3 +9,4 @@ test.*
 myoutput
 .Rhistory
 .vscode
+.DS_Store
