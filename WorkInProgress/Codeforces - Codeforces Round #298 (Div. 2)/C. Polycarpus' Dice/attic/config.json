@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #298 (Div. 2)/C. Polycarpus' Dice/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Polycarpus' Dice",
+      "group": "Codeforces - Codeforces Round #298 (Div. 2)",
+      "url": "https://codeforces.com/contest/534/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

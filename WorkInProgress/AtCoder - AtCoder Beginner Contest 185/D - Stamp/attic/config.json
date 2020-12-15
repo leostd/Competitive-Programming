@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 185/D - Stamp/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D - Stamp",
+      "group": "AtCoder - AtCoder Beginner Contest 185",
+      "url": "https://atcoder.jp/contests/abc185/tasks/abc185_d",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

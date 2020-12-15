@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 184/A - Determinant/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A - Determinant",
+      "group": "AtCoder - AtCoder Beginner Contest 184",
+      "url": "https://atcoder.jp/contests/abc184/tasks/abc184_a",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

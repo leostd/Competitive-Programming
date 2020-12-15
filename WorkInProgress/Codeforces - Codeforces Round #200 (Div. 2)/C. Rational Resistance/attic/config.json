@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #200 (Div. 2)/C. Rational Resistance/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Rational Resistance",
+      "group": "Codeforces - Codeforces Round #200 (Div. 2)",
+      "url": "http://codeforces.com/contest/344/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

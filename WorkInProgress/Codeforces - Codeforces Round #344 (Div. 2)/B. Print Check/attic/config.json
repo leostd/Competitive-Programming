@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #344 (Div. 2)/B. Print Check/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Print Check",
+      "group": "Codeforces - Codeforces Round #344 (Div. 2)",
+      "url": "https://codeforces.com/contest/631/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

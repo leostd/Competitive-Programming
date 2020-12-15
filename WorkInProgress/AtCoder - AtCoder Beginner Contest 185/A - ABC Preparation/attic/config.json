@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 185/A - ABC Preparation/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A - ABC Preparation",
+      "group": "AtCoder - AtCoder Beginner Contest 185",
+      "url": "https://atcoder.jp/contests/abc185/tasks/abc185_a",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}
