@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #135 (Div. 2)/B. Special Offer! Super Price 999 Bourles!/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Special Offer! Super Price 999 Bourles!",
+      "group": "Codeforces - Codeforces Round #135 (Div. 2)",
+      "url": "http://codeforces.com/contest/219/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

@@ -1,0 +1,7 @@
+[1m/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #274 (Div. 2)/B. Towers/sol.cpp:146:50: [0m[0;1;31merror: [0m[1mredefinition of 'k'[0m
+    int inestability = b.fst - a.fst, prev = -1, k, minInestability; 
+[0;1;32m                                                 ^
+[0m[1m/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #274 (Div. 2)/B. Towers/sol.cpp:136:13: [0m[0;1;30mnote: [0mprevious definition is here[0m
+    int n , k;
+[0;1;32m            ^
+[0m1 error generated.

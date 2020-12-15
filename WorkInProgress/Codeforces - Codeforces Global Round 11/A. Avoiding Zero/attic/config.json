@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Global Round 11/A. Avoiding Zero/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Avoiding Zero",
+      "group": "Codeforces - Codeforces Global Round 11",
+      "url": "https://codeforces.com/contest/1427/problem/0",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

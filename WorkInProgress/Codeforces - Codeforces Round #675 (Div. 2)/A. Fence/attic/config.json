@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #675 (Div. 2)/A. Fence/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Fence",
+      "group": "Codeforces - Codeforces Round #675 (Div. 2)",
+      "url": "http://codeforces.com/contest/1422/problem/A",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

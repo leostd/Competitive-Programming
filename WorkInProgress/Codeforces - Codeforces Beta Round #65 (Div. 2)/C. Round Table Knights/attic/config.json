@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Beta Round #65 (Div. 2)/C. Round Table Knights/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Round Table Knights",
+      "group": "Codeforces - Codeforces Beta Round #65 (Div. 2)",
+      "url": "https://codeforces.com/contest/71/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 500
+    }
+  }
+}

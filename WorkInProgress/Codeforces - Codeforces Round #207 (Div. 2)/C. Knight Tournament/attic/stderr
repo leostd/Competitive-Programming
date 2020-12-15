@@ -1,0 +1,4 @@
+[1m/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #207 (Div. 2)/C. Knight Tournament/sol.cpp:154:20: [0m[0;1;31merror: [0m[1muse of undeclared identifier 's'[0m
+        while(x != s.end() && *x <= *y) {
+[0;1;32m                   ^
+[0m1 error generated.

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #236 (Div. 2)/C. Searching for Graph/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Searching for Graph",
+      "group": "Codeforces - Codeforces Round #236 (Div. 2)",
+      "url": "http://codeforces.com/contest/402/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

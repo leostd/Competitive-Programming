@@ -1,0 +1,145 @@
+[1m/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #321 (Div. 2)/C. Kefa and Park/sol.cpp:150:38: [0m[0;1;31merror: [0m[1minvalid operands to binary expression ('std::__1::__vector_base<std::__1::vector<int, std::__1::allocator<int> >, std::__1::allocator<std::__1::vector<int, std::__1::allocator<int> > > >::value_type' (aka 'std::__1::vector<int, std::__1::allocator<int> >') and 'int')[0m
+    if (g[src].size() == 1 && g[src] == p){
+[0;1;32m                              ~~~~~~ ^  ~
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/system_error:391:1: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::__1::__vector_base<std::__1::vector<int, std::__1::allocator<int> >, std::__1::allocator<std::__1::vector<int, std::__1::allocator<int> > > >::value_type' (aka 'std::__1::vector<int, std::__1::allocator<int> >') to 'const std::__1::error_code' for 1st argument[0m
+operator==(const error_code& __x, const error_code& __y) _NOEXCEPT
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/system_error:398:1: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::__1::__vector_base<std::__1::vector<int, std::__1::allocator<int> >, std::__1::allocator<std::__1::vector<int, std::__1::allocator<int> > > >::value_type' (aka 'std::__1::vector<int, std::__1::allocator<int> >') to 'const std::__1::error_code' for 1st argument[0m
+operator==(const error_code& __x, const error_condition& __y) _NOEXCEPT
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/system_error:406:1: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::__1::__vector_base<std::__1::vector<int, std::__1::allocator<int> >, std::__1::allocator<std::__1::vector<int, std::__1::allocator<int> > > >::value_type' (aka 'std::__1::vector<int, std::__1::allocator<int> >') to 'const std::__1::error_condition' for 1st argument[0m
+operator==(const error_condition& __x, const error_code& __y) _NOEXCEPT
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/system_error:413:1: [0m[0;1;30mnote: [0mcandidate function not viable: no known conversion from 'std::__1::__vector_base<std::__1::vector<int, std::__1::allocator<int> >, std::__1::allocator<std::__1::vector<int, std::__1::allocator<int> > > >::value_type' (aka 'std::__1::vector<int, std::__1::allocator<int> >') to 'const std::__1::error_condition' for 1st argument[0m
+operator==(const error_condition& __x, const error_condition& __y) _NOEXCEPT
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/utility:580:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'pair' against 'vector'[0m
+operator==(const pair<_T1,_T2>& __x, const pair<_T1,_T2>& __y)
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator:712:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'reverse_iterator' against 'vector'[0m
+operator==(const reverse_iterator<_Iter1>& __x, const reverse_iterator<_Iter2>& __y)
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator:941:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'istream_iterator' against 'vector'[0m
+operator==(const istream_iterator<_Tp, _CharT, _Traits, _Distance>& __x,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator:1045:6: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'istreambuf_iterator' against 'vector'[0m
+bool operator==(const istreambuf_iterator<_CharT,_Traits>& __a,
+[0;1;32m     ^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator:1153:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'move_iterator' against 'vector'[0m
+operator==(const move_iterator<_Iter1>& __x, const move_iterator<_Iter2>& __y)
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iterator:1451:5: [0m[0;1;30mnote: [0mcandidate template ignored: could not match '__wrap_iter' against 'vector'[0m
+    operator==(const __wrap_iter<_Iter1>&, const __wrap_iter<_Iter2>&) _NOEXCEPT_DEBUG;
+[0;1;32m    ^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/tuple:1122:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'tuple' against 'vector'[0m
+operator==(const tuple<_Tp...>& __x, const tuple<_Up...>& __y)
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:1987:6: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'allocator' against 'vector'[0m
+bool operator==(const allocator<_Tp>&, const allocator<_Up>&) _NOEXCEPT {return true;}
+[0;1;32m     ^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:2964:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'unique_ptr' against 'vector'[0m
+operator==(const unique_ptr<_T1, _D1>& __x, const unique_ptr<_T2, _D2>& __y) {return __x.get() == __y.get();}
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:3000:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'unique_ptr' against 'vector'[0m
+operator==(const unique_ptr<_T1, _D1>& __x, nullptr_t) _NOEXCEPT
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:3008:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'unique_ptr<type-parameter-0-0, type-parameter-0-1>' against 'int'[0m
+operator==(nullptr_t, const unique_ptr<_T1, _D1>& __x) _NOEXCEPT
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:4796:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'shared_ptr' against 'vector'[0m
+operator==(const shared_ptr<_Tp>& __x, const shared_ptr<_Up>& __y) _NOEXCEPT
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:4850:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'shared_ptr' against 'vector'[0m
+operator==(const shared_ptr<_Tp>& __x, nullptr_t) _NOEXCEPT
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/memory:4858:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'shared_ptr<type-parameter-0-0>' against 'int'[0m
+operator==(nullptr_t, const shared_ptr<_Tp>& __x) _NOEXCEPT
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/functional:2380:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'function' against 'vector'[0m
+operator==(const function<_Rp(_ArgTypes...)>& __f, nullptr_t) _NOEXCEPT {return !__f;}
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/functional:2385:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'function<type-parameter-0-0 (type-parameter-0-1...)>' against 'int'[0m
+operator==(nullptr_t, const function<_Rp(_ArgTypes...)>& __f) _NOEXCEPT {return !__f;}
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string_view:614:6: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'basic_string_view' against 'vector'[0m
+bool operator==(basic_string_view<_CharT, _Traits> __lhs,
+[0;1;32m     ^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string_view:623:6: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'basic_string_view' against 'vector'[0m
+bool operator==(basic_string_view<_CharT, _Traits> __lhs,
+[0;1;32m     ^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string_view:632:6: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'basic_string_view<type-parameter-0-0, type-parameter-0-1>' against 'int'[0m
+bool operator==(typename common_type<basic_string_view<_CharT, _Traits> >::type __lhs, 
+[0;1;32m     ^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:564:6: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'fpos' against 'vector'[0m
+bool operator==(const fpos<_StateT>& __x, const fpos<_StateT>& __y)
+[0;1;32m     ^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:3835:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'basic_string' against 'vector'[0m
+operator==(const basic_string<_CharT, _Traits, _Allocator>& __lhs,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:3847:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'basic_string' against 'vector'[0m
+operator==(const basic_string<char, char_traits<char>, _Allocator>& __lhs,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:3866:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'const _CharT *' against 'std::__1::__vector_base<std::__1::vector<int, std::__1::allocator<int> >, std::__1::allocator<std::__1::vector<int, std::__1::allocator<int> > > >::value_type' (aka 'std::__1::vector<int, std::__1::allocator<int> >')[0m
+operator==(const _CharT* __lhs,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:3879:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'basic_string' against 'vector'[0m
+operator==(const basic_string<_CharT,_Traits,_Allocator>& __lhs,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/vector:3361:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'vector<type-parameter-0-0, type-parameter-0-1>' against 'int'[0m
+operator==(const vector<_Tp, _Allocator>& __x, const vector<_Tp, _Allocator>& __y)
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/set:859:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'set' against 'vector'[0m
+operator==(const set<_Key, _Compare, _Allocator>& __x,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/set:1347:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'multiset' against 'vector'[0m
+operator==(const multiset<_Key, _Compare, _Allocator>& __x,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:1559:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'map' against 'vector'[0m
+operator==(const map<_Key, _Tp, _Compare, _Allocator>& __x,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/map:2104:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'multimap' against 'vector'[0m
+operator==(const multimap<_Key, _Tp, _Compare, _Allocator>& __x,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/unordered_set:953:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'unordered_set' against 'vector'[0m
+operator==(const unordered_set<_Value, _Hash, _Pred, _Alloc>& __x,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/unordered_set:1523:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'unordered_multiset' against 'vector'[0m
+operator==(const unordered_multiset<_Value, _Hash, _Pred, _Alloc>& __x,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/unordered_map:1640:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'unordered_map' against 'vector'[0m
+operator==(const unordered_map<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/unordered_map:2264:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'unordered_multimap' against 'vector'[0m
+operator==(const unordered_multimap<_Key, _Tp, _Hash, _Pred, _Alloc>& __x,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/deque:2881:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'deque' against 'vector'[0m
+operator==(const deque<_Tp, _Allocator>& __x, const deque<_Tp, _Allocator>& __y)
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/queue:363:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'queue' against 'vector'[0m
+operator==(const queue<_Tp, _Container>& __x,const queue<_Tp, _Container>& __y)
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/random:2394:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'mersenne_twister_engine' against 'vector'[0m
+operator==(const mersenne_twister_engine<_UInt, _Wp, _Np, _Mp, _Rp, _Ap, _Up, _Dp, _Sp,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/random:2719:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'subtract_with_carry_engine' against 'vector'[0m
+operator==(
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/random:2937:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'discard_block_engine' against 'vector'[0m
+operator==(const discard_block_engine<_Eng, _Pp, _Rp>& __x,
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/random:3188:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'independent_bits_engine' against 'vector'[0m
+operator==(
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/random:3419:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'shuffle_order_engine' against 'vector'[0m
+operator==(
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:749:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'complex' against 'vector'[0m
+operator==(const complex<_Tp>& __x, const complex<_Tp>& __y)
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:757:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'complex' against 'vector'[0m
+operator==(const complex<_Tp>& __x, const _Tp& __y)
+[0;1;32m^
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/complex:765:1: [0m[0;1;30mnote: [0mcandidate template ignored: could not match 'complex<type-parameter-0-0>' against 'int'[0m
+operator==(const _Tp& __x, const complex<_Tp>& __y)
+[0;1;32m^
+[0m1 error generated.

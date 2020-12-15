@@ -1,0 +1,8 @@
+[1m/Users/lsantel/Competitive-Programming/solutions/AtCoder - AtCoder Beginner Contest 184/D - increment of coins/sol.cpp:142:13: [0m[0;1;31merror: [0m[1muse of undeclared identifier 'setprecison'; did you mean 'setprecision'?[0m
+    cout << setprecison(9) << fixed;
+[0;1;32m            ^~~~~~~~~~~
+[0m[0;32m            setprecision
+[0m[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iomanip:235:1: [0m[0;1;30mnote: [0m'setprecision' declared here[0m
+setprecision(int __n)
+[0;1;32m^
+[0m1 error generated.

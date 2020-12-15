@@ -1,0 +1,14 @@
+In file included from /Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #669 (Div. 2)/B. Big Vova/sol.cpp:1:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/iostream:38:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/ios:216:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__locale:15:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string:505:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/string_view:176:
+In file included from /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/__string:57:
+[1m/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1/algorithm:1981:20: [0m[0;1;31merror: [0m[1mcalled object type 'int' is not a function or function pointer[0m
+        *__first = __gen();
+[0;1;32m                   ^~~~~
+[0m[1m/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #669 (Div. 2)/B. Big Vova/sol.cpp:126:5: [0m[0;1;30mnote: [0min instantiation of function template specialization 'std::__1::generate<std::__1::__wrap_iter<int *>, int>' requested here[0m
+    generate(all(a), 0);
+[0;1;32m    ^
+[0m1 error generated.

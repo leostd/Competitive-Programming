@@ -1,0 +1,7 @@
+[1m/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #674 (Div. 3)/E. Rock, Paper, Scissors/sol.cpp:178:76: [0m[0;1;31merror: [0m[1mexpected ')'[0m
+            if (min(aux[1][i], aux[0][(i+1)%3]) < min(aux[0][i], aux[1][i]){
+[0;1;32m                                                                           ^
+[0m[1m/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #674 (Div. 3)/E. Rock, Paper, Scissors/sol.cpp:178:16: [0m[0;1;30mnote: [0mto match this '('[0m
+            if (min(aux[1][i], aux[0][(i+1)%3]) < min(aux[0][i], aux[1][i]){
+[0;1;32m               ^
+[0m1 error generated.

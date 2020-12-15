@@ -1,0 +1,4 @@
+[1m/Users/lsantel/Competitive-Programming/solutions/HackerRank - Mathematics - Probability - Sherlock and Probability - Practice - Mathematics - Probability/Sherlock and Probability/sol.cpp:165:16: [0m[0;1;31merror: [0m[1muse of undeclared identifier '__gcd'[0m
+        ll x = __gcd(valid, total);
+[0;1;32m               ^
+[0m1 error generated.

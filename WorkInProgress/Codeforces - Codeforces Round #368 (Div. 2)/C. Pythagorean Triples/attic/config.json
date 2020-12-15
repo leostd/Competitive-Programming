@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #368 (Div. 2)/C. Pythagorean Triples/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Pythagorean Triples",
+      "group": "Codeforces - Codeforces Round #368 (Div. 2)",
+      "url": "https://codeforces.com/contest/707/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

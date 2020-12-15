@@ -1,0 +1,21 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #673 (Div. 2)/B. Two Arrays/sol.cpp"
+  },
+  "bruteSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #673 (Div. 2)/B. Two Arrays/brute.cpp"
+  },
+  "generator": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #673 (Div. 2)/B. Two Arrays/gen.py"
+  },
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Two Arrays",
+      "group": "Codeforces - Codeforces Round #673 (Div. 2)",
+      "url": "https://codeforces.com/contest/1417/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

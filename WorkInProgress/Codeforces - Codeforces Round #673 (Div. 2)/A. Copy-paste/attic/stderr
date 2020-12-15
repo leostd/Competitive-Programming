@@ -1,0 +1,5 @@
+[1m/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #673 (Div. 2)/A. Copy-paste/sol.cpp:152:42: [0m[0;1;31merror: [0m[1mexpected ';' after expression[0m
+        cout << a << " " << a + b << endl
+[0;1;32m                                         ^
+[0m[0;32m                                         ;
+[0m1 error generated.

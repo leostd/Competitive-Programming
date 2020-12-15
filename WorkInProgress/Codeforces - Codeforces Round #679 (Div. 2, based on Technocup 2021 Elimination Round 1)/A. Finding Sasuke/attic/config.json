@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #679 (Div. 2, based on Technocup 2021 Elimination Round 1)/A. Finding Sasuke/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Finding Sasuke",
+      "group": "Codeforces - Codeforces Round #679 (Div. 2, based on Technocup 2021 Elimination Round 1)",
+      "url": "https://codeforces.com/contest/1435/problem/A",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

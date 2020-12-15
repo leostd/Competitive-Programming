@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/ICPC Live Archive/8078 - Bracket Sequence/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "8078 - Bracket Sequence",
+      "group": "ICPC Live Archive",
+      "url": "https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&category=770&page=show_problem&problem=6100",
+      "memoryLimit": 32,
+      "timeLimit": 3000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/HackerRank - Mathematics - Probability - Sherlock and Probability - Practice - Mathematics - Probability/Sherlock and Probability/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Sherlock and Probability",
+      "group": "HackerRank - Mathematics - Probability - Sherlock and Probability - Practice - Mathematics - Probability",
+      "url": "https://www.hackerrank.com/challenges/sherlock-and-probability/problem?isFullScreen=true",
+      "memoryLimit": 512,
+      "timeLimit": 4000
+    }
+  }
+}

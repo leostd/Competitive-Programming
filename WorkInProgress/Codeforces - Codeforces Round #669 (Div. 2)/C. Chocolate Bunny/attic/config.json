@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #669 (Div. 2)/C. Chocolate Bunny/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Chocolate Bunny",
+      "group": "Codeforces - Codeforces Round #669 (Div. 2)",
+      "url": "https://codeforces.com/contest/1407/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

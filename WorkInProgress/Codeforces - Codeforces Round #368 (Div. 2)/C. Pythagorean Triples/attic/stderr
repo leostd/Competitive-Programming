@@ -1,0 +1,10 @@
+[1m/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #368 (Div. 2)/C. Pythagorean Triples/sol.cpp:151:9: [0m[0;1;31merror: [0m[1muse of undeclared identifier 'aux'[0m
+        aux = sqr(n);
+[0;1;32m        ^
+[0m[1m/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #368 (Div. 2)/C. Pythagorean Triples/sol.cpp:152:13: [0m[0;1;31merror: [0m[1muse of undeclared identifier 'aux'[0m
+        m = aux - 1;
+[0;1;32m            ^
+[0m[1m/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #368 (Div. 2)/C. Pythagorean Triples/sol.cpp:153:13: [0m[0;1;31merror: [0m[1muse of undeclared identifier 'aux'[0m
+        k = aux + 1;
+[0;1;32m            ^
+[0m3 errors generated.

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/UVa Online Judge/10302 - Summation of Polynomials/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "10302 - Summation of Polynomials",
+      "group": "UVa Online Judge",
+      "url": "https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=1243",
+      "memoryLimit": 32,
+      "timeLimit": 3000
+    }
+  }
+}

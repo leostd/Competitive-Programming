@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/UVa Online Judge/11053 - Flavius Josephus Reloaded/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "11053 - Flavius Josephus Reloaded",
+      "group": "UVa Online Judge",
+      "url": "https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1994",
+      "memoryLimit": 32,
+      "timeLimit": 3000
+    }
+  }
+}

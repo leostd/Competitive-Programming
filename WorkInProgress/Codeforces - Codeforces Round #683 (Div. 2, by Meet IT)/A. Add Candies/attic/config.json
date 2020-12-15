@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/solutions/Codeforces - Codeforces Round #683 (Div. 2, by Meet IT)/A. Add Candies/sol.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Add Candies",
+      "group": "Codeforces - Codeforces Round #683 (Div. 2, by Meet IT)",
+      "url": "http://codeforces.com/contest/1447/problem/A",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}
