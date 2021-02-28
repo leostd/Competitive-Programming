@@ -132,12 +132,89 @@ const ld EPS = 1e-9;
 //#############################
 const int MAXN = 1000005;
 
+struct Component {
+    string type;
+    string name;
+    ll price;
+    ll quality;
+};
+
+
+bool cmp(Component a, Component b) {
+    return a.type < b.type;
+}
+
 int n, m; // sizes
+ll budget;
 vector<vector<int>> g; //graph, grid
- 
+map<int, vector<pll>> mapByType;
+
+bool f(ll q) {
+    ll tmp_budget = 0;
+
+    for(auto v : mapByType){
+        // dbg(v.snd);
+        auto it = lower_bound(all(v.snd), mp(q, 0LL));
+        if (it == v.snd.end())
+            return false;
+        ll min_price = it->snd;
+        while(it != v.snd.end()){
+            min_price = min(min_price, it->snd);
+            it++;
+        }
+        tmp_budget += min_price;
+    }
+
+    return tmp_budget <= budget;
+}
+
+void solve() {
+    cin >> n >> budget;
+    vector<Component> components(n, Component());
+    forn(i, n) {
+        cin >> components[i].type >> components[i].name >> components[i].price >> components[i].quality;
+    }
+
+    sort(all(components), cmp);
+    string aux = components[0].type;
+    int cur = 0;
+    ll mn = INF64, mx = -1;
+    mapByType.clear();
+    forn(i, n) {
+        if (components[i].type != aux) {
+            cur++;
+            aux = components[i].type;
+            mapByType[cur].pb(mp(components[i].quality, components[i].price));
+        } else {
+            mapByType[cur].pb(mp(components[i].quality, components[i].price));
+        }
+        mn = min((ll)mn, components[i].quality);
+        mx = max((ll)mx, components[i].quality);
+    }
+
+    for(auto &v : mapByType)
+        sort(all(v.second));
+
+    ll l = mn, r = mx, mid;
+    while(r-l > 1) {
+        mid = l + (r-l)/2;
+        if (f(mid)){
+            l = mid;
+        } else {
+            r = mid;
+        }
+    }
+
+    ll ans = (f(r) ? r : l); 
+    cout << ans << endl;
+}
+
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--){
+        solve();
+    }
     return 0;
 }
 
@@ -150,10 +227,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

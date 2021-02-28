@@ -135,9 +135,46 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
  
+int maxArrSum(const vector<int> &v){
+    int cur, mx;
+    mx = v[0];
+    cur = v[0];
+    for1(i, v.size()){
+        cur += v[i];
+        if (cur > mx)
+            mx = cur;
+    }
+
+    return max(0, mx);
+}
+
+void solve() {
+    cin >> n;
+    dbg(n);
+    vector<int> r(n, 0);
+    generate(all(r), nxt);
+    dbg(r);
+    cin >> m;
+    dbg(m);
+    vector<int> b(m, 0);
+    generate(all(b), nxt);
+    dbg(b);
+
+    int sumr, sumb;
+    sumr = maxArrSum(r);
+    sumb = maxArrSum(b);
+
+    dbg(sumr, sumb);
+
+    cout << sumr + sumb << endl;
+}
+
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--) {
+        solve();
+    }
     return 0;
 }
 
@@ -150,10 +187,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

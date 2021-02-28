@@ -135,9 +135,60 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
  
+vector<ll> intToArray(ll x) {
+    vector<ll> ret;
+    while(x) {
+        ret.pb(x%10);
+        x/= 10;
+    }
+
+    return ret;
+}
+
+ll arrayToInt(vector<ll> x) {
+    ll ret = 0;
+    ll pw = 1;
+    int ds = x.size();
+    forn(i, ds){
+        ret += pw * x[i];
+        pw *= 10;
+    }
+
+    return ret;
+}
+
+ll g1(vector<ll> x) {
+    sort(all(x), greater<ll>());
+    reverse(all(x));
+
+    return arrayToInt(x);
+}
+
+ll g2(vector<ll> x) {
+    sort(all(x));
+    reverse(all(x));
+
+    return arrayToInt(x);
+}
+
+ll f(ll x) {
+    vector<ll> arr = intToArray(x);
+    ll a = g1(arr);
+    ll b = g2(arr);
+
+    return a - b;
+}
+
 int main() {
     fastIO(); 
-    
+    int k;
+    cin >> n >> k;
+    vector<ll> a(k+1, 0);
+    a[0] = n;
+    for1(i, k+1)
+        a[i] = f(a[i-1]);
+
+    cout << a[k] << endl;
     return 0;
 }
 
@@ -150,10 +201,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

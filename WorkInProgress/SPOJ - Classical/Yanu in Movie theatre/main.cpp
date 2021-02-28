@@ -134,10 +134,16 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
 int main() {
-    fastIO(); 
-    
+    fastIO();
+    while (1){
+        cin >> n >> m;
+        if (n == 0 && m == 0) break; 
+        double ans = (m >= n ? (double)(m-n+1) / (m+1) : 0);
+        cout << setprecision(6) << fixed;
+        cout << ans << endl;
+    } 
+ 
     return 0;
 }
 
@@ -150,10 +156,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

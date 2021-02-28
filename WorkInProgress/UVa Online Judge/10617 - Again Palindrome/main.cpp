@@ -131,13 +131,41 @@ const ld EPS = 1e-9;
  
 //#############################
 const int MAXN = 1000005;
+ll memo[65][65];
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
+string s;
+
+ll dp(int i, int j) {
+    if (i == j) return 1;
+
+    if (i+1 == j) return 2 + (s[i] == s[j]);
+
+    ll &ret = memo[i][j];
+
+    if (ret != -1) return ret;
+
+    ret = 0;
+    if (s[i] == s[j])
+        ret += dp(i+1, j-1) + 1;
+    ret += dp(i, j-1);
+    ret += dp(i+1, j);
+    ret -= dp(i+1, j-1);
+
+    return ret;
+}
  
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--) {
+        cin >> s;
+        dbg(s);
+        memset(memo, -1, sizeof(memo));
+        ll ans = dp(0, s.size()-1);
+        cout << ans << endl;
+    }
     return 0;
 }
 
@@ -150,10 +178,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

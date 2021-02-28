@@ -135,9 +135,33 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
  
+void solve(){
+    string s;
+    cin >> s;
+    int ans = 0;
+    if (s.size() == 2){
+        ans = (s[0] == s[1]);
+    }
+    for(int i = 1; i < s.size()-1; i++) {
+        if(s[i] == s[i+1] && s[i] == s[i-1] && s[i] != '?')
+            ans += 2, s[i] = s[i+1] = '?';
+        else if (s[i] == s[i-1] && s[i] != '?')
+            ans++, s[i] = '?';
+        else if (s[i] == s[i+1] && s[i] != '?')
+            ans++, s[i+1] = '?';
+        else if (s[i-1] == s[i+1] && s[i+1] != '?')
+            ans++, s[i+1] = '?';
+    }
+
+    cout << ans << endl;
+}
+
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--){
+        solve();
+    }
     return 0;
 }
 
@@ -150,10 +174,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

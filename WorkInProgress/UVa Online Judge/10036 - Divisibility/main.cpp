@@ -134,10 +134,35 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
+
+void solve() {
+    int k;
+    cin >> n >> k;
+    bool dp[10005][101] = {0};
+
+    vector<int> a(n, 0);
+    forn(i, n)
+        cin >> a[i];
+    
+    dp[0][((a[0]%k)+k) % k] = 1;
+    for1(i, n) {
+        forn(j, 100) {
+            if (dp[i-1][j]){
+                dbg(i, j, j+a[i], j-a[i], (j+a[i]+k)%k, (j-a[i]+k)%k);
+                dp[i][(j+(a[i]%k)+k)%k] = dp[i][(j-(a[i]%k)+k)%k] = true;
+            }
+        }
+    }
+
+    cout << (dp[n-1][0]? "Divisible" : "Not divisible") << endl;
+}
+
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--){
+        solve();
+    }
     return 0;
 }
 
@@ -150,10 +175,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

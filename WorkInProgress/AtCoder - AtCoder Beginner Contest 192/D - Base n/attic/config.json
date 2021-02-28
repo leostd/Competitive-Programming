@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 192/D - Base n/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D - Base n",
+      "group": "AtCoder - AtCoder Beginner Contest 192",
+      "url": "https://atcoder.jp/contests/abc192/tasks/abc192_d",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

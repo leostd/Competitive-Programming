@@ -135,9 +135,42 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
  
+pll isect(pll a, pll b) {
+    pii r = mp(max(a.fst, b.fst), min(a.snd, b.snd));
+    dbg(a, b, r);
+    return r;
+}
+
+void solve() {
+    ll k;
+    cin >> n >> k;
+    pll cur(-INF, INF);
+    vector<int> h(n, 0);
+    generate(all(h), nxt);
+    dbg(n,k,h);
+    bool can = true;
+    forn(i, n) {
+        pll pos;
+        if (i == 0 || i == n-1) pos = mp(h[i], h[i]);
+        else pos = mp(h[i], h[i]+k-1);
+        dbg(pos);
+        cur.fst -= (k-1);
+        cur.snd += (k-1);
+
+        cur = isect(cur, pos);
+
+        can = can && (cur.fst <= cur.snd);
+    }
+
+    cout << (can ? "YES" : "NO") << endl;
+}
+
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--) {
+        solve();
+    }
     return 0;
 }
 
@@ -150,10 +183,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

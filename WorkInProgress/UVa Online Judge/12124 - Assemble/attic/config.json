@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/UVa Online Judge/12124 - Assemble/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "12124 - Assemble",
+      "group": "UVa Online Judge",
+      "url": "https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=3276",
+      "memoryLimit": 32,
+      "timeLimit": 3000
+    }
+  }
+}

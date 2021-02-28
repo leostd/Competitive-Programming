@@ -137,7 +137,39 @@ vector<vector<int>> g; //graph, grid
  
 int main() {
     fastIO(); 
-    
+    n = nxt();
+    m = nxt();
+    vector<ll> a(n,0);
+    forn(i, n) cin >> a[i];
+
+    vector<pii> q(m, {0,0});
+    forn(i, m) cin >> q[i].snd >> q[i].fst;
+
+    dbg(a);
+    dbg(q);
+    sort(all(a));
+    sort(all(q), greater<pii>());
+    int i = 0, j = 0;
+    ll ans = 0;
+    while(i < n) {
+        if (j < m) {
+            int nn = q[j].snd;
+            if (nn == 0) {
+                j++; 
+                continue;
+            }
+            int ci = q[j].fst;
+            if (ci > a[i]){
+                a[i] = ci;
+                q[j].snd--;
+            }
+        }
+
+        ans += a[i];
+        i++;
+    }
+
+    cout << ans << endl;
     return 0;
 }
 
@@ -150,10 +182,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

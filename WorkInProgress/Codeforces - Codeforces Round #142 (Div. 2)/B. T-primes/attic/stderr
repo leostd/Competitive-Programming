@@ -1,0 +1,7 @@
+[01m[K/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #142 (Div. 2)/B. T-primes/main.cpp:[m[K In function ‘[01m[Kint main()[m[K’:
+[01m[K/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #142 (Div. 2)/B. T-primes/main.cpp:167:11:[m[K [01;31m[Kerror: [m[Ktoo few arguments to function ‘[01m[Kvoid sieve(int)[m[K’
+  167 |     sieve([01;31m[K)[m[K;
+      |           [01;31m[K^[m[K
+[01m[K/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #142 (Div. 2)/B. T-primes/main.cpp:141:6:[m[K [01;36m[Knote: [m[Kdeclared here
+  141 | void [01;36m[Ksieve[m[K(int ub) {
+      |      [01;36m[K^~~~~[m[K

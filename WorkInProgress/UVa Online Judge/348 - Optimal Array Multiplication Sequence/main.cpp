@@ -134,10 +134,70 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
-int main() {
-    fastIO(); 
+vector<ll> a;
+
+ll memo[20][20];
+int p[20][20];
+
+ll dp(int i, int j) {
+    dbg(i, j);
+    if (i == j) 
+        return 0;
     
+    ll &ret = memo[i][j];
+
+    if (ret != -1) 
+        return ret;
+    
+    ret = INF;
+    for(int k = i; k < j; k++) {
+        int aux = dp(i, k) + dp(k+1, j) + a[i-1] * a[k] * a[j];
+        if (aux < ret) {
+            p[i][j] = k;
+            ret = aux;
+        }
+    }
+
+    return ret;
+}
+
+void print(int i, int j) {
+    if (i == j) 
+        cout << "A" << i;
+    else {
+        cout << "(";
+        print(i, p[i][j]);
+        cout << " x ";
+        print(p[i][j] + 1, j);
+        cout << ")";
+    }
+}
+
+int main() {
+    fastIO();
+    // p = vector<vector<pii>>(20, vector<pii>(20, mp(-1,-1))); 
+    int tc = 1;
+    while(1) {
+        cin >> n;
+        if (n == 0) break;
+        a.clear();
+        int x, y;
+        forn(i, n) {
+            cin >> x >> y;
+            if (a.empty())
+                a.pb(x), a.pb(y);
+            else
+                a.pb(y);
+        }
+        
+        memset(memo, -1, sizeof(memo));
+        memset(p, -1, sizeof(p));
+        ll ans = dp(1,n);
+        // cout << ans << endl;
+        cout << "Case " << tc++ << ": ";
+        print(1, n);
+        cout << endl;
+    }
     return 0;
 }
 
@@ -150,10 +210,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

@@ -134,10 +134,51 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
+vector<int> p, ans, id;
+
+void getAns(vector<int> arr, int d) {
+    if (arr.empty()) return;
+    dbg(arr);
+    int maxid;
+    vector<int> l, r;
+    int mx = 0;
+    forn(i, arr.size()){
+        if (arr[i] > mx){
+            mx = arr[i], maxid = i;
+        }
+    }
+    dbg(mx, maxid);
+    ans[id[mx]] = d;
+    l.clear(), r.clear();
+    forn(i, maxid){
+        l.pb(arr[i]);
+    }
+        
+    for(int i = maxid+1; i < (int)arr.size(); i++){
+        r.pb(arr[i]);
+    }
+        
+    // dbg(l, r);
+    if (!l.empty()) getAns(l, d+1);
+    if (!r.empty()) getAns(r, d+1);
+}
+
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--) {
+        n = nxt();
+        p = vector<int>(n, 0), ans = vector<int>(n, 0);
+        id = vector<int>(n+1, 0);
+        forn(i, n)
+            cin >> p[i], id[p[i]] = i;
+        dbg(p, id);
+        getAns(p, 0);
+
+        forn(i, n)
+            cout << ans[i] << " ";
+        cout << endl;
+    }
     return 0;
 }
 
@@ -150,10 +191,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

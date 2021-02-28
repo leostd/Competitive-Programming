@@ -134,10 +134,55 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
+
+int to_integer(string x) {
+    reverse(all(x));
+    int ret = 0;
+    int p = 1;
+    forn(i, x.size()){
+        ret += (x[i]-'0') * p;
+        p*=10;
+    }
+
+    dbg(ret);
+    return ret;
+}
+
+void solve() {
+    int x = nxt();
+    int elm = 10;
+    bool yes = false;
+    int y;
+    string ans = "", minans = "123456789";
+    dbg((1 << 10));
+    for(int bitmask = 1; bitmask < (1 << elm); bitmask++) {
+        y = 0;
+        ans = "";
+        for(int i = 1; i < elm; i++) {
+            if (bitmask & (1 << i)){
+                y += i;
+                ans.pb(i+'0');
+            }
+        }
+        dbg(ans);
+        if (y == x && to_integer(ans) <= to_integer(minans)){
+            yes = true;
+            minans = ans;
+        }
+    }
+
+    if (yes)
+        cout << minans << endl;
+    else 
+        cout << -1 << endl;
+}
+
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--) {
+        solve();
+    }
     return 0;
 }
 
@@ -150,10 +195,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

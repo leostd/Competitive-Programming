@@ -137,7 +137,24 @@ vector<vector<int>> g; //graph, grid
  
 int main() {
     fastIO(); 
-    
+    bool yes = true;
+    string s;
+    cin >> s;
+    for(int i = 0; i < s.size(); i++) {
+        if (i&1){
+            if (islower(s[i])){
+                yes = false;
+                break;
+            }
+        } else {
+            if (isupper(s[i])){
+                yes = false;
+                break;
+            }
+        }
+    }
+
+    cout << (yes ? "Yes" : "No") << endl;
     return 0;
 }
 
@@ -150,10 +167,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

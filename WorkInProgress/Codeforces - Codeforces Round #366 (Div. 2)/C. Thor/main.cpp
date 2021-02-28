@@ -137,7 +137,35 @@ vector<vector<int>> g; //graph, grid
  
 int main() {
     fastIO(); 
-    
+    n = nxt();
+    int q = nxt();
+    set<pii> unread;
+    int cur = 0;
+    vector<pii> notifications(q,{-1,0});
+    vector<vector<int>> apps(n+1, vector<int>());
+    int lastT = 0;
+    int a,b;
+    forn(i, q) {
+        cin >> a >> b;
+        if (a == 1){
+            cur++;
+            int idx = cur-1;
+            apps[b].pb(idx);
+            unread.insert({idx, b});
+        } else if (a == 2) {
+            while(!apps[b].empty()){
+                int idx = apps[b].back();
+                unread.erase({idx, b});
+                apps[b].pop_back();
+            }
+        } else if (a == 3) {
+            while(!unread.empty() && unread.begin()->fst < b) {
+                unread.erase(unread.begin());
+            }
+        }
+
+        cout << unread.size() << endl;
+    }
     return 0;
 }
 
@@ -150,10 +178,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

@@ -132,12 +132,144 @@ const ld EPS = 1e-9;
 //#############################
 const int MAXN = 1000005;
 
-int n, m; // sizes
+// int n, m; // sizes
 vector<vector<int>> g; //graph, grid
+
+class Blocks {
+public:
+    int n;
+    map<int, int> blockToPile;
+    vector<deque<int>> pile;
+    
+    Blocks(int _n) {
+        n = _n;
+        pile = vector<deque<int>>(n, deque<int>());
+        forn(i, n){
+            pile[i].pb(i);
+            // dbg(pile[i]);
+            blockToPile[i] = i;
+        }
+        // dbg(n);
+        // dbg(blockToPile);
+    }
+
+    void pileOver(int a, int b) {
+        moveBatch(a, b);
+    }
+
+    void pileOnto(int a, int b) {
+        returnToInit(b);
+        moveBatch(a, b);
+    }
+
+    void moveOver(int a, int b) {
+        int x = blockToPile[a];
+        int y = blockToPile[b];
+        returnToInit(a);
+        pile[y].push_back(a);
+        pile[x].pop_back();
+        blockToPile[a] = y;
+    }
+
+    void moveOnto(int a, int b) {
+        int x = blockToPile[a];
+        int y = blockToPile[b];
+        dbg(pile[x]);
+        dbg(pile[y]);
+        returnToInit(a);
+        returnToInit(b);
+        pile[y].push_back(a);
+        blockToPile[a] = y;
+        pile[x].pop_back();
+        dbg(pile[x]);
+        dbg(pile[y]);
+    }
+
+    void returnToInit(int x) {
+        deque<int> &dq = pile[blockToPile[x]];
+        // printPile(blockToPile[x]);
+        dbg(pile[blockToPile[x]]);
+        dbg(x, blockToPile[x]);
+        while(dq.back() != x){
+            int a = dq.back();
+            pile[a].push_back(a);
+            dq.pop_back();
+            blockToPile[a] = a;
+        }
+    }
+
+    void moveBatch(int a, int b) {
+        int x = blockToPile[a];
+        int y = blockToPile[b];
+        dbg(pile[x]);
+        dbg(pile[y]);
+        deque<int> aux;
+        while(pile[x].back() != a) {
+            aux.pb(pile[x].back());
+            pile[x].pop_back();
+        }
+        aux.pb(pile[x].back());
+        pile[x].pop_back();
+        dbg(aux);
+        while(!aux.empty()){
+            blockToPile[aux.back()] = y;
+            pile[y].pb(aux.back());
+            aux.pop_back();
+        }
+    }
+
+    // void printPile(int i) {
+    //     int sz = pile[i].size();
+    //     forn(i, sz) {
+    //         int a = pile[i].front();
+    //         pile[i].pop_front();
+    //         pile[i].push_back(a);
+    //         cout << a << " ";
+    //     }
+    //     cout << endl;
+    // }
+};
  
 int main() {
-    fastIO(); 
-    
+    fastIO();
+    int n = nxt();
+    dbg(n);
+    Blocks blocks(n);
+    while(true){
+        string s;
+        getline(cin, s);
+        stringstream ss(s);
+        string command, type;
+        int a, b;
+        cin >> command;
+        if (command == "quit")
+            break;
+        cin >> a >> type >> b;
+        dbg(command, a, type, b);
+        if (a == b || blocks.blockToPile[a] == blocks.blockToPile[b])
+            continue;
+
+        if (command == "move") {
+            if (type == "over") blocks.moveOver(a, b);
+            else blocks.moveOnto(a, b);
+        } else {
+            if (type == "over") blocks.pileOver(a, b);
+            else blocks.pileOnto(a, b);
+        }
+    }
+    forn(i, n){
+        cout << i << ":";
+        int sz = blocks.pile[i].size();
+        // dbg(sz);
+        forn(j, sz) {
+            cout << " ";
+            cout << blocks.pile[i].front();
+            // blocks.pile[i].pb(blocks.pile[i].front());
+            blocks.pile[i].pop_front();
+        }
+        cout << endl;
+        // dbg(blocks.pile[i]);
+    }
     return 0;
 }
 
@@ -150,10 +282,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

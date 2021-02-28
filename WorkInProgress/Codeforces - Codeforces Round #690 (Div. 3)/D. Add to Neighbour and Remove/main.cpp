@@ -134,10 +134,77 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
+
+bool allSame(vector<int> a) {
+    int cur = a.front();
+    for1(i, a.size()){
+        if (a[i] != cur)
+        return false;
+    }
+    return true;
+}
+
+bool ok(int x, int n){
+    return x >= 0 && x < n;
+}
+
+int findPair(vector<int> a, int &nNum) {
+    int minSum = INF;
+    int n = a.size();
+    int ret = -1;
+    for(int i = 0; i < n; i++){
+        if (ok(i-1, n) && a[i-1] + a[i] < minSum)
+            minSum = a[i] + a[i-1], ret = i;
+        if (ok(i+1, n) && a[i+1] + a[i] < minSum)
+            minSum = a[i] + a[i+1], ret = i;
+    }
+
+    nNum = minSum;
+
+    return ret;
+}
  
+void solve() {
+    int n = nxt();
+    vector<int> a(n, 0);
+    // priority_queue<int, vector<int>, greater<int>> pq;
+    // int x;
+    // forn(i, n){
+    //     cin >> x;
+    //     pq.push(x);
+    // }
+    generate(all(a), nxt);
+
+    int ans = 0;
+    for(int i = 0; i < n-1; i++) {
+        int mx = *max_element(all(a));
+        dbg(i);
+        dbg(a);
+        if (allSame(a))
+            break;
+        int idx1, idx2, best = INF, sum;
+        for(int j = 1; j < a.size(); j++){
+            sum = a[j] + a[j-1];
+            if (abs(sum-mx) < best) {
+                best = abs(sum-mx);
+                idx1=j-1, idx2=j;
+            }
+        }
+        a[idx2] = a[idx1] + a[idx2];
+        a.erase(a.begin()+idx1);
+        ans++;
+        dbg(a);
+    }
+
+    cout << ans << endl;
+}
+
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--) {
+        solve();
+    }
     return 0;
 }
 
@@ -150,10 +217,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

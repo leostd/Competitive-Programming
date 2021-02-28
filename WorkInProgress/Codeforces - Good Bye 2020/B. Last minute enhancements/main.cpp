@@ -135,9 +135,29 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
  
+void solve() {
+    int n= nxt();
+    vector<int> sng(n, 0);
+    generate(all(sng), nxt);
+    
+    set<int> s;
+
+    forn(i, n){
+        if (!s.count(sng[i]))
+            s.insert(sng[i]);
+        else if (!s.count(sng[i]+1))
+            s.insert(sng[i]+1);
+    }
+
+    cout << s.size() << endl;
+}
+
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--) {
+        solve();
+    }
     return 0;
 }
 
@@ -150,10 +170,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

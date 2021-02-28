@@ -131,13 +131,51 @@ const ld EPS = 1e-9;
  
 //#############################
 const int MAXN = 1000005;
+vector<string> s[2];
+vector<ll> c;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
+ll memo[(int)1e5+5][2];
+
+
+ll dp(int idx, int rev) {
+    if (idx == n-1)
+        return 0;
+    
+    ll &r = memo[idx][rev];
+
+    if (r != -1) return r;
+    ll a, b;
+    a = b = INF64;
+    if (lexicographical_compare(all(s[rev][idx]), all(s[0][idx+1])) || s[rev][idx] == s[0][idx+1])
+        a = dp(idx+1, 0);
+    if (lexicographical_compare(all(s[rev][idx]), all(s[1][idx+1])) || s[rev][idx] == s[1][idx+1])
+        b = dp(idx+1, 1) + c[idx+1];
+
+    r = min(a, b);
+    return r;
+}
+
 int main() {
     fastIO(); 
+    n = nxt();
+    c = vector<ll>(n, 0);
+    forn(i, n)
+        cin >> c[i];
+
+    s[0] = vector<string>(n, "");
+    s[1] = s[0];
+    string aux;
+    forn(i, n)
+        cin >> s[0][i], aux = s[0][i], reverse(all(aux)), s[1][i] = aux;
     
+    memset(memo, -1, sizeof(memo));
+    ll ans = min(dp(0, 0), dp(0, 1)+c[0]);
+    if (ans == INF64)
+        cout << -1 << endl;
+    else 
+        cout << ans << endl;
     return 0;
 }
 
@@ -150,10 +188,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

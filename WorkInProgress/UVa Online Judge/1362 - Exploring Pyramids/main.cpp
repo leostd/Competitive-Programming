@@ -122,7 +122,7 @@ const int dyKn[8] = { 1,  2, 2, 1, -1, -2, -2, -1};
 const int dxK[8] = {0, 0, 1, -1, 1, 1, -1, -1};
 const int dyK[8] = {1, -1, 0, 0, 1, -1, 1, -1};
  
-const int MOD = int(1e9) + 7;
+const int MOD = int(1e9);
 const int INF = int(1e9) + 100;
 const ll INF64 = 2e18;
 const ld PI = ld(3.1415926535897932384626433832795);
@@ -134,10 +134,36 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
+string s;
+ll memo[305][305];
+
+ll dp(int i, int j) {
+    if (i == j) return memo[i][j] = 1;
+    
+    if (s[i] != s[j]) return memo[i][j] = 0;
+
+    ll &ret = memo[i][j];
+    if (ret != -1) 
+        return ret;
+    
+    ret = 0;
+    for(int k = i+2; k <= j; k++){
+        if (s[i] == s[k]){
+            ret += (dp(i+1, k-1) * dp(k, j))%MOD;
+            ret %= MOD;
+        }
+    }
+
+    return ret;
+}
  
 int main() {
     fastIO(); 
-    
+    while(cin >> s) {
+        memset(memo, -1, sizeof(memo));
+        ll ans = dp(0, s.size()-1);
+        cout << ans << endl;
+    }
     return 0;
 }
 
@@ -150,10 +176,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

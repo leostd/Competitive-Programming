@@ -137,7 +137,24 @@ vector<vector<int>> g; //graph, grid
  
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--) {
+        string s;
+        int n;
+        cin >> n >> s;
+        bool yes = false;
+        string w = "2020";
+        dbg(s);
+        string ss1 = s.substr(0, 4);
+        string ss2 = s.substr(s.size()-4, s.size());
+        string ss3 = s.substr(0, 2) + s.substr(s.size()-2, s.size());
+        string ss4 = s[0] + s.substr(s.size()-3, s.size());
+        string ss5 = s.substr(0, 3) + s.back();
+        dbg(ss1, ss2, ss3);
+        yes = (ss1 == w) || ss2 == w || ss3 == w || ss4 == w || ss5 == w;
+
+        cout << (yes? "YES" : "NO") << endl;
+    }
     return 0;
 }
 
@@ -150,10 +167,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

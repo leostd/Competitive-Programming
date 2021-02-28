@@ -137,7 +137,40 @@ vector<vector<int>> g; //graph, grid
  
 int main() {
     fastIO(); 
-    
+    int n = nxt();
+    vector<ll> a(n, 0), b(n, 0);
+    vector<vector<ll>> sum(n, vector<ll>(3, 0));
+    ll aoki = 0;
+
+    forn(i, n){
+        cin >> a[i] >> b[i];
+        sum[i][1] = a[i] + b[i];
+        sum[i][0] = 2*a[i] + b[i];
+        sum[i][2] = i;
+        aoki += a[i];
+    }
+
+    dbg(a, b);
+    dbg(sum);
+    dbg(aoki);
+
+    sort(all(sum), greater<vector<ll>>());
+
+    dbg(sum);
+
+    ll tk = 0;
+
+    int ans = 0, i = 0;
+    while(tk <= aoki) {
+        dbg(aoki, tk);
+        tk += sum[i][1];
+        aoki -= a[sum[i][2]];
+        dbg(sum[i]);
+        i++;
+        ans++;
+    }
+
+    cout << ans << endl;
     return 0;
 }
 
@@ -150,10 +183,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

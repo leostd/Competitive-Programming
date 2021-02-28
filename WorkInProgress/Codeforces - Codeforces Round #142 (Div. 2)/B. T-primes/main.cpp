@@ -135,9 +135,46 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
  
+vector<ll> primes;
+bitset<10000005> isPrime;
+
+void sieve(int ub) {
+    isPrime.set();
+    for(int x = 2; x < ub; x++) {
+        if (isPrime[x]) {
+            primes.pb(x);
+            for(int y = x+x; y < ub; y+=x){
+                isPrime[y] = 0;
+            }
+        }
+    }
+}
+
+vector<ll> getSqrNumbers(const vector<ll> &v) {
+    vector<ll> sqrNums;
+    for(auto x : v) {
+        sqrNums.pb(sqr(x));
+    }
+
+    return sqrNums;
+}
+
 int main() {
     fastIO(); 
-    
+    int n = nxt();
+    vector<ll> v(n, 0);
+    int ans = 0;
+    sieve(1000005);
+    vector<ll> sqrNums = getSqrNumbers(primes);
+    forn(i, n) {
+        cin >> v[i];
+        if (binary_search(all(sqrNums), v[i])){
+            cout << "YES" << endl;
+        } else {
+            cout << "NO" << endl;
+        }
+    }
+
     return 0;
 }
 
@@ -150,10 +187,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

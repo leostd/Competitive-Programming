@@ -133,11 +133,61 @@ const ld EPS = 1e-9;
 const int MAXN = 1000005;
 
 int n, m; // sizes
+int k;
 vector<vector<int>> g; //graph, grid
+vector<int> a;
+int memo[(int)1e5+5][21][21];
+
+	
+	// if(i>=j)return 0;
+	// if(vis[i][k1][k2]!=-1)return vis[i][k1][k2];
+	// if(k1+k2>k)
+	// 	return 30;
+	// if(a[i]==a[j])return vis[i][k1][k2]=solve(i+1,k1,k2);
+	// return vis[i][k1][k2]=1+min(solve(i+1,k1,k2+1),solve(i,k1+1,k2));
  
+int dp(int i, int k1, int k2) {
+    // get j from k1 and k2 auxiliar parameters
+    int j=n-i-1-k1+k2;
+    dbg(i, j, k1, k2, a[i], a[j]);
+    if (i >= j) 
+        return 0;
+    
+    if (memo[i][k1][k2] != -1)
+        return memo[i][k1][k2];
+    
+    if (k1 + k2 > k)
+        return 30;
+    if(a[i]==a[j])return memo[i][k1][k2]=dp(i+1,k1,k2);
+    memo[i][k1][k2] = 1 + min(dp(i+1, k1, k2+1), dp(i, k1+1, k2));
+    dbg(memo[i][k1][k2]);
+    return memo[i][k1][k2];
+}
+
+void solve() {
+    cin >> n >> k;
+    a = vector<int>(n, 0);
+    generate(all(a), nxt);
+    dbg(n, k, a);
+    memset(memo, -1, sizeof(memo));
+    int ans = dp(0,0,0);
+    if (ans == 0){
+        cout << "Too easy" << endl;
+    } else if (ans > k) {
+        cout << "Too difficult" << endl;
+    } else {
+        cout << ans << endl;
+    }
+}
+
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    int tc = 1;
+    while(t--) {
+        cout << "Case " << tc++ << ": ";
+        solve();
+    }
     return 0;
 }
 
@@ -150,10 +200,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

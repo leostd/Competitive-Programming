@@ -134,10 +134,63 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
+bool visited[505][505];
+int s, k, cnt;
+vector<string> grid;
+
+void dfs(int r, int c){
+    if (cnt == s - k)
+        return;
+
+    cnt++;
+    visited[r][c] = true;
+
+    forn(i, 4){
+        int nr = r + dx[i];
+        int nc = c + dy[i];
+        if (correct(nr, nc, n, m) && !visited[nr][nc] && grid[nr][nc] != '#' && cnt < s-k){
+            dfs(nr, nc);
+        }
+    }
+}
+
 int main() {
     fastIO(); 
-    
+    cin >> n >> m >> k;
+    grid = vector<string>(n);
+    forn(i, n){
+        cin >> grid[i];
+    }
+
+    dbg(grid);
+    int r, c;
+    r = c = -1;
+    forn(i, n){
+        forn(j, m){
+            if (grid[i][j] == '.'){
+                s++;
+                if (r == -1)
+                    r = i, c = j;
+            }
+        }
+    }
+
+    memset(visited, 0, sizeof(visited));
+    cnt = 0;
+    dfs(r, c);
+    forn(i, n){
+        forn(j, m){
+            if (grid[i][j] == '.' && !visited[i][j])
+                grid[i][j] = 'X';
+        }
+    }
+
+    forn(i, n){
+        forn(j, m){
+            cout << grid[i][j];
+        }
+        cout << endl;
+    }
     return 0;
 }
 
@@ -150,10 +203,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

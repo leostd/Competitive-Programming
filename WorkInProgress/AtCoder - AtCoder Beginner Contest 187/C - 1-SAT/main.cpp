@@ -137,7 +137,21 @@ vector<vector<int>> g; //graph, grid
  
 int main() {
     fastIO(); 
-    
+    set<string> ss;
+    int n = nxt();
+    string s;
+    forn(i, n){
+        cin >> s, ss.insert(s);
+    }
+    for(auto x : ss) {
+        string toMatch = (x[0] == '!' ? x.substr(1, x.size()-1) : "!" + x);
+        dbg(toMatch);
+        if (ss.count(toMatch)){
+            cout << (x[0] == '!' ? toMatch : x);
+            return 0;
+        }
+    }
+    cout << "satisfiable" << endl;
     return 0;
 }
 
@@ -150,10 +164,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

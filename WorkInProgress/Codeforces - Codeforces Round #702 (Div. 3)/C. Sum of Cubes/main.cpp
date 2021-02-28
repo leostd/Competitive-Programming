@@ -134,10 +134,45 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
+vector<ll> cubeNums;
+
+ll divCeil(ll a, ll b){
+    return (a/b) + ( a%b != 0);
+}
+
+void cubes() {
+    for(ll x = 1; x <= (1e4+2); x++){
+        cubeNums.push_back(x*x*x);
+    }
+}
+
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+
+    cubes();
+    // dbg(cubeNums);
+    sort(cubeNums.begin(), cubeNums.end());
+    while(t--) {
+        ll x;
+        cin >> x;
+        bool yes = false;
+        forn(i, 1e4+1) {
+            ll a3 = cubeNums[i];
+            ll b3= -INF64;
+            ll target = x - a3;
+            if (target < 1) continue;
+            bool found = false; 
+            found = binary_search(all(cubeNums), target);
+            auto it = lower_bound(all(cubeNums), target);
+            if (found){
+                b3 = *it;
+                yes = true;
+                break;
+            }
+        }
+        cout << (yes? "YES" : "NO") << endl;
+    }
     return 0;
 }
 
@@ -150,10 +185,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

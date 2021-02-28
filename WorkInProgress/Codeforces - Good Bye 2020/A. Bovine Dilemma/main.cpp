@@ -135,9 +135,28 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
  
+void solve() {
+    n = nxt();
+    vector<int> x(n, 0);
+    forn(i, n)
+        cin >> x[i];
+    
+    set<int> diff;
+    for(int i = 0; i < n-1; i++){
+        for(int j = i+1; j < n; j++) {
+            diff.insert(x[j] - x[i]);
+        }
+    }
+
+    cout << diff.size() << endl;
+}
+
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--) {
+        solve();
+    }
     return 0;
 }
 
@@ -150,10 +169,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

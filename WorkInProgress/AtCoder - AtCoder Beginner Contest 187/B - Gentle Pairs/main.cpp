@@ -133,11 +133,32 @@ const ld EPS = 1e-9;
 const int MAXN = 1000005;
 
 int n, m; // sizes
+
+double getSlope(pii a, pii b) {
+    return (double)(b.snd - a.snd) / (double)(b.fst - a.fst);
+}
 vector<vector<int>> g; //graph, grid
  
 int main() {
     fastIO(); 
-    
+    int n = nxt();
+    vector<pii> p(n, mp(0,0));
+    forn(i, n)
+        cin >> p[i].fst >> p[i].snd;
+    dbg(p);
+    int ans = 0;
+    forn(i, n){
+        fore(j, i+1, n){
+            pii a, b;
+            a = p[i], b = p[j];
+            double slope = getSlope(a, b);
+            dbg(a, b, slope);
+            ans += (slope >= -1 && slope <= 1);
+        }
+    }
+
+    cout << ans << endl;
+
     return 0;
 }
 
@@ -150,10 +171,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

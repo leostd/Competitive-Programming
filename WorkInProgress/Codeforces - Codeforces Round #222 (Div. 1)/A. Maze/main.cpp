@@ -137,7 +137,34 @@ vector<vector<int>> g; //graph, grid
  
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--){
+        int n = nxt();
+        vector<int> a(n, 0);
+        forn(i,n) cin >> a[i];
+
+        vector<int> v;
+        for(int i = 0; i < n; i++) {
+            if (v.empty()){
+                v.pb(a[i]);
+                continue;
+            }
+
+            if (a[i] < v.back()){
+                while(2*a[i] < v.back())
+                    v.push_back(v.back()/2);
+            } else {
+                while(2*v.back() < a[i]){
+                    v.push_back(v.back()*2);
+                }
+            }
+
+            v.push_back(a[i]);
+        }
+
+        int ans = v.size() - a.size();
+        cout << ans << endl;
+    }
     return 0;
 }
 
@@ -150,10 +177,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

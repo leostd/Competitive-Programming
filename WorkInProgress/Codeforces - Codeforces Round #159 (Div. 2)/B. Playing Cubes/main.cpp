@@ -135,9 +135,62 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
  
+pii getAns(int a, int b) {
+    vector<int> v;
+
+    bool first = true;
+    while(a > 0 && b > 0) {
+        if (v.empty()){
+            v.pb(1);
+            a--;
+            first = !first;
+            continue;
+        }
+        if (first) {
+            if (v.back() == 1) v.pb(1), a--;
+            else v.pb(0), b--;
+        }
+        else {
+            if (v.back() == 1) v.pb(0), b--;
+            else v.pb(1), a--;
+        }
+        first = !first;
+    }
+
+    while(a){
+        v.pb(1);
+        a--;
+    }
+
+    while(b) {
+        v.pb(0);
+        b--;
+    }
+    dbg(v);
+    int x = 0, y = 0;
+    for(int i = 1; i < v.size(); i++) {
+        if (v[i] == v[i-1]) x++;
+        else y++;
+    }
+
+    return mp(x, y);
+}
+
 int main() {
     fastIO(); 
-    
+    int red, blue;
+    cin >> red >> blue;
+
+    pii ans1, ans2;
+    ans1 = getAns(red, blue);
+    ans2 = getAns(blue, red);
+    dbg(ans1, ans2);
+    if (ans1.fst > ans2.fst) {
+        cout << ans1.fst << " " << ans1.snd << endl;
+    } else {
+        cout << ans2.fst << " " << ans2.snd << endl;
+    }
+
     return 0;
 }
 
@@ -150,10 +203,7 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */
+
+// R B R B B B
+// B R R B B B

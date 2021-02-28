@@ -137,7 +137,11 @@ vector<vector<int>> g; //graph, grid
  
 int main() {
     fastIO(); 
-    
+    int x = nxt();
+    int mod = x % 100;
+    int div = x / 100;
+    dbg(x, mod, div);
+    cout << (100*(div+1) - x) << endl;
     return 0;
 }
 
@@ -150,10 +154,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

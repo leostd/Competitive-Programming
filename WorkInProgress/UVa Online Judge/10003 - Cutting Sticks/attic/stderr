@@ -1,0 +1,4 @@
+[01m[K/home/lstd/ws/Competitive-Programming/WorkInProgress/UVa Online Judge/10003 - Cutting Sticks/main.cpp:[m[K In function ‘[01m[Kint dp(int, int)[m[K’:
+[01m[K/home/lstd/ws/Competitive-Programming/WorkInProgress/UVa Online Judge/10003 - Cutting Sticks/main.cpp:147:11:[m[K [01;31m[Kerror: [m[K‘[01m[KINF[m[K’ was not declared in this scope
+  147 |     ret = [01;31m[KINF[m[K;
+      |           [01;31m[K^~~[m[K

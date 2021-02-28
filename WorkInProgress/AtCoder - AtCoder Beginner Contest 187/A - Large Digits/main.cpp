@@ -137,7 +137,16 @@ vector<vector<int>> g; //graph, grid
  
 int main() {
     fastIO(); 
-    
+    string a, b;
+    cin >> a >> b;
+    int suma, sumb;
+    suma = sumb = 0;
+    for(auto x : a)
+        suma += (x -'0');
+    for(auto x : b)
+        sumb += (x - '0');
+    int ans = max(suma, sumb);
+    cout << ans << endl;
     return 0;
 }
 
@@ -150,10 +159,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

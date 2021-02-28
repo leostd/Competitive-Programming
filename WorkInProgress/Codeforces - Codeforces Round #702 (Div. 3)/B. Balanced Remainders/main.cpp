@@ -134,10 +134,55 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
+
+int tt[3][3];
+
+int transformTo(int a, int b){
+    int r = 0;
+    while(a != b){
+        a++;
+        a %= 3;
+        r++;
+    }
+    
+    return r;
+}
  
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    memset(tt, -1, sizeof(tt));
+    while(t--) {
+        n = nxt();
+        vector<int> a(n, 0);
+        forn(i, n) cin >> a[i];
+        dbg(a);
+        int cnt[3] = {0,0,0};
+        forn(i, n) a[i] = a[i] % 3, cnt[a[i]]++;
+
+        dbg(a);
+        dbg(cnt[0], cnt[1], cnt[2]);
+        int target = n/3;
+        dbg(target);
+        
+        int ans = 0;
+        multiset<pii> aux({{cnt[0], 0}, {cnt[1], 1}, {cnt[2], 2}});
+        while((*aux.rbegin()).fst != target){
+            pii x = *aux.rbegin();
+            pii y = *aux.begin();
+            dbg(x, y);
+            ans += transformTo(x.snd, y.snd);
+            dbg(ans);
+            aux.erase(aux.lower_bound(x));
+            aux.erase(aux.lower_bound(y));
+            x.fst--;
+            y.fst++;
+            aux.insert(x);
+            aux.insert(y);
+        }
+
+        cout << ans << endl;
+    }
     return 0;
 }
 
@@ -150,10 +195,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

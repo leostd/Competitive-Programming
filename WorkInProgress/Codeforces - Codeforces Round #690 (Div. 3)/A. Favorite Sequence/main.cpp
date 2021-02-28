@@ -135,9 +135,42 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
  
+void solve() {
+    int n = nxt();
+    vector<int> a;
+    deque<int> dq;
+    int x;
+    forn(i, n) {
+        cin >> x;
+        dq.pb(x);
+    }
+
+    bool first = true;
+    while(dq.size() > 0) {
+        if (first){
+            x = dq.front();
+            dq.pop_front();
+        } else {
+            x = dq.back();
+            dq.pop_back();
+        }
+        a.pb(x);
+        first = !first;
+    }
+
+    forn(i, n) {
+        cout << a[i] << " ";
+    }
+
+    cout << endl;
+}
+
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--) {
+        solve();
+    }
     return 0;
 }
 
@@ -150,10 +183,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

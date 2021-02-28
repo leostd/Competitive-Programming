@@ -130,14 +130,41 @@ const ld e = ld(2.7182818284590452353602874713527);
 const ld EPS = 1e-9;
  
 //#############################
-const int MAXN = 1000005;
+// const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
-int main() {
-    fastIO(); 
+int memo[60][60];
+int len;
+int cuts[60];
+
+int dp(int left, int right) {
+    if (left+1 == right) return 0;
     
+    int &ret = memo[left][right];
+    if (ret != -1) return ret;
+
+    ret = 2e9;
+    int cost = cuts[right] - cuts[left];
+    for(int i = left+1; i < right; i++) {
+        ret = min(ret, dp(left, i) + dp(i, right) + cost);
+    }
+
+    return ret;
+}
+
+int main() {
+    // fastIO(); 
+    while(scanf("%d", &len), len) {
+        scanf("%d", &n);
+        cuts[0] = 0;
+        for1(i, n+1)
+            scanf("%d", &cuts[i]);
+        cuts[n+1] = len;
+        memset(memo, -1, sizeof(memo));
+        int ans = dp(0, n+1);
+        printf("The minimum cutting is %d.\n", ans);
+    }
     return 0;
 }
 
@@ -150,10 +177,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

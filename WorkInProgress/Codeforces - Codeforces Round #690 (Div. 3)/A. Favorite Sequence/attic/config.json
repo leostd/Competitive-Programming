@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #690 (Div. 3)/A. Favorite Sequence/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Favorite Sequence",
+      "group": "Codeforces - Codeforces Round #690 (Div. 3)",
+      "url": "https://codeforces.com/contest/1462/problem/0",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

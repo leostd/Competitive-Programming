@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 187/A - Large Digits/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A - Large Digits",
+      "group": "AtCoder - AtCoder Beginner Contest 187",
+      "url": "https://atcoder.jp/contests/abc187/tasks/abc187_a",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

@@ -134,10 +134,39 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
-int main() {
-    fastIO(); 
+string a, b;
+int memo[101][101];
+
+int lcs(int i, int j) {
+    if (i == a.size() || j == b.size())
+        return 0;
+    // cout << a[i] << " " << b[j] << endl;
+    int &ret = memo[i][j];
+    if (ret != -1)
+        return ret;
     
+    if (a[i] == b[j])
+        ret = 1 + lcs(i+1, j+1);
+    else {
+        ret = max({lcs(i+1, j), lcs(i, j+1), lcs(i+1, j+1)});
+    }
+
+    return ret;
+}
+int main() {
+    fastIO();
+    int tc = 1;
+    while(1) {
+        getline(cin, a);
+        if (a[0] == '#')
+            break;
+        getline(cin, b);
+        int n, m;
+        n = a.size(), m = b.size();
+        memset(memo, -1, sizeof(memo));
+        int ans = lcs(0, 0);
+        cout << "Case #" << tc++ << ": you can visit at most " << ans << " cities." << endl;
+    }
     return 0;
 }
 
@@ -150,10 +179,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

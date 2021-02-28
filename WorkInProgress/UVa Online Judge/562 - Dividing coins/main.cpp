@@ -134,10 +134,43 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
+int memo[101][50005];
+vector<int> a;
+int total;
+
+int dp(int i, int sum) {
+    if (i == a.size()) return abs(sum - (total - sum));
+    int &ret = memo[i][sum];
+    if (ret != -1)
+        return ret;
+    ret = min(dp(i+1, sum), dp(i+1, sum + a[i]));
+
+    return ret;
+}
+
+void solve() {
+    int n = nxt();
+    a = vector<int>(n, 0);
+    total = 0;
+    forn(i, n) {
+        cin >> a[i];
+        total += a[i];
+    }
+    sort(all(a));
+
+    memset(memo, -1, sizeof(memo));
+    int ans = dp(0,0);
+
+
+    cout << ans << endl;
+}
+
 int main() {
     fastIO(); 
-    
+    int t = nxt();
+    while(t--) {
+        solve();
+    }
     return 0;
 }
 
@@ -150,10 +183,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
 */

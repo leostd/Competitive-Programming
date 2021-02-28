@@ -137,7 +137,34 @@ vector<vector<int>> g; //graph, grid
  
 int main() {
     fastIO(); 
-    
+    cin >> n;
+    g = vector<vector<int>>(n, vector<int>(n, 0));
+    vector<int> diag(n, 0);
+    int sum = 0;
+    forn(i,n){
+        forn(j, n) {
+            cin >> g[i][j];
+            if (i == j) diag[i] = g[i][j], sum += g[i][j], sum %= 2;
+        }
+    }
+    int q = nxt();
+    dbg(q);
+    int a, b;
+    forn(i, q) {
+        cin >> a;
+        if (a < 3)
+            cin >> b, b--;
+        if (a == 1 || a == 2){
+            if (diag[b]) sum--, sum = abs(sum), sum %= 2;
+            else sum++, sum %= 2;
+
+            diag[b] = !diag[b];
+        } else {
+            dbg(a, b);
+            dbg(diag);
+            cout << sum;
+        }
+    }
     return 0;
 }
 
@@ -150,10 +177,4 @@ int main() {
     2. graphically 
     3. abstractly
     4. algebraically
-
-    Checklist:
-    - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
-    - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
-    - Check diagonals   - Divide and Conquer approach
-*/
+*/ 
