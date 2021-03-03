@@ -132,56 +132,26 @@ const ld EPS = 1e-9;
 //#############################
 const int MAXN = 1000005;
 
-bool isSorted(string s) {
-    for(int i = 1; i < s.size(); i++) {
-        if (s[i] < s[i-1])
-            return false;
-    }
-
-    return true;
-}
-
-string col(vector<string> g, int idx) {
-    string r;
-    for(int i = 0; i < g.size(); i++)
-        r.pb(g[i][idx]);
-
-    return r;
-}
-
+int n, m; // sizes
+vector<vector<int>> g; //graph, grid
+ 
 int main() {
     fastIO(); 
-    cin >> n >> m;
-    vector<string> g;
-
-    string s;
-    forn(i, n) cin >> s, g.pb(s);
-
-    int prevIdx = -1;
-    int ans = m;
-    for(int i = 0; i < m; i++) {
-        string c = col(g, i);
-        if (isSorted){
-            prevIdx = i;
-            ans--;
-        } else if (prevIdx != -1){
-            string nc, aux;
-            string prev = col(prevIdx);
-            aux = "" + prev[0] + c[0];
-            bool flag = true;
-            for1(i,n){
-                nc = "" + prev[i] + c[i];
-                if (aux > nc){
-                    flag = false;
-                    break;
-                }
-            }
-            ans -= flag;
-        }
+    ll x0,x1,y0,y1;
+    cin >> x0 >> y0;
+    cin >> x1 >> y1;
+    cin >> n;
+    int ans = 0;
+    ll a, b, c;
+    forn(i, n) {
+        cin >> a >> b >> c;
+        ll aux0 = a*x0 + b*y0 + c;
+        ll aux1 = a*x1 + b*y1 + c;
+        ans += sign(aux0) != sign(aux1);
     }
 
     cout << ans << endl;
-
+    
     return 0;
 }
 

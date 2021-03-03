@@ -1,0 +1,4 @@
+[1m/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #277 (Div. 2)/C. Palindrome Transformation/main.cpp:26:10: [0m[0;1;31mfatal error: [0m[1m'bits/stdc++.h' file not found[0m
+#include <bits/stdc++.h>
+[0;1;32m         ^~~~~~~~~~~~~~~
+[0m1 error generated.

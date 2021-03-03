@@ -133,7 +133,7 @@ const ld EPS = 1e-9;
 const int MAXN = 1000005;
 
 bool isSorted(string s) {
-    for(int i = 1; i < s.size(); i++) {
+    for(int i = 1; i < (int)s.size(); i++) {
         if (s[i] < s[i-1])
             return false;
     }
@@ -143,44 +143,44 @@ bool isSorted(string s) {
 
 string col(vector<string> g, int idx) {
     string r;
-    for(int i = 0; i < g.size(); i++)
+    for(int i = 0; i < (int)g.size(); i++)
         r.pb(g[i][idx]);
 
     return r;
 }
 
+bool isCompatible(vector<string> cur, string s) {
+    forn(i, cur.size()) cur[i].pb(s[i]);
+
+    for1(i, cur.size())
+        if (cur[i] < cur[i-1])
+            return false;
+    
+    return true;
+}
+
 int main() {
     fastIO(); 
+    int n, m;
     cin >> n >> m;
     vector<string> g;
 
     string s;
     forn(i, n) cin >> s, g.pb(s);
 
-    int prevIdx = -1;
-    int ans = m;
+    vector<string> cur(n, "");
     for(int i = 0; i < m; i++) {
         string c = col(g, i);
-        if (isSorted){
-            prevIdx = i;
-            ans--;
-        } else if (prevIdx != -1){
-            string nc, aux;
-            string prev = col(prevIdx);
-            aux = "" + prev[0] + c[0];
-            bool flag = true;
-            for1(i,n){
-                nc = "" + prev[i] + c[i];
-                if (aux > nc){
-                    flag = false;
-                    break;
-                }
+        if(isSorted(c)){
+            forn(j, n) cur[j].pb(c[j]);
+        } else {
+            if (isCompatible(cur, c)){
+                forn(j, n) cur[j].pb(c[j]);
             }
-            ans -= flag;
         }
     }
 
-    cout << ans << endl;
+    cout << m - cur[0].size() << endl;
 
     return 0;
 }
