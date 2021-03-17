@@ -132,43 +132,38 @@ const ld EPS = 1e-9;
 //#############################
 const int MAXN = 1000005;
 
-bool aligned(vector<int> a) {
-    for1(i, a.size()){
-        if (a[i] != a[i-1])
-            return false;
-    }
-    
-    return true;
-}
-
-bool diffLessThan2(vector<int> a) {
-    for1(i, a.size()) {
-        if (abs(a[i] - a[i-1]) > 1)
-            return false;
-    }
-
-    return true;
-}
-
+int n, m; // sizes
+vector<vector<int>> g; //graph, grid
+ 
 int main() {
-    fastIO();
-    int t = nxt();
-    while(t--) {
-        int n, h, v;
-        cin >> n >> v >> h;
+    fastIO(); 
+    n = nxt();
+    vector<ll> a(n, 0);
+    forn(i, n) cin >> a[i];
 
-        vector<int> a(n, 0);
-        forn(i, n) cin >> a[i];
-
-        int ans = 0;
-        if (aligned(a)){
-            ans += h + min(h,v);
-        } else if (diffLessThan2(a)) {
-            ans += min(h,v);
-        }
-
-        cout << ans << endl;
+    vector<ll> psum(n+1, 0);
+    for1(i, n+1){
+        psum[i] = psum[i-1] + a[i-1];
     }
+    psum.erase(psum.begin());
+
+    ll ans = 0;
+    forn(i, n){
+        ans += (ll)(n-1)*(a[i]*a[i]);
+        dbg(ans, a[i]*a[i]);
+    }
+
+    ll aux = 0;
+    dbg(a);
+    dbg(psum);
+    forn(i, n) {
+        aux += (a[i] * (psum[n-1]-psum[i]));
+        dbg(a[i], psum[n-1]-psum[i], a[i]*(psum[n-1]-psum[i]));
+    }
+    dbg(aux);
+    ans -= 2*aux;
+    cout << ans << endl;
+    
     return 0;
 }
 

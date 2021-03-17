@@ -132,43 +132,19 @@ const ld EPS = 1e-9;
 //#############################
 const int MAXN = 1000005;
 
-bool aligned(vector<int> a) {
-    for1(i, a.size()){
-        if (a[i] != a[i-1])
-            return false;
-    }
-    
-    return true;
-}
-
-bool diffLessThan2(vector<int> a) {
-    for1(i, a.size()) {
-        if (abs(a[i] - a[i-1]) > 1)
-            return false;
-    }
-
-    return true;
-}
-
+int n, m; // sizes
+vector<vector<int>> g; //graph, grid
+ 
 int main() {
     fastIO();
-    int t = nxt();
-    while(t--) {
-        int n, h, v;
-        cin >> n >> v >> h;
-
-        vector<int> a(n, 0);
-        forn(i, n) cin >> a[i];
-
-        int ans = 0;
-        if (aligned(a)){
-            ans += h + min(h,v);
-        } else if (diffLessThan2(a)) {
-            ans += min(h,v);
-        }
-
-        cout << ans << endl;
-    }
+    double ans = 0;
+    cin >> n;
+    for1(i, n+1) ans += 1.0/(double)i;
+    ans *= n;
+    ans-=1;
+    cout << setprecision(8);
+    cout << fixed;
+    cout << ans << endl;
     return 0;
 }
 

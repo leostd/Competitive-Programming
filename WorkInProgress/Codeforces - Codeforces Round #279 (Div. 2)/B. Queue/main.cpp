@@ -132,43 +132,38 @@ const ld EPS = 1e-9;
 //#############################
 const int MAXN = 1000005;
 
-bool aligned(vector<int> a) {
-    for1(i, a.size()){
-        if (a[i] != a[i-1])
-            return false;
-    }
-    
-    return true;
-}
-
-bool diffLessThan2(vector<int> a) {
-    for1(i, a.size()) {
-        if (abs(a[i] - a[i-1]) > 1)
-            return false;
-    }
-
-    return true;
-}
-
+int n, m; // sizes
+vector<vector<int>> g; //graph, grid
+ 
 int main() {
-    fastIO();
-    int t = nxt();
-    while(t--) {
-        int n, h, v;
-        cin >> n >> v >> h;
+    fastIO(); 
+    cin >> n;
+    vector<int> ans(n, 0);
+    map<int, int> front;
+    map<int, int> f;
+    int x, y;
+    forn(i, n){
+        cin >> x >> y;
+        dbg(x, y);
+        front[x] = y;
+        f[x]++, f[y]--;
+    } 
 
-        vector<int> a(n, 0);
-        forn(i, n) cin >> a[i];
-
-        int ans = 0;
-        if (aligned(a)){
-            ans += h + min(h,v);
-        } else if (diffLessThan2(a)) {
-            ans += min(h,v);
-        }
-
-        cout << ans << endl;
+    int ft;
+    for (auto xx : f) {
+        if (xx.snd == 1) ft = xx.fst;
     }
+
+    ans[0] = ft;
+    ans[1] = front[0];
+    int cur = ans[0];
+    forn(i, n-2){
+        ans[i+2] = front[ans[i]];
+    }
+
+    dbg(ans);
+    for(auto a : ans)
+        cout << a << " ";
     return 0;
 }
 

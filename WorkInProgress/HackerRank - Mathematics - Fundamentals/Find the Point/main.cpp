@@ -132,43 +132,55 @@ const ld EPS = 1e-9;
 //#############################
 const int MAXN = 1000005;
 
-bool aligned(vector<int> a) {
-    for1(i, a.size()){
-        if (a[i] != a[i-1])
-            return false;
-    }
-    
-    return true;
-}
+int n, m; // sizes
+vector<vector<int>> g; //graph, grid
+ 
+/*
+ * Complete the findPoint function below.
+ */
+vector<int> findPoint(int px, int py, int qx, int qy) {
+    /*
+     * Write your code here.
+     */
+     
+     int diffX = abs(px-qx);
+     int diffY = abs(py-qy);
+     
+     if (diffX == 0 && diffY == 0) return {px, py};
+     
+     int nx, ny;
+     if (diffX == 0) {
+         nx = px;
+        if (py < qy)
+            ny = qy + diffY;
+        else
+            ny = qy - diffY;
+     } else if (diffY == 0) {
+         ny = py;
+         if (px < qx)
+            nx = qx + diffX;
+        else
+            nx = qx - diffX;
+     } else {
+         if (px < qx) 
+            nx = qx + diffX;
+        else
+            nx = qx - diffX;
+        
+        if (py < qy)
+            ny = qy + diffY;
+        else
+            ny = qy - diffY;
+     }
+     
+     
+     return {nx, ny};
 
-bool diffLessThan2(vector<int> a) {
-    for1(i, a.size()) {
-        if (abs(a[i] - a[i-1]) > 1)
-            return false;
-    }
-
-    return true;
 }
 
 int main() {
-    fastIO();
-    int t = nxt();
-    while(t--) {
-        int n, h, v;
-        cin >> n >> v >> h;
-
-        vector<int> a(n, 0);
-        forn(i, n) cin >> a[i];
-
-        int ans = 0;
-        if (aligned(a)){
-            ans += h + min(h,v);
-        } else if (diffLessThan2(a)) {
-            ans += min(h,v);
-        }
-
-        cout << ans << endl;
-    }
+    fastIO(); 
+    
     return 0;
 }
 

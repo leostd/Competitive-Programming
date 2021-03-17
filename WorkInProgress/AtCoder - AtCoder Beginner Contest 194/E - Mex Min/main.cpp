@@ -132,43 +132,47 @@ const ld EPS = 1e-9;
 //#############################
 const int MAXN = 1000005;
 
-bool aligned(vector<int> a) {
-    for1(i, a.size()){
-        if (a[i] != a[i-1])
-            return false;
-    }
-    
-    return true;
+int n, m; // sizes
+vector<vector<int>> g; //graph, grid
+map<int, int> f;
+set<int> s;
+
+void ins(int x) {
+    s.erase(x);
+    f[x]++;
 }
-
-bool diffLessThan2(vector<int> a) {
-    for1(i, a.size()) {
-        if (abs(a[i] - a[i-1]) > 1)
-            return false;
-    }
-
-    return true;
+ 
+void rem(int x) {
+    f[x]--;
+    if (f[x] == 0)
+        s.insert(x);
 }
-
 int main() {
-    fastIO();
-    int t = nxt();
-    while(t--) {
-        int n, h, v;
-        cin >> n >> v >> h;
+    fastIO(); 
+    f.clear();
+    s.clear();
+    cin >> n >> m;
+    vector<int> a(n, 0);
+    forn(i, n) cin >> a[i];
+    forn(i, n+1) s.insert(i);
 
-        vector<int> a(n, 0);
-        forn(i, n) cin >> a[i];
-
-        int ans = 0;
-        if (aligned(a)){
-            ans += h + min(h,v);
-        } else if (diffLessThan2(a)) {
-            ans += min(h,v);
+    int mex = INF;
+    dbg(a);
+    int i = 0;
+    forn(j, n-m+1) {
+        if (f.empty()) {
+            forn(x, m){
+                ins(a[i++]);
+            }
+        } else {
+            rem(a[i-m]);
+            ins(a[i]);
+            i++;
         }
-
-        cout << ans << endl;
+        mex = min(mex, *s.begin());
+        dbg(s);
     }
+    cout << mex << endl;
     return 0;
 }
 

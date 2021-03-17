@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 194/B - Job Assignment/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B - Job Assignment",
+      "group": "AtCoder - AtCoder Beginner Contest 194",
+      "url": "https://atcoder.jp/contests/abc194/tasks/abc194_b",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

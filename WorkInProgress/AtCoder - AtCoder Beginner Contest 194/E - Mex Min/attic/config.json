@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 194/E - Mex Min/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "E - Mex Min",
+      "group": "AtCoder - AtCoder Beginner Contest 194",
+      "url": "https://atcoder.jp/contests/abc194/tasks/abc194_e",
+      "memoryLimit": 1024,
+      "timeLimit": 4000
+    }
+  }
+}
