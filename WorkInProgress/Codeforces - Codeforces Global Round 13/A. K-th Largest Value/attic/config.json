@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Global Round 13/A. K-th Largest Value/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. K-th Largest Value",
+      "group": "Codeforces - Codeforces Global Round 13",
+      "url": "https://codeforces.com/contest/1491/problem/0",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

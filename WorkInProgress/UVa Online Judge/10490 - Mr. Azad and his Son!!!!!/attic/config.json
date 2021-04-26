@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/UVa Online Judge/10490 - Mr. Azad and his Son!!!!!/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "10490 - Mr. Azad and his Son!!!!!",
+      "group": "UVa Online Judge",
+      "url": "https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&category=16&page=show_problem&problem=1431",
+      "memoryLimit": 32,
+      "timeLimit": 3000
+    }
+  }
+}

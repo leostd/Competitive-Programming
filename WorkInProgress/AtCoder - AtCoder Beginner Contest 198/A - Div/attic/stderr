@@ -1,0 +1,4 @@
+[01m[K/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 198/A - Div/main.cpp:[m[K In function ‘[01m[Kint main()[m[K’:
+[01m[K/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 198/A - Div/main.cpp:143:34:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K;[m[K’ token
+  143 |     forn(i, n) ans *= 2, dbg(ans)[01;31m[K;[m[K
+      |                                  [01;31m[K^[m[K

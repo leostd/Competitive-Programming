@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 198/B - Palindrome with leading zeros/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B - Palindrome with leading zeros",
+      "group": "AtCoder - AtCoder Beginner Contest 198",
+      "url": "https://atcoder.jp/contests/abc198/tasks/abc198_b",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

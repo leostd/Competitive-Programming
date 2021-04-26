@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - ITMO Academy: pilot course - Segment Tree, part 2 - Step 1/B. Applying MAX to Segment/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Applying MAX to Segment",
+      "group": "Codeforces - ITMO Academy: pilot course - Segment Tree, part 2 - Step 1",
+      "url": "https://codeforces.com/edu/course/2/lesson/5/1/practice/contest/279634/problem/B",
+      "memoryLimit": 1024,
+      "timeLimit": 1000
+    }
+  }
+}

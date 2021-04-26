@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #137 (Div. 2)/B. Cosmic Tables/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Cosmic Tables",
+      "group": "Codeforces - Codeforces Round #137 (Div. 2)",
+      "url": "http://codeforces.com/contest/222/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 3000
+    }
+  }
+}

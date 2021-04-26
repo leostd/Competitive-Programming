@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 106 (Rated for Div. 2)/A. Domino on Windowsill/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Domino on Windowsill",
+      "group": "Codeforces - Educational Codeforces Round 106 (Rated for Div. 2)",
+      "url": "https://codeforces.com/contest/1499/problem/A",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

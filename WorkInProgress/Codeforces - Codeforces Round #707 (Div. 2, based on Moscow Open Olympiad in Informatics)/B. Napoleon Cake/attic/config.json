@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #707 (Div. 2, based on Moscow Open Olympiad in Informatics)/B. Napoleon Cake/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Napoleon Cake",
+      "group": "Codeforces - Codeforces Round #707 (Div. 2, based on Moscow Open Olympiad in Informatics)",
+      "url": "http://codeforces.com/contest/1501/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}
