@@ -1,5 +1,5 @@
 #pragma GCC diagnostic ignored "-Wunused-const-variable"
-
+ 
 #ifdef MAC
 #include <iostream>
 #include <vector>
@@ -131,82 +131,68 @@ const ld EPS = 1e-9;
  
 //#############################
 const int MAXN = 1000005;
-
-int n, m; // sizes
+ 
 vector<vector<int>> g; //graph, grid
  
-ll f(ll x) {
-    return (x) * (x+1) /2;
+void solve() {
+    ll n, c;
+    cin >> n >> c;
+    vector<ll> a(n, 0), b(n-1, 0), rem(n, 0), days(n, 0);
+ 
+    forn(i, n)
+        cin >> a[i];
+    
+    forn(i, n-1)
+        cin >> b[i];
+ 
+    dbg(a, b);
+ 
+    ll cur = 0, mx = -1;
+    for1(i, n) {
+        mx = max(mx, a[i-1]);
+        ll need = max(0LL, b[i-1] - cur);
+        dbg(cur, need, i);
+        days[i] = (need / mx) + (need % mx != 0);
+        dbg(days[i]);
+        cur += days[i]*mx;
+        dbg(cur);
+        days[i] += days[i-1] + 1;
+        cur -= b[i-1];
+        rem[i] = cur;
+    }
+ 
+    dbg(rem);
+    dbg(days);
+ 
+    ll ans = INF64;
+    forn(i, n) {
+        ll need = max(0LL, c - rem[i]);
+        ll x = need / a[i] + (need % a[i] != 0) + days[i];
+        ans = min(ans, x);
+    }
+ 
+    cout << ans << endl;
 }
-
+ 
 int main() {
     fastIO(); 
     int t = nxt();
     while(t--) {
-        int l,r, s;
-        cin >> n >> l >> r >> s;
-        dbg(n, l, r, s);
-        int nn = r-l+1;
-        dbg(nn);
-        vector<int> candidate(nn, 0);
-        int cur = nn-1;
-        ll sum = 0;
-        set<int> nums;
-        for1(i, n+1) {
-            nums.insert(i);
-        }
-        int rem = nn-1;
-        for(int i = n; i > 0; i--) {
-            if (cur == -1) break;
-            dbg(rem, f(rem));
-            dbg((sum + i + f(rem)), s);
-            if ((sum + i + f(rem)) <= s) {
-                candidate[cur] = i;
-                nums.erase(i);
-                sum+=i;
-                dbg(candidate);
-                cur--;
-                rem--;
-                continue;
-            }
-        }
-
-
-        if (sum == s && cur == -1) {
-            vector<int> ans(n, 0);
-            cur = 0;
-            fore(i, l-1, r) {
-                ans[i] = candidate[cur++];
-            }
-
-            forn(i, n) {
-                if (ans[i] != 0) continue;
-                ans[i] = *nums.begin();
-                nums.erase(nums.begin());
-            }
-
-            forn(i, n) {
-                cout << ans[i] << " ";
-            }
-            cout << endl;
-        } else {
-            cout << -1 << endl;
-        }
-
+        solve();
     }
     return 0;
 }
-
+ 
 /*
     RECALL CORNER CASES - e.g. n = 1, n = 0
     WRITE SOME STUFF
-
+ 
     think first, always - 
     1. concretely
     2. graphically 
     3. abstractly
     4. algebraically
-
+ 
     Checklist:
     - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
     - Reverse           - Brute force approach          - DP

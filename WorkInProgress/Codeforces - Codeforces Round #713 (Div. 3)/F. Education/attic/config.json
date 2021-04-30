@@ -1,15 +1,15 @@
 {
   "mainSolution": {
-    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #713 (Div. 3)/E. Permutation by Sum/main.cpp"
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #713 (Div. 3)/F. Education/main.cpp"
   },
   "bruteSolution": {},
   "generator": {},
   "checker": {},
   "companionConfig": {
     "value": {
-      "name": "E. Permutation by Sum",
+      "name": "F. Education",
       "group": "Codeforces - Codeforces Round #713 (Div. 3)",
-      "url": "http://codeforces.com/contest/1512/problem/E",
+      "url": "https://codeforces.com/contest/1512/problem/F",
       "memoryLimit": 256,
       "timeLimit": 2000
     }

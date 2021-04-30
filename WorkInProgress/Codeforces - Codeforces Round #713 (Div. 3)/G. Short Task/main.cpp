@@ -130,69 +130,56 @@ const ld e = ld(2.7182818284590452353602874713527);
 const ld EPS = 1e-9;
  
 //#############################
-const int MAXN = 1000005;
+const int MAXN = 1e7+1;
+// vector<pair<ll, int>> d((int)1e7+1, {0, 0});
+vector<ll> d;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
-ll f(ll x) {
-    return (x) * (x+1) /2;
+bool first = true;
+vector<ll> primes;
+bool isPrime[MAXN];
+vector<ll> f;
+
+void sieve() {
+    d.assign(MAXN+1,0);
+    for (int i = 1; i <= MAXN; ++i)
+        for (int j = i; j <= MAXN; j += i)
+            d[j] += i;
 }
+
+void init() {
+    if (!first)
+        return;
+
+    first = false;
+    sieve();
+    d[0] = 0;
+    dbg(d[1], d[2], d[3], d[18]);
+    int cur = 0;
+    f.assign(MAXN+1, 0);
+    while(cur <= MAXN) {
+        if (d[cur] > MAXN || f[d[cur]] != 0) {
+            cur++;
+            continue;
+        }
+        f[d[cur]] = cur;
+        cur++;
+    }
+}
+
 
 int main() {
     fastIO(); 
+    init();
+    dbg(d[18]);
     int t = nxt();
+
     while(t--) {
-        int l,r, s;
-        cin >> n >> l >> r >> s;
-        dbg(n, l, r, s);
-        int nn = r-l+1;
-        dbg(nn);
-        vector<int> candidate(nn, 0);
-        int cur = nn-1;
-        ll sum = 0;
-        set<int> nums;
-        for1(i, n+1) {
-            nums.insert(i);
-        }
-        int rem = nn-1;
-        for(int i = n; i > 0; i--) {
-            if (cur == -1) break;
-            dbg(rem, f(rem));
-            dbg((sum + i + f(rem)), s);
-            if ((sum + i + f(rem)) <= s) {
-                candidate[cur] = i;
-                nums.erase(i);
-                sum+=i;
-                dbg(candidate);
-                cur--;
-                rem--;
-                continue;
-            }
-        }
-
-
-        if (sum == s && cur == -1) {
-            vector<int> ans(n, 0);
-            cur = 0;
-            fore(i, l-1, r) {
-                ans[i] = candidate[cur++];
-            }
-
-            forn(i, n) {
-                if (ans[i] != 0) continue;
-                ans[i] = *nums.begin();
-                nums.erase(nums.begin());
-            }
-
-            forn(i, n) {
-                cout << ans[i] << " ";
-            }
-            cout << endl;
-        } else {
-            cout << -1 << endl;
-        }
-
+        ll c = nxt();
+        
+        cout << (f[c] == 0? -1 : f[c]) << endl;
+        
     }
     return 0;
 }
