@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - ITMO Academy: pilot course - Suffix Array - Step 1/A. Suffix Array - 1/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Suffix Array - 1",
+      "group": "Codeforces - ITMO Academy: pilot course - Suffix Array - Step 1",
+      "url": "http://codeforces.com/edu/course/2/lesson/2/1/practice/contest/269100/problem/A",
+      "memoryLimit": 512,
+      "timeLimit": 2000
+    }
+  }
+}
