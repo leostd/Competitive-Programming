@@ -134,89 +134,55 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
+
+ll go(int r1, int c1, int r2, int c2) {
+    dbg(r1, c1);
+    dbg(r2, c2);
+    int curSum = r1 + c1;
+    int d1 = r1 - c1, d2 = r2 - c2;
+    int colDiff = c2 - c1;
+
+    if (d1 == d2) {
+        return (curSum % 2 == 0? r2 - r1 : 0);
+    }
+
+    if (c1 == c2) {
+        return (r2 - r1) / 2 + (curSum%2 &&(r2-r1)%2);
+    }
+
+    if (curSum % 2 == 0)
+        return go(r1+1, c1, r2, c2);
+
+    return go(r1+colDiff, c1+colDiff, r2, c2);
+}
+
+void solve() {
+    cin >> n;
+    vector<int> r(n), c(n);
+    forn(i, n) cin >> r[i];
+    forn (i, n) cin >> c[i];
+
+    vector<pii> v(n);
+    v.pb({1,1});
+    forn(i, n) v[i].fst = r[i], v[i].snd = c[i];
+    
+    sort(all(v));
+    dbg(v);
+    ll total = 0;
+    for1(i, n+1) {
+        dbg(total);
+        total += go(v[i-1].fst, v[i-1].snd, v[i].fst, v[i].snd);
+    }
+
+    cout << total << endl;
+}
  
-vector<int> vis, color;
-ll colorings;
-
-void getComponent(int src, vector<int> &cur) {
-    vis[src] = true;
-
-    cur.pb(src);
-
-    forn(i, g[src].size()) {
-        if (vis[g[src][i]])
-            continue;
-        
-        getComponent(g[src][i], cur);
-    }
-}
-
-void countColorings(int cur, vector<int> &component) {
-    dbg(color, cur);
-    if (cur == (int)component.size()) {
-        colorings++;
-        return;
-    }
-    int node = component[cur];
-    dbg(node);
-    dbg(g[node]);
-    forn(col, 3) {
-        bool canColor = true;
-        dbg(col);
-        forn(i, g[node].size()) {
-            dbg(g[node][i], color[g[node][i]]);
-            if (color[g[node][i]] == col) {
-                canColor = false;
-                break;
-            }
-        }
-        if (canColor) {
-            color[node] = col;
-            countColorings(cur+1, component);
-            color[node] = -1;
-        }
-    }
-
-    // color[root] = -1;
-}
-
 int main() {
     fastIO(); 
-    cin >> n >> m;
-    int a, b;
-    g.assign(n+1, vector<int>());
-    vis.assign(n+1, 0);
-    color.assign(n+1, -1);
-
-    forn(i, m) {
-        cin >> a >> b;
-        g[a].pb(b);
-        g[b].pb(a);
+    int t = nxt();
+    while(t--) {
+        solve();
     }
-
-    // get components
-    vector<vector<int>> components;
-    for1(i, n+1) {
-        if (vis[i])
-            continue;
-
-        vector<int> component;
-        getComponent(i, component);
-        dbg(component);
-        if(component.empty()) continue;
-        components.pb(component);
-    }
-
-    ll ans = 1;
-    for(auto c : components) {
-        colorings = 0;
-        dbg(c.size());
-        countColorings(0, c);
-        ans *= colorings;
-    }
-
-    cout << ans << endl;
-
     return 0;
 }
 
