@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #719 (Div. 3)/F1. Guess the K-th Zero (Easy version)/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "F1. Guess the K-th Zero (Easy version)",
+      "group": "Codeforces - Codeforces Round #719 (Div. 3)",
+      "url": "https://codeforces.com/contest/1520/problem/F1",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

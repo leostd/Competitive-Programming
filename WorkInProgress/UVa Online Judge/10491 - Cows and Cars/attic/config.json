@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/UVa Online Judge/10491 - Cows and Cars/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "10491 - Cows and Cars",
+      "group": "UVa Online Judge",
+      "url": "https://onlinejudge.org/external/104/10491.pdf",
+      "memoryLimit": 1024,
+      "timeLimit": 1000
+    }
+  }
+}

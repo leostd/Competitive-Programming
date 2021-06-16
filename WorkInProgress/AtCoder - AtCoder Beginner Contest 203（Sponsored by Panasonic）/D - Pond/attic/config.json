@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 203（Sponsored by Panasonic）/D - Pond/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D - Pond",
+      "group": "AtCoder - AtCoder Beginner Contest 203（Sponsored by Panasonic）",
+      "url": "https://atcoder.jp/contests/abc203/tasks/abc203_d",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}
