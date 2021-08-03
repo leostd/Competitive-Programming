@@ -122,7 +122,7 @@ const int dyKn[8] = { 1,  2, 2, 1, -1, -2, -2, -1};
 const int dxK[8] = {0, 0, 1, -1, 1, 1, -1, -1};
 const int dyK[8] = {1, -1, 0, 0, 1, -1, 1, -1};
  
-const int MOD = int(1e9) + 7;
+const int MOD = 998244353;
 const int INF = int(1e9) + 100;
 const ll INF64 = 2e18;
 const ld PI = ld(3.1415926535897932384626433832795);
@@ -133,11 +133,63 @@ const ld EPS = 1e-9;
 const int MAXN = 1000005;
 
 int n, m; // sizes
-vector<vector<int>> g; //graph, grid
+vector<vector<int>> edges; //graph, grid
+ll memo[5005][5005], memo2[5005];
  
-int main() {
-    fastIO(); 
+ll dp(int idx, int k) {
+    dbg(idx, k);
+    if (idx == 0 && k == 0)
+        return 1;
     
+    if (idx > 0 && k == 0)
+        return 0;
+    
+    ll &ret = memo[idx][k];
+    if (ret != -1)
+        return ret;
+
+    ll aux = 0;
+    if (memo2[k] == -1) {
+        for(int i = 0; i < n; i++) {
+            aux = ((aux%MOD) + (dp(i, k-1)%MOD))%MOD;
+        }
+        memo2[k] = aux;
+    } else {
+        aux = memo2[k];
+    }
+
+    for(int i = 0; i < (int)edges[idx].size(); i++) {
+        aux = ((aux%MOD) - (dp(edges[idx][i], k-1)%MOD) + MOD)%MOD;
+    }
+    
+    aux = ((aux%MOD) - (dp(idx, k-1)%MOD) + MOD)%MOD;
+
+    dbg(idx, k, aux);
+
+    return ret = aux;
+}
+
+int main() {
+    fastIO();
+    int k;
+    cin >> n >> m >> k;
+
+    edges.assign(n+1, vector<int>());
+    int a, b;
+    forn(i, m) {
+        cin >> a >> b;
+        a--;
+        b--;
+        edges[a].pb(b);
+        edges[b].pb(a);
+    }
+
+    memset(memo, -1, sizeof(memo));
+    memset(memo2, -1, sizeof(memo2));
+    ll ans = dp(0, k);
+
+    cout << ans << endl;
+
     return 0;
 }
 
