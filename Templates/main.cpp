@@ -29,6 +29,7 @@
 using namespace std;
  
 #define mp make_pair
+#define mt make_tuple
 #define pb push_back
 #define forn(i, n) for(int i = 0; i < (int)(n); ++i)
 #define for1(i, n) for(int i = 1; i < (int)(n); ++i)
@@ -46,6 +47,8 @@ typedef pair<ll, int> pli;
 typedef pair<ll, ll> pll;
 typedef long double ld;
 typedef tuple<int,int,int> iii;
+typedef tuple<ll, ll, ll> lll;
+typedef tuple<ld, ld, ld> ddd;
  
 template<typename T> inline T abs(T a){ return ((a < 0) ? -a : a); }
 template<typename T> inline T sqr(T a){ return a * a; }
@@ -63,6 +66,11 @@ string to_string(const char* s) {
     
 string to_string(bool b) {
     return (b ? "true" : "false");
+}
+
+template <typename A, typename B, typename C>
+string to_string(tuple<A, B, C> t) {
+    return "(" + to_string(get<0>(t)) + ", " + to_string(get<1>(t)) + ", " + to_string(get<2>(t)) + ")";
 }
     
 template <typename A, typename B>
