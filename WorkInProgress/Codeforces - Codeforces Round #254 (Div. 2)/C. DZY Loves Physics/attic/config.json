@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #254 (Div. 2)/C. DZY Loves Physics/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. DZY Loves Physics",
+      "group": "Codeforces - Codeforces Round #254 (Div. 2)",
+      "url": "http://codeforces.com/contest/445/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

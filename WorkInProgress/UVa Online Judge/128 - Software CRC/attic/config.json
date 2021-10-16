@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/UVa Online Judge/128 - Software CRC/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "128 - Software CRC",
+      "group": "UVa Online Judge",
+      "url": "https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=64",
+      "memoryLimit": 32,
+      "timeLimit": 3000
+    }
+  }
+}

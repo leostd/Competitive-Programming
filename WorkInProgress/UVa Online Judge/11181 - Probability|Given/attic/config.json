@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/UVa Online Judge/11181 - Probability|Given/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "11181 - Probability|Given",
+      "group": "UVa Online Judge",
+      "url": "https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=2122",
+      "memoryLimit": 32,
+      "timeLimit": 3000
+    }
+  }
+}

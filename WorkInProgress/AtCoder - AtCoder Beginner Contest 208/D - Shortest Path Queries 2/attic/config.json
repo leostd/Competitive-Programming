@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 208/D - Shortest Path Queries 2/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D - Shortest Path Queries 2",
+      "group": "AtCoder - AtCoder Beginner Contest 208",
+      "url": "https://atcoder.jp/contests/abc208/tasks/abc208_d",
+      "memoryLimit": 1024,
+      "timeLimit": 3000
+    }
+  }
+}

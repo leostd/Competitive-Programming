@@ -134,7 +134,11 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> edges; //graph, grid
+<<<<<<< HEAD
 ll memo[5005][5005], memo2[5005];
+=======
+ll memo[600][600];
+>>>>>>> update
  
 ll dp(int idx, int k) {
     dbg(idx, k);
@@ -148,6 +152,7 @@ ll dp(int idx, int k) {
     if (ret != -1)
         return ret;
 
+<<<<<<< HEAD
     ll aux = 0;
     if (memo2[k] == -1) {
         for(int i = 0; i < n; i++) {
@@ -167,6 +172,21 @@ ll dp(int idx, int k) {
     dbg(idx, k, aux);
 
     return ret = aux;
+=======
+    ret = 0;
+    for(int i = 0; i < n; i++) {
+        if (i == idx) continue;
+        ret = ((ret%MOD) + (dp(i, k-1)%MOD))%MOD;
+    }
+
+    for(int i = 0; i < (int)edges[idx].size(); i++) {
+        ret = ((ret%MOD) - (dp(edges[idx][i], k-1)%MOD) + MOD)%MOD;
+    }
+
+    dbg(idx, k, ret);
+
+    return ret;
+>>>>>>> update
 }
 
 int main() {
@@ -185,7 +205,10 @@ int main() {
     }
 
     memset(memo, -1, sizeof(memo));
+<<<<<<< HEAD
     memset(memo2, -1, sizeof(memo2));
+=======
+>>>>>>> update
     ll ans = dp(0, k);
 
     cout << ans << endl;

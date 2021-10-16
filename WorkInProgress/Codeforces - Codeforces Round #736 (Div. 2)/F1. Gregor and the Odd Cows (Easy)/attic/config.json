@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #736 (Div. 2)/F1. Gregor and the Odd Cows (Easy)/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "F1. Gregor and the Odd Cows (Easy)",
+      "group": "Codeforces - Codeforces Round #736 (Div. 2)",
+      "url": "https://codeforces.com/contest/1549/problem/F1",
+      "memoryLimit": 256,
+      "timeLimit": 6000
+    }
+  }
+}

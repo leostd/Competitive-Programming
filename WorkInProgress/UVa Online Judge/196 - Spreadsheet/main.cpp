@@ -132,12 +132,145 @@ const ld EPS = 1e-9;
 //#############################
 const int MAXN = 1000005;
 
-int n, m; // sizes
-vector<vector<int>> g; //graph, grid
+
+vector<string> parseFormula(string f) {
+    dbg(f);
+    vector<string> ret;
+    int n = f.size();
+    string cur;
+    cur.clear();
+    for1(i, n){
+        if (f[i] == '+') {
+            ret.pb(cur);
+            cur.clear();
+            continue;
+        }
+
+        cur.pb(f[i]);
+    }
+    if (!cur.empty())
+        ret.pb(cur);
+
+    dbg(ret);
+
+    return ret;
+}
+
+pii tokenToCoord(string t) {
+    dbg(t);
+    pii coord;
+    
+    string letters, digits;
+    letters.clear();
+    digits.clear();
+
+    reverse(all(t));
+    while(isalpha(t.back()))
+        letters.pb(t.back()), t.pop_back();
+    
+    reverse(all(t));
+    digits = t;
+    int row = stoi(digits);
+
+    int pow = 1;
+    int n = letters.size();
+    reverse(all(letters));
+    dbg(letters, digits);
+    int col = 0;
+    forn(i, n) {
+        int aux = letters[i] - 'A'+1;
+        col += aux*pow;
+        pow *= 26;
+    }
+    coord = mp(row, col);
+    dbg(coord);
+
+    return coord;
+}
+
+struct Node {
+    ll val;
+    ll sum;
+    vector<pii> children;
+    string formula;
+    bool isFormula;
+
+    Node() {
+        val = 0;
+        sum = -1;
+        children.clear();
+        formula.clear();
+        isFormula = false;
+    }
+    
+    Node(ll x) {
+        val = x;
+        sum = -1;
+        children.clear();
+        isFormula = false;
+    }
+
+    Node(string f) {
+        val = 0;
+        sum = -1;
+        formula = f;
+        vector<string> tokens = parseFormula(f);
+        int n = tokens.size();
+        forn(i, n) {
+            children.push_back(tokenToCoord(tokens[i]));
+        }
+        isFormula = true;
+    }
+
+    ll compute(vector<vector<Node>> &g) {
+        if (!isFormula)
+            return val;
+
+        if (sum != -1)
+            return sum;
+        dbg(formula);
+        ll ret = 0;
+        int n = children.size();
+        dbg(children);
+        forn(i, n) {
+            ret += g[children[i].fst][children[i].snd].compute(g);
+        }
+
+        return sum = ret;
+    }
+};
+
+vector<vector<Node>> g; //graph, grid
  
 int main() {
+    dbg(tokenToCoord("AA1"), tokenToCoord("AA2"));
     fastIO(); 
- 
+    int n, m, t;
+    cin >> t;
+    while(t--) {
+        cin >> m >> n;
+        g = vector<vector<Node>>(n+1, vector<Node>(m+1, Node()));
+        string cur;
+        for1(i, n+1) {
+            for1(j, m+1) {
+                cin >> cur;
+                if (cur[0] == '=') {
+                    g[i][j] = Node(cur);
+                } else {
+                    g[i][j] = Node(stoi(cur));
+                }
+            }
+        }
+
+        for1(i, n+1) {
+            for1(j, m+1) {
+                if (j > 1)
+                    cout << " ";
+                cout << g[i][j].compute(g);
+            }
+            cout << endl;
+        }
+    }
     return 0;
 }
 

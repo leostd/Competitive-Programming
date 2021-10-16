@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 208/C - Fair Candy Distribution/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C - Fair Candy Distribution",
+      "group": "AtCoder - AtCoder Beginner Contest 208",
+      "url": "https://atcoder.jp/contests/abc208/tasks/abc208_c",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 220/B - Base K/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B - Base K",
+      "group": "AtCoder - AtCoder Beginner Contest 220",
+      "url": "https://atcoder.jp/contests/abc220/tasks/abc220_b",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

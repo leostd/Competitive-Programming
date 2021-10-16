@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 218/C - Shapes/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C - Shapes",
+      "group": "AtCoder - AtCoder Beginner Contest 218",
+      "url": "https://atcoder.jp/contests/abc218/tasks/abc218_c",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

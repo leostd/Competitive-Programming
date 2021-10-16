@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 208/A - Rolling Dice/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A - Rolling Dice",
+      "group": "AtCoder - AtCoder Beginner Contest 208",
+      "url": "https://atcoder.jp/contests/abc208/tasks/abc208_a",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

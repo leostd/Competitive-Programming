@@ -132,42 +132,62 @@ const ld EPS = 1e-9;
 //#############################
 const int MAXN = 1000005;
 
-ll mod_sum(ll a, ll b) {
-    return ((a%MOD) + (b%MOD)) % MOD;
-}
-
-ll mod_mult(ll a, ll b) {
-    return ((a%MOD) * (b%MOD)) % MOD;
-}
-
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
+int ans[10];
 vector<int> d;
-ll memo[100005][10];
+int memo[100005][10];
 
-ll dp(int idx, ll a, int &x) {
-    if (idx == n-1)
-        return a == x;
+void bf (int id, int a, int b) {
+    dbg(id, a, b);
+    if (id == n-1) {
+        if (b == -1) {
+            ans[a]++;
+            return;
+        }
+        int x = (a+b)%10;
+        int y = (a*b)%10;
+        dbg(a, b);
+        dbg(x, y);
+        ans[x]++;
+        ans[y]++;
+        // ans[a]++;
+        return;
+    }
     
-    ll &ret = memo[idx][a];
-    if (ret != -1) 
-        return ret;
-    
-    ret = mod_sum(dp(idx+1, (a + d[idx+1]) % 10, x),  dp(idx+1, (a * d[idx+1]) % 10, x));
+    int x = (a+b)%10;
+    int y = (a*b)%10;
 
-    return ret;
+    bf(id+1, x, id+2 < n ? d[id+2] : -1);
+    bf(id+1, y, id+2 < n ? d[id+2] : -1);
 }
 
+int dp(int i, int cur) {
+    if (i == n)
+        return 1;
+
+    int &ret = memo[i][cur];
+    if (ret != -1)
+        return ret;
+
+    ret = dp(i+1, (d[i+1]+cur)%10) + dp(i+1, (d[i+1]*cur)%10);
+    return ret;
+}
+ 
 int main() {
-    fastIO(); 
+    fastIO();
     cin >> n;
-    d.assign(n, 0);
+    d.assign(n+2, 0);
     forn(i, n) cin >> d[i];
-    forn(i, 10) {
-        memset(memo, -1, sizeof(memo));
-        ll ans = dp(0, d[0], i);
-        cout << ans << endl;
-    }
+    memset(ans, 0, sizeof(ans));
+    // bf(0, d[0], d[1]);
+    // forn(i, 10) {
+    //     cout << i <<" " << ans[i] << endl;
+    // }
+    memset(memo, -1, sizeof(memo));
+    int a = dp(0, d[0]);
+    forn(i, 10)
+        cout << memo[n-1][i] << endl;
     return 0;
 }
 

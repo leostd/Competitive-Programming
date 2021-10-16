@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/UVa Online Judge/11573 - Ocean Currents/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "11573 - Ocean Currents",
+      "group": "UVa Online Judge",
+      "url": "https://onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=2620",
+      "memoryLimit": 32,
+      "timeLimit": 3000
+    }
+  }
+}

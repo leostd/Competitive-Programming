@@ -70,11 +70,14 @@ template <typename A, typename B>
 string to_string(pair<A, B> p) {
     return "(" + to_string(p.first) + ", " + to_string(p.second) + ")";
 }
+<<<<<<< HEAD
 
 template <typename A, typename B, typename C>
 string to_string(tuple<A, B, C> p) {
     return "(" + to_string(get<0>(p)) + ", " + to_string(get<1>(p)) + ", " + to_string(get<2>(p)) + ")";
 }
+=======
+>>>>>>> update
     
 template <typename A>
 string to_string(A v) {
@@ -138,6 +141,7 @@ const ld EPS = 1e-9;
 //#############################
 const int MAXN = 1000005;
 
+<<<<<<< HEAD
 int n;
 ll parent[MAXN], sz[MAXN];
 vector<lll> edges;
@@ -194,6 +198,14 @@ int main() {
 
     cout << ans << endl;
 
+=======
+int n, m; // sizes
+vector<vector<int>> g; //graph, grid
+ 
+int main() {
+    fastIO(); 
+    
+>>>>>>> update
     return 0;
 }
 

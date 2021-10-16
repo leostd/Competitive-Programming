@@ -134,45 +134,92 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
-int main() {
-    fastIO();
-    int t;
-    string s1, s2; 
-    cin >> n >> t;
-    cin >> s1 >> s2;
+vector<int> ps;
 
-    vector<int> diff(n, 0);
-    int sum = 0;
-    forn(i, n)
-        diff[i] = (s1[i] != s2[i]), sum += diff[i];
-    int mn = sum/2 + (sum%2);
-    if (t < mn) {
+int sum(int a, int b) {
+    return ps[b+1] - ps[a];
+}
+
+char next(char x) {
+    int a = x - 'a';
+    a++;
+    a %= 26;
+    a += 'a';
+
+    return (char)a;
+}
+
+char get(char a, char b) {
+    char x = 'a';
+    while(x == a || x == b) {
+        x = next(x);
+    }
+
+    return x;
+}
+
+int main() {
+    fastIO(); 
+    double t;
+    cin >> n >> t;
+    string a, b;
+    cin >> a >> b;
+    
+    int ds = 0;
+    vector<bool> diff(n, 1);
+    forn(i, n) {
+        diff[i] = a[i] != b[i];
+        ds += diff[i];
+    }
+
+    ps.clear();
+    ps.assign(n+1, 0);
+    for1(i, n+1) {
+        ps[i] = ps[i-1] + diff[i-1];
+    }
+
+    if (t < (ds/2 + (ds % 2)) || t > n) {
         cout << -1 << endl;
         return 0;
     }
 
+    string c;
+    int cnt = 0;
+    int ones = ds / 2;
     bool flag = true;
-    string ans;
-    int cnt = t - mn;
+    
     forn(i, n) {
-        if (diff[i]) ans.pb((flag? s1[i] : s2[i])), flag = !flag;
-        else if (cnt) {
-            char c = s1[i];
-            int next = ((c - 'a' + 1) % 26) + 'a';
-            while((char)next == s1[i] || (char)s2[i] == next)
-                next = ((next - 'a' + 1) % 26) + 'a';
-            ans.pb((char)next);
-            cnt--;
-        } else {
-            ans.pb(s1[i]);
+        if (!diff[i]) {
+            c.pb(a[i]);
+            continue;
+        }
+
+        if(t >= sum(i, n-1)) {
+            c.pb(get(a[i], b[i]));
+            t--;
+        } else if (t < sum(i, n-1)) {
+            c.pb(flag?a[i]:b[i]);
+            flag = !flag;
+            t -= 0.5;
         }
     }
 
-    dbg(ans);
-    cout << ans << endl;
+    forn(i, n) {
+        if (!t) break;
+        if (diff[i]) continue;
 
-    
+        c[i] = get(a[i], b[i]);
+        t--;
+    }
+
+    dbg(c);
+
+    if (t == 0) {
+        cout << c << endl;
+    } else {
+        cout << -1 << endl;
+    }
+
     return 0;
 }
 

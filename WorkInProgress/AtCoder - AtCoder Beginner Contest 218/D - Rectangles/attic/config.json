@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 218/D - Rectangles/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D - Rectangles",
+      "group": "AtCoder - AtCoder Beginner Contest 218",
+      "url": "https://atcoder.jp/contests/abc218/tasks/abc218_d",
+      "memoryLimit": 1024,
+      "timeLimit": 4000
+    }
+  }
+}

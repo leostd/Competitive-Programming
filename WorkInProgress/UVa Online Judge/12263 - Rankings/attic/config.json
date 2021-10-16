@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/UVa Online Judge/12263 - Rankings/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "12263 - Rankings",
+      "group": "UVa Online Judge",
+      "url": "https://onlinejudge.org/index.php?option=onlinejudge&Itemid=8&page=show_problem&problem=3415",
+      "memoryLimit": 32,
+      "timeLimit": 3000
+    }
+  }
+}
