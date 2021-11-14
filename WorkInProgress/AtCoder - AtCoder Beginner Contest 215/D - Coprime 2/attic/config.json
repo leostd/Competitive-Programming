@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 215/D - Coprime 2/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D - Coprime 2",
+      "group": "AtCoder - AtCoder Beginner Contest 215",
+      "url": "https://atcoder.jp/contests/abc215/tasks/abc215_d",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

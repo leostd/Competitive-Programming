@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #753 (Div. 3)/D. Blue-Red Permutation/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D. Blue-Red Permutation",
+      "group": "Codeforces - Codeforces Round #753 (Div. 3)",
+      "url": "http://codeforces.com/contest/1607/problem/D",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}
