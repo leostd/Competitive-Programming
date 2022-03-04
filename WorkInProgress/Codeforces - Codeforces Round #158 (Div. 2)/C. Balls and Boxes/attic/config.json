@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #158 (Div. 2)/C. Balls and Boxes/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Balls and Boxes",
+      "group": "Codeforces - Codeforces Round #158 (Div. 2)",
+      "url": "https://codeforces.com/contest/260/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

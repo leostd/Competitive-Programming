@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Virtual Judge - LightOJ/Palindromic Numbers/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Palindromic Numbers",
+      "group": "Virtual Judge - LightOJ",
+      "url": "https://vjudge.net/problem/LightOJ-1205#author=raisul_bs23",
+      "memoryLimit": 65,
+      "timeLimit": 1000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 37 (Rated for Div. 2)/C. Swap Adjacent Elements/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Swap Adjacent Elements",
+      "group": "Codeforces - Educational Codeforces Round 37 (Rated for Div. 2)",
+      "url": "https://codeforces.com/problemset/problem/920/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #771 (Div. 2)/B. Odd Swap Sort/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Odd Swap Sort",
+      "group": "Codeforces - Codeforces Round #771 (Div. 2)",
+      "url": "https://codeforces.com/contest/1638/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

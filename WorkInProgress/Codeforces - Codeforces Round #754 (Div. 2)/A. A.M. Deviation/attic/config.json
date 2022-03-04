@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #754 (Div. 2)/A. A.M. Deviation/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. A.M. Deviation",
+      "group": "Codeforces - Codeforces Round #754 (Div. 2)",
+      "url": "http://codeforces.com/contest/1605/problem/A",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

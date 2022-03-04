@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 114 (Rated for Div. 2)/C. Slay the Dragon/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Slay the Dragon",
+      "group": "Codeforces - Educational Codeforces Round 114 (Rated for Div. 2)",
+      "url": "http://codeforces.com/problemset/problem/1574/C",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

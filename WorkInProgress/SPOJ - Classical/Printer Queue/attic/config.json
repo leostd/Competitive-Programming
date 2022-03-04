@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/SPOJ - Classical/Printer Queue/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Printer Queue",
+      "group": "SPOJ - Classical",
+      "url": "https://www.spoj.com/problems/PQUEUE/",
+      "memoryLimit": 1536,
+      "timeLimit": 1000
+    }
+  }
+}

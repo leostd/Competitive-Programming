@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 51 (Rated for Div. 2)/A. Vasya And Password/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Vasya And Password",
+      "group": "Codeforces - Educational Codeforces Round 51 (Rated for Div. 2)",
+      "url": "https://codeforces.com/problemset/problem/1051/A",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/SPOJ - Tutorial/Innovative Combination/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Innovative Combination",
+      "group": "SPOJ - Tutorial",
+      "url": "https://www.spoj.com/problems/CDC12_I/",
+      "memoryLimit": 1536,
+      "timeLimit": 1000
+    }
+  }
+}

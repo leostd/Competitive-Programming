@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - COMPFEST 13 - Finals Online Mirror (Unrated, ICPC Rules, Teams Preferred)/J. Jeopardy of Dropped Balls/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "J. Jeopardy of Dropped Balls",
+      "group": "Codeforces - COMPFEST 13 - Finals Online Mirror (Unrated, ICPC Rules, Teams Preferred)",
+      "url": "http://codeforces.com/problemset/problem/1575/J",
+      "memoryLimit": 512,
+      "timeLimit": 2000
+    }
+  }
+}

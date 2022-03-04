@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 50 (Rated for Div. 2)/C. Classy Numbers/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Classy Numbers",
+      "group": "Codeforces - Educational Codeforces Round 50 (Rated for Div. 2)",
+      "url": "https://codeforces.com/contest/1036/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 3000
+    }
+  }
+}

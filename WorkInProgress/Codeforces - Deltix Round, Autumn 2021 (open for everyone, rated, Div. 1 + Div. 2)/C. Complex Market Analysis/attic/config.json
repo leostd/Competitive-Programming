@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Deltix Round, Autumn 2021 (open for everyone, rated, Div. 1 + Div. 2)/C. Complex Market Analysis/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Complex Market Analysis",
+      "group": "Codeforces - Deltix Round, Autumn 2021 (open for everyone, rated, Div. 1 + Div. 2)",
+      "url": "http://codeforces.com/contest/1609/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

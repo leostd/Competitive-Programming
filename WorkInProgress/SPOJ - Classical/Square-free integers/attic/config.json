@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/SPOJ - Classical/Square-free integers/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Square-free integers",
+      "group": "SPOJ - Classical",
+      "url": "https://www.spoj.com/problems/SQFREE/",
+      "memoryLimit": 1536,
+      "timeLimit": 2177
+    }
+  }
+}

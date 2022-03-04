@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #766 (Div. 2)/C. Not Assigning/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Not Assigning",
+      "group": "Codeforces - Codeforces Round #766 (Div. 2)",
+      "url": "https://codeforces.com/problemset/problem/1627/C",
+      "memoryLimit": 256,
+      "timeLimit": 1500
+    }
+  }
+}

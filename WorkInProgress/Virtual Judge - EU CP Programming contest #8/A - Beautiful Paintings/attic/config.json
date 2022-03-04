@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Virtual Judge - EU CP Programming contest #8/A - Beautiful Paintings/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A - Beautiful Paintings",
+      "group": "Virtual Judge - EU CP Programming contest #8",
+      "url": "https://vjudge.net/contest/481282#problem/A",
+      "memoryLimit": 262,
+      "timeLimit": 1000
+    }
+  }
+}

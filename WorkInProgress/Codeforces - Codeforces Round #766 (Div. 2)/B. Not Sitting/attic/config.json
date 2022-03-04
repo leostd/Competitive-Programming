@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #766 (Div. 2)/B. Not Sitting/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Not Sitting",
+      "group": "Codeforces - Codeforces Round #766 (Div. 2)",
+      "url": "https://codeforces.com/problemset/problem/1627/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 116 (Rated for Div. 2)/C. Banknotes/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Banknotes",
+      "group": "Codeforces - Educational Codeforces Round 116 (Rated for Div. 2)",
+      "url": "http://codeforces.com/contest/1606/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #765 (Div. 2)/A. Ancient Civilization/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Ancient Civilization",
+      "group": "Codeforces - Codeforces Round #765 (Div. 2)",
+      "url": "https://codeforces.com/contest/1625/problem/A",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

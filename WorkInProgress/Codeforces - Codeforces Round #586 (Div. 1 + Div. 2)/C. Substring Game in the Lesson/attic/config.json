@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #586 (Div. 1 + Div. 2)/C. Substring Game in the Lesson/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Substring Game in the Lesson",
+      "group": "Codeforces - Codeforces Round #586 (Div. 1 + Div. 2)",
+      "url": "https://codeforces.com/contest/1220/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}
