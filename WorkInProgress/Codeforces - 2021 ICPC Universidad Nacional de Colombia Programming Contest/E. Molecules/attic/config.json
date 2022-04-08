@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - 2021 ICPC Universidad Nacional de Colombia Programming Contest/E. Molecules/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "E. Molecules",
+      "group": "Codeforces - 2021 ICPC Universidad Nacional de Colombia Programming Contest",
+      "url": "https://codeforces.com/gym/103577/problem/E",
+      "memoryLimit": 256,
+      "timeLimit": 3000
+    }
+  }
+}

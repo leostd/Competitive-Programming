@@ -1,0 +1,10 @@
+{
+  "files.associations": {
+    "exception": "cpp",
+    "ios": "cpp",
+    "random": "cpp",
+    "system_error": "cpp",
+    "type_traits": "cpp",
+    "algorithm": "cpp"
+  }
+}

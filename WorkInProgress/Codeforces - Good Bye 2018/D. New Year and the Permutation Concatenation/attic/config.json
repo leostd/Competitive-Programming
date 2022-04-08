@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Good Bye 2018/D. New Year and the Permutation Concatenation/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D. New Year and the Permutation Concatenation",
+      "group": "Codeforces - Good Bye 2018",
+      "url": "https://codeforces.com/problemset/problem/1091/D",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

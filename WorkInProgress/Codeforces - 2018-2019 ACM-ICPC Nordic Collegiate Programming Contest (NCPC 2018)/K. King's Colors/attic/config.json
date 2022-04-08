@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - 2018-2019 ACM-ICPC Nordic Collegiate Programming Contest (NCPC 2018)/K. King's Colors/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "K. King's Colors",
+      "group": "Codeforces - 2018-2019 ACM-ICPC Nordic Collegiate Programming Contest (NCPC 2018)",
+      "url": "https://codeforces.com/gym/101933/problem/K",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

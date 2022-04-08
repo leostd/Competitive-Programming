@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/SPOJ - Classical/Shopping/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "Shopping",
+      "group": "SPOJ - Classical",
+      "url": "https://www.spoj.com/problems/SHOP/",
+      "memoryLimit": 1536,
+      "timeLimit": 3000
+    }
+  }
+}

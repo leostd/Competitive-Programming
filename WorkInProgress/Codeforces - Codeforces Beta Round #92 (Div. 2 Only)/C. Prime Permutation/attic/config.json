@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Beta Round #92 (Div. 2 Only)/C. Prime Permutation/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Prime Permutation",
+      "group": "Codeforces - Codeforces Beta Round #92 (Div. 2 Only)",
+      "url": "https://codeforces.com/contest/124/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

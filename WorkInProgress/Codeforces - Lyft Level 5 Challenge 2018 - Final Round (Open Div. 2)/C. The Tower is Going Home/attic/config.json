@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Lyft Level 5 Challenge 2018 - Final Round (Open Div. 2)/C. The Tower is Going Home/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. The Tower is Going Home",
+      "group": "Codeforces - Lyft Level 5 Challenge 2018 - Final Round (Open Div. 2)",
+      "url": "https://codeforces.com/contest/1075/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

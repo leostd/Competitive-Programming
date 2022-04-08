@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - 2021 ICPC Universidad Nacional de Colombia Programming Contest/M. Classroom Reordering/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "M. Classroom Reordering",
+      "group": "Codeforces - 2021 ICPC Universidad Nacional de Colombia Programming Contest",
+      "url": "https://codeforces.com/gym/103577/problem/M",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

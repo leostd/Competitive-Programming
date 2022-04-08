@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/Users/lsantel/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #774 (Div. 2)/C. Factorials and Powers of Two/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Factorials and Powers of Two",
+      "group": "Codeforces - Codeforces Round #774 (Div. 2)",
+      "url": "https://codeforces.com/contest/1646/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 3000
+    }
+  }
+}
