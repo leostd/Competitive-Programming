@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #743 (Div. 2)/B. Swaps/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Swaps",
+      "group": "Codeforces - Codeforces Round #743 (Div. 2)",
+      "url": "http://codeforces.com/problemset/problem/1573/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

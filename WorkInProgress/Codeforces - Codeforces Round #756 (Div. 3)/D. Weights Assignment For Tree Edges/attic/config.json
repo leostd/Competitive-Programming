@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #756 (Div. 3)/D. Weights Assignment For Tree Edges/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D. Weights Assignment For Tree Edges",
+      "group": "Codeforces - Codeforces Round #756 (Div. 3)",
+      "url": "https://codeforces.com/problemset/problem/1611/D",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

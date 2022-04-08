@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #760 (Div. 3)/D. Array and Operations/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D. Array and Operations",
+      "group": "Codeforces - Codeforces Round #760 (Div. 3)",
+      "url": "https://codeforces.com/problemset/problem/1618/D",
+      "memoryLimit": 512,
+      "timeLimit": 2000
+    }
+  }
+}

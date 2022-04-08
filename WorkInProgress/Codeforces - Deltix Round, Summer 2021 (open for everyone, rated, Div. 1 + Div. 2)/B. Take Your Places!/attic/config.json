@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Deltix Round, Summer 2021 (open for everyone, rated, Div. 1 + Div. 2)/B. Take Your Places!/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Take Your Places!",
+      "group": "Codeforces - Deltix Round, Summer 2021 (open for everyone, rated, Div. 1 + Div. 2)",
+      "url": "https://codeforces.com/problemset/problem/1556/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

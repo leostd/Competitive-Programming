@@ -64,6 +64,14 @@ string to_string(const char* s) {
 string to_string(bool b) {
     return (b ? "true" : "false");
 }
+<<<<<<< HEAD
+=======
+
+template <typename A, typename B, typename C>
+string to_string(tuple<A, B, C> t) {
+    return "(" + to_string(get<0>(t)) + ", " + to_string(get<1>(t)) + ", " + to_string(get<2>(t)) + ")";
+}
+>>>>>>> Update
     
 template <typename A, typename B>
 string to_string(pair<A, B> p) {

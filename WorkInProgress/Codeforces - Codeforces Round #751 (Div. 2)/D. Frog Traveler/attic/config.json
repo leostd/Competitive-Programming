@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #751 (Div. 2)/D. Frog Traveler/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D. Frog Traveler",
+      "group": "Codeforces - Codeforces Round #751 (Div. 2)",
+      "url": "http://codeforces.com/contest/1602/problem/D",
+      "memoryLimit": 512,
+      "timeLimit": 2000
+    }
+  }
+}

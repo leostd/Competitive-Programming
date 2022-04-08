@@ -29,6 +29,7 @@
 using namespace std;
  
 #define mp make_pair
+#define mt make_tuple
 #define pb push_back
 #define forn(i, n) for(int i = 0; i < (int)(n); ++i)
 #define for1(i, n) for(int i = 1; i < (int)(n); ++i)
@@ -46,6 +47,8 @@ typedef pair<ll, int> pli;
 typedef pair<ll, ll> pll;
 typedef long double ld;
 typedef tuple<int,int,int> iii;
+typedef tuple<ll, ll, ll> lll;
+typedef tuple<ld, ld, ld> ddd;
  
 template<typename T> inline T abs(T a){ return ((a < 0) ? -a : a); }
 template<typename T> inline T sqr(T a){ return a * a; }
@@ -64,9 +67,11 @@ string to_string(const char* s) {
 string to_string(bool b) {
     return (b ? "true" : "false");
 }
+string to_string(tuple<A, B, C> t) {
+    return "(" + to_string(get<0>(t)) + ", " + to_string(get<1>(t)) + ", " + to_string(get<2>(t)) + ")";
+}
     
 template <typename A, typename B>
-string to_string(pair<A, B> p) {
     return "(" + to_string(p.first) + ", " + to_string(p.second) + ")";
 }
     
@@ -133,16 +138,18 @@ const ld EPS = 1e-9;
 const int MAXN = 500005;
 
 int n, m; // sizes
-vector<vector<int>> g; //graph, grid
-vector<int> p(MAXN);
-vector<int> sz(MAXN);
-
+int p[MAXN], sz[MAXN];
+ 
 void init() {
-    forn(i, MAXN) p[i] = i, sz[i] = 1;
+    forn(i, MAXN) {
+        p[i] = i;
+        sz[i] = 1;
+    }
 }
 
 int f(int x) {
-    if (x == p[x]) return x;
+    if (x == p[x])
+        return x;
     return p[x] = f(p[x]);
 }
 
@@ -152,65 +159,55 @@ void u(int x, int y) {
 
     if (rx == ry) return;
 
-    if(sz[rx] > sz[ry]) {
-        sz[rx] += sz[ry];
+    if (sz[rx] > sz[ry]) {
         p[ry] = rx;
+        sz[rx] += sz[ry];
     } else {
-        sz[ry] += sz[rx];
         p[rx] = ry;
+        sz[ry] += sz[rx];
     }
 }
 
 int main() {
-    fastIO(); 
+    fastIO();
+    init(); 
     cin >> n;
     vector<int> a(n+1);
     set<int> vis;
     for1(i, n+1) cin >> a[i], vis.insert(i);
-    dbg(a);
     vector<int> ans(n+1);
-    init();
-    int j = 1;
+    int j = 0;
     for1(i, n+1) {
-        dbg(i);
-        int fi = f(i);
-        int fai = f(a[i]);
-        dbg(i, a[i], fi, fai);
-        if (fi != fai && vis.count(a[i])) {
+        int x = f(i);
+        int y = f(a[i]);
+        if (x != y) {
+            u(x, y);
             vis.erase(a[i]);
-            ans[j] = a[i];
-            u(i, a[i]);
+            ans[i] = a[i];
         } else {
             break;
         }
         j++;
     }
-    dbg(ans);
-    dbg(vis);
-    auto it = vis.begin();
-    while(j < n && vis.size() > 1) {
-        dbg(j);
-        int fit = f(*it);
-        int fj = f(j);
-        if (fit != fj) {
-            ans[j] = *it;
-            u(j, *it);
-            vis.erase(*it);
-            j++;
-            it = vis.begin();
-        } else {
-            ++it;
+    while (!vis.empty()) {
+        auto x = vis.begin();
+        while(true) {
+            int rx = f(*x);
+            int ry = f(j);
+            if (rx != ry) {
+                u(rx, j);
+                vis.erase(*x);
+                ans[j] = *x;
+                break;
+            }
+            x++;
         }
     }
-
-    ans[n] = *vis.begin();
     dbg(ans);
-    ans.erase(ans.begin());
-    for(auto x : ans) {
-        cout << x << " ";
+    for(auto w : ans) {
+        cout << w << " ";
     }
     cout << endl;
-
     return 0;
 }
 

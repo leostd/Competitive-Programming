@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 224/D - 8 Puzzle on Graph/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D - 8 Puzzle on Graph",
+      "group": "AtCoder - AtCoder Beginner Contest 224",
+      "url": "https://atcoder.jp/contests/abc224/tasks/abc224_d",
+      "memoryLimit": 1024,
+      "timeLimit": 4000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #514 (Div. 2)/C. Sequence Transformation/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Sequence Transformation",
+      "group": "Codeforces - Codeforces Round #514 (Div. 2)",
+      "url": "https://codeforces.com/problemset/problem/1059/C",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

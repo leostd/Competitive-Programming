@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 113 (Rated for Div. 2)/C. Jury Meeting/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Jury Meeting",
+      "group": "Codeforces - Educational Codeforces Round 113 (Rated for Div. 2)",
+      "url": "http://codeforces.com/problemset/problem/1569/C",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

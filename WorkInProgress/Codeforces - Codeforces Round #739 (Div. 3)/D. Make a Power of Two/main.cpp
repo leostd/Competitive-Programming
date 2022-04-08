@@ -29,6 +29,10 @@
 using namespace std;
  
 #define mp make_pair
+<<<<<<< HEAD
+=======
+#define mt make_tuple
+>>>>>>> Update
 #define pb push_back
 #define forn(i, n) for(int i = 0; i < (int)(n); ++i)
 #define for1(i, n) for(int i = 1; i < (int)(n); ++i)
@@ -46,6 +50,11 @@ typedef pair<ll, int> pli;
 typedef pair<ll, ll> pll;
 typedef long double ld;
 typedef tuple<int,int,int> iii;
+<<<<<<< HEAD
+=======
+typedef tuple<ll, ll, ll> lll;
+typedef tuple<ld, ld, ld> ddd;
+>>>>>>> Update
  
 template<typename T> inline T abs(T a){ return ((a < 0) ? -a : a); }
 template<typename T> inline T sqr(T a){ return a * a; }
@@ -63,6 +72,11 @@ string to_string(const char* s) {
     
 string to_string(bool b) {
     return (b ? "true" : "false");
+}
+
+template <typename A, typename B, typename C>
+string to_string(tuple<A, B, C> t) {
+    return "(" + to_string(get<0>(t)) + ", " + to_string(get<1>(t)) + ", " + to_string(get<2>(t)) + ")";
 }
     
 template <typename A, typename B>
@@ -134,15 +148,54 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
+vector<string> p2;
+
+int takeChars(string a, string b) {
+    int ret = 0;
+    int i, j;
+    i = j = 0;
+    n = a.size();
+    m = b.size();
+
+    while(i < n && j < m) {
+        if (a[i] == b[j]) {
+            ret++;
+            i++;
+            j++;
+        } else {
+            i++;
+        }
+    }
+
+    return ret;
+}
  
+void solve() {
+    string x;
+    cin >> x;
+
+    int nn = p2.size();
+    ll ans = INF;
+    forn(i, nn) {
+        int taken = takeChars(x, p2[i]);
+        int cur = p2[i].size() + x.size() - 2 * taken;
+        ans = min(ans, (ll)cur);
+    }
+
+    cout << ans << endl;
+}
+
 int main() {
     fastIO(); 
-    vector<string> p2;
+    int t = nxt();
     forn(i, 61) {
         ll x = (1LL << i);
         p2.pb(to_string(x));
+        // cout << x << endl;
     }
-    
+    while(t--) {
+        solve();
+    }
     return 0;
 }
 

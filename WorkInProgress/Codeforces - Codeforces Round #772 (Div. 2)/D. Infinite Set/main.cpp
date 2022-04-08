@@ -29,6 +29,10 @@
 using namespace std;
  
 #define mp make_pair
+<<<<<<< HEAD
+=======
+#define mt make_tuple
+>>>>>>> Update
 #define pb push_back
 #define forn(i, n) for(int i = 0; i < (int)(n); ++i)
 #define for1(i, n) for(int i = 1; i < (int)(n); ++i)

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 117 (Rated for Div. 2)/C. Chat Ban/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Chat Ban",
+      "group": "Codeforces - Educational Codeforces Round 117 (Rated for Div. 2)",
+      "url": "https://codeforces.com/problemset/problem/1612/C",
+      "memoryLimit": 512,
+      "timeLimit": 2000
+    }
+  }
+}

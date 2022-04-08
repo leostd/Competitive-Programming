@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 122 (Rated for Div. 2)/C. Kill the Monster/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Kill the Monster",
+      "group": "Codeforces - Educational Codeforces Round 122 (Rated for Div. 2)",
+      "url": "https://codeforces.com/problemset/problem/1633/C",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 120 (Rated for Div. 2)/A. Construct a Rectangle/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Construct a Rectangle",
+      "group": "Codeforces - Educational Codeforces Round 120 (Rated for Div. 2)",
+      "url": "http://codeforces.com/contest/1622/problem/0",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

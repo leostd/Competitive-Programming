@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 224/C - Triangle?/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C - Triangle?",
+      "group": "AtCoder - AtCoder Beginner Contest 224",
+      "url": "https://atcoder.jp/contests/abc224/tasks/abc224_c",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Kotlin Heroes: Episode 8/B. Epic Novel/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Epic Novel",
+      "group": "Codeforces - Kotlin Heroes: Episode 8",
+      "url": "https://codeforces.com/problemset/problem/1571/B",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

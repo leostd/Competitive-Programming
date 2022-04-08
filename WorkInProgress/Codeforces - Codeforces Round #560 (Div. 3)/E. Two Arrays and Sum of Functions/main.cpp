@@ -29,6 +29,10 @@
 using namespace std;
  
 #define mp make_pair
+<<<<<<< HEAD
+=======
+#define mt make_tuple
+>>>>>>> Update
 #define pb push_back
 #define forn(i, n) for(int i = 0; i < (int)(n); ++i)
 #define for1(i, n) for(int i = 1; i < (int)(n); ++i)
@@ -46,6 +50,11 @@ typedef pair<ll, int> pli;
 typedef pair<ll, ll> pll;
 typedef long double ld;
 typedef tuple<int,int,int> iii;
+<<<<<<< HEAD
+=======
+typedef tuple<ll, ll, ll> lll;
+typedef tuple<ld, ld, ld> ddd;
+>>>>>>> Update
  
 template<typename T> inline T abs(T a){ return ((a < 0) ? -a : a); }
 template<typename T> inline T sqr(T a){ return a * a; }

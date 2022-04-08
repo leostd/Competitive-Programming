@@ -142,20 +142,27 @@ void solve() {
     dbg(n, c, s);
     char x = c[0];
 
-    bool f1 = any_of(s.begin(), s.begin()+n-1, [&](char y) {return y != x;});
-    bool f2 = s[n-1] != x;
-    if (!f1 && !f2) {
+
+    if (all_of(all(s), [&](char y){return y == x;})) {
         cout << 0 << endl;
-    } else if (!f1 && f2) {
+        return;
+    }
+
+    // abcdef
+    int last = -1;
+    forn(i, n) {
+        if (s[i] == x)
+            last = i+1;
+    }
+
+    if (last > n/2) {
         cout << 1 << endl;
-        cout << n-1 << endl;
-    } else if (f1 && !f2) {
-        cout << 1 << endl;
-        cout << n << endl;
-    } else if (f1 && f2) {
+        cout << last << endl;
+    } else {
         cout << 2 << endl;
         cout << n-1 << " " << n << endl;
     }
+
 }
 
 int main() {

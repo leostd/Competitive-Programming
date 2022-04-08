@@ -29,6 +29,10 @@
 using namespace std;
  
 #define mp make_pair
+<<<<<<< HEAD
+=======
+#define mt make_tuple
+>>>>>>> Update
 #define pb push_back
 #define forn(i, n) for(int i = 0; i < (int)(n); ++i)
 #define for1(i, n) for(int i = 1; i < (int)(n); ++i)
@@ -46,6 +50,11 @@ typedef pair<ll, int> pli;
 typedef pair<ll, ll> pll;
 typedef long double ld;
 typedef tuple<int,int,int> iii;
+<<<<<<< HEAD
+=======
+typedef tuple<ll, ll, ll> lll;
+typedef tuple<ld, ld, ld> ddd;
+>>>>>>> Update
  
 template<typename T> inline T abs(T a){ return ((a < 0) ? -a : a); }
 template<typename T> inline T sqr(T a){ return a * a; }
@@ -64,6 +73,14 @@ string to_string(const char* s) {
 string to_string(bool b) {
     return (b ? "true" : "false");
 }
+<<<<<<< HEAD
+=======
+
+template <typename A, typename B, typename C>
+string to_string(tuple<A, B, C> t) {
+    return "(" + to_string(get<0>(t)) + ", " + to_string(get<1>(t)) + ", " + to_string(get<2>(t)) + ")";
+}
+>>>>>>> Update
     
 template <typename A, typename B>
 string to_string(pair<A, B> p) {
@@ -132,62 +149,100 @@ const ld EPS = 1e-9;
 //#############################
 const int MAXN = 1000005;
 
-int n, m; // sizes
+int n, m, k; // sizes
 vector<vector<int>> g; //graph, grid
  
-void solve() {
-    int k;
-    cin >> n >> k;
-    
-    string s;
-    cin >> s;
-    vector<int> f(30, 0);
-    if (n == k) {
-        cout << 1 << endl;
-        return;
-    }
-    for(auto x : s) {
-        f[x-'a']++;
-    }
-    dbg(f);
-    priority_queue<int, vector<int>, greater<int>> pq;
-    forn(i, k) pq.push(0);
-
-    for(int i = 0; i < 26; i++) {
-        int a = pq.top();
-        if (a == 1) break;
-
+bool buildOddPal(int tsz, vector<int> &f) {
+    int csz = 0;
+    forn(i, 26) {
         if (f[i] % 2) {
-            a++;
-            pq.pop();
-            pq.push(a);
+            csz = 1;
             f[i]--;
+            break;
         }
     }
 
-    dbg(pq.top());
+    if (csz == 0) {
+        forn(i, 26) {
+            if (f[i] >= 1) {
+                csz++;
+                f[i]--;
+                break;
+            }
+        }
+    }
 
     forn(i, 26) {
-        while(f[i] >= 2) {
-            dbg(f[i]);
-            int a = pq.top();
-            a += 2;
+        if (csz == tsz) break;
+        while(f[i] >= 2 && csz < tsz) {
+            csz += 2;
             f[i] -= 2;
-            pq.pop();
-            pq.push(a);
         }
     }
 
-    cout << pq.top() << endl;
+    return tsz == csz;
 }
 
+bool buildEvenPal(int tsz, vector<int> &f) {
+    int csz = 0;
+    forn(i, 26) {
+        if (csz == tsz) break;
+        while(f[i] >= 2 && csz < tsz) {
+            csz += 2;
+            f[i] -= 2;
+        }
+    }
+
+    return csz == tsz;
+}
+
+bool buildPal(int tsz, vector<int> &f) {
+    if (tsz % 2 == 0) {
+        return buildEvenPal(tsz, f);
+    } else {
+        return buildOddPal(tsz, f);
+    }
+}
+
+bool can(int tsz, vector<int> f) {
+    bool ret = true;
+    forn(i, k) {
+        ret = ret && buildPal(tsz, f);
+    }
+
+    return ret;
+}
+
+void solve() {
+    string s;
+    cin >> n >> k >> s;
+    
+    vector<int> f(30, 0);
+    for(auto x : s) f[x-'a']++;
+
+    int l = 1, r = (n+k-1)/k, mid;
+    while(r - l > 1) {
+        mid = (r-l)/2 + l;
+        if (can(mid, f)) {
+            l = mid;
+        } else {
+            r = mid-1;
+        }
+    }
+
+    cout << (can(r, f) ? r : l) << endl;
+}   
+
 int main() {
-    fastIO();
+    fastIO(); 
     int t = nxt();
     while(t--) {
         solve();
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> Update
     return 0;
 }
 

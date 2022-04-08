@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 223/D - Restricted Permutation/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D - Restricted Permutation",
+      "group": "AtCoder - AtCoder Beginner Contest 223",
+      "url": "https://atcoder.jp/contests/abc223/tasks/abc223_d",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

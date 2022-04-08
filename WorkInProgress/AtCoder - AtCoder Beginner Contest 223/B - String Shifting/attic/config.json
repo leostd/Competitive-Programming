@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/AtCoder - AtCoder Beginner Contest 223/B - String Shifting/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B - String Shifting",
+      "group": "AtCoder - AtCoder Beginner Contest 223",
+      "url": "https://atcoder.jp/contests/abc223/tasks/abc223_b",
+      "memoryLimit": 1024,
+      "timeLimit": 2000
+    }
+  }
+}

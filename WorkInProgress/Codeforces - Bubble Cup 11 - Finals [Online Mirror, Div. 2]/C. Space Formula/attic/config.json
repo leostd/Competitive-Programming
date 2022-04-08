@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Bubble Cup 11 - Finals [Online Mirror, Div. 2]/C. Space Formula/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Space Formula",
+      "group": "Codeforces - Bubble Cup 11 - Finals [Online Mirror, Div. 2]",
+      "url": "https://codeforces.com/contest/1046/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

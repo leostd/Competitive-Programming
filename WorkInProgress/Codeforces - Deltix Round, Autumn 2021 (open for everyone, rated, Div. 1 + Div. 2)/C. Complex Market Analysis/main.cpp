@@ -194,8 +194,11 @@ void solve() {
             int nn = b[i].size();
             while(cur < nn) {
                 r += b[i][cur] == 1;
+<<<<<<< HEAD
                 if (b[i][cur] != 1)
                     break;
+=======
+>>>>>>> Update
                 cur++;
             }
             dbg(l, r);

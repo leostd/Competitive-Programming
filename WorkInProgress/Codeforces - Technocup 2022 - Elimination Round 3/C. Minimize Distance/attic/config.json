@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Technocup 2022 - Elimination Round 3/C. Minimize Distance/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Minimize Distance",
+      "group": "Codeforces - Technocup 2022 - Elimination Round 3",
+      "url": "https://codeforces.com/problemset/problem/1585/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

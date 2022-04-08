@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - 2021 ICPC Universidad Nacional de Colombia Programming Contest/H. Hiking trip/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "H. Hiking trip",
+      "group": "Codeforces - 2021 ICPC Universidad Nacional de Colombia Programming Contest",
+      "url": "https://codeforces.com/group/2wAwWYEIgv/contest/103577/problem/H",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

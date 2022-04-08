@@ -29,6 +29,10 @@
 using namespace std;
  
 #define mp make_pair
+<<<<<<< HEAD
+=======
+#define mt make_tuple
+>>>>>>> Update
 #define pb push_back
 #define forn(i, n) for(int i = 0; i < (int)(n); ++i)
 #define for1(i, n) for(int i = 1; i < (int)(n); ++i)
@@ -46,6 +50,11 @@ typedef pair<ll, int> pli;
 typedef pair<ll, ll> pll;
 typedef long double ld;
 typedef tuple<int,int,int> iii;
+<<<<<<< HEAD
+=======
+typedef tuple<ll, ll, ll> lll;
+typedef tuple<ld, ld, ld> ddd;
+>>>>>>> Update
  
 template<typename T> inline T abs(T a){ return ((a < 0) ? -a : a); }
 template<typename T> inline T sqr(T a){ return a * a; }
@@ -64,6 +73,14 @@ string to_string(const char* s) {
 string to_string(bool b) {
     return (b ? "true" : "false");
 }
+<<<<<<< HEAD
+=======
+
+template <typename A, typename B, typename C>
+string to_string(tuple<A, B, C> t) {
+    return "(" + to_string(get<0>(t)) + ", " + to_string(get<1>(t)) + ", " + to_string(get<2>(t)) + ")";
+}
+>>>>>>> Update
     
 template <typename A, typename B>
 string to_string(pair<A, B> p) {
@@ -135,12 +152,28 @@ const int MAXN = 1000005;
 int n, m, k; // sizes
 vector<vector<int>> g; //graph, grid
 vector<int> c;
-vector<vector<int>> cost;
+vector<vector<ll>> cost;
+ll memo[105][105][105];
 
-void f(int i, int cnt) {
-    if (i == n && cnt != k) return INF;
-    if (i == n && cnt == k) return 0;
-    if (c[i] != 0) f(i+1, cnt + (i > 1 && c[i] == c[i-1]))
+ll dp(int i, int prev, int beauty) {
+    if (i == n && beauty != k) return INF64;
+    if (i == n && beauty == k) return 0;
+
+    ll &ret = memo[i][prev][beauty];
+    if (ret != -1) return ret;
+
+    if (c[i] != 0) {
+        int inc = prev != c[i];
+        return ret = dp(i+1, c[i], beauty + inc);
+    }
+
+    ret = INF64;
+    for1(color, m+1) {
+        int inc = (color != prev);
+        ret = min(ret, dp(i+1, color, beauty+inc) + cost[i][color]);
+    }
+
+    return ret;
 }
 
 int main() {
@@ -148,14 +181,13 @@ int main() {
     cin >> n >> m >> k;
     c.assign(n, 0);
     forn(i, n) cin >> c[i];
-    cost.assign(n, vector<int>(m, 0));
-    forn(i, n) {
-        forn(j, m) {
-            cin >> cost[i][j];
-        }
-    }
-    ans = INF;
-    f(0, 0);
+    dbg(c);
+    cost.assign(n, vector<ll>(m+1, 0));
+    forn(i, n) for1(j, m+1) cin >> cost[i][j];
+    
+    memset(memo, -1, sizeof(memo));
+    ll ans = dp(0, 0, 0);
+    cout << (ans >= INF64 ? -1 : ans) << endl;
     return 0;
 }
 
