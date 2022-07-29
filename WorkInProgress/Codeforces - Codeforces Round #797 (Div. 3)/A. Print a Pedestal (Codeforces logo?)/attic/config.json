@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #797 (Div. 3)/A. Print a Pedestal (Codeforces logo?)/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Print a Pedestal (Codeforces logo?)",
+      "group": "Codeforces - Codeforces Round #797 (Div. 3)",
+      "url": "https://codeforces.com/contest/1690/problem/A",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

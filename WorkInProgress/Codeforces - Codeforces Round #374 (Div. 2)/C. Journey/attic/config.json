@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #374 (Div. 2)/C. Journey/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Journey",
+      "group": "Codeforces - Codeforces Round #374 (Div. 2)",
+      "url": "https://codeforces.com/contest/721/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 3000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #373 (Div. 2)/B. Anatoly and Cockroaches/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Anatoly and Cockroaches",
+      "group": "Codeforces - Codeforces Round #373 (Div. 2)",
+      "url": "https://codeforces.com/contest/719/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

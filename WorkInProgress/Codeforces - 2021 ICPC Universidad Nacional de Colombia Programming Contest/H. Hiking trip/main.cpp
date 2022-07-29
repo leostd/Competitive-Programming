@@ -153,7 +153,7 @@ int main() {
     dbg(p0, p1, p2);
     dbg(d, v0, v1, v2, t);
     double cur, aux0 = 0, aux1 = 0;
-    for(cur = 0.01; cur <= t; cur += 0.001) {
+    for(cur = 0.000001; cur <= t; cur += 0.000001) {
         dbg(cur, p0, p1, p2, v2, aux0, aux1);
         p1 = min(1 + v1 * cur, (double)d);
         p0 = min(v0 * cur, (double)d);

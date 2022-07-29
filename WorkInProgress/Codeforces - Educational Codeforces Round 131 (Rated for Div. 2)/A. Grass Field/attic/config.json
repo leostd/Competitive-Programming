@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 131 (Rated for Div. 2)/A. Grass Field/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Grass Field",
+      "group": "Codeforces - Educational Codeforces Round 131 (Rated for Div. 2)",
+      "url": "https://codeforces.com/contest/1701/problem/A",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

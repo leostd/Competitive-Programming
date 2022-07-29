@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 132 (Rated for Div. 2)/B. Also Try Minecraft/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Also Try Minecraft",
+      "group": "Codeforces - Educational Codeforces Round 132 (Rated for Div. 2)",
+      "url": "https://codeforces.com/contest/1709/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

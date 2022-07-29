@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #259 (Div. 2)/B. Little Pony and Sort by Shift/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Little Pony and Sort by Shift",
+      "group": "Codeforces - Codeforces Round #259 (Div. 2)",
+      "url": "https://codeforces.com/contest/454/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

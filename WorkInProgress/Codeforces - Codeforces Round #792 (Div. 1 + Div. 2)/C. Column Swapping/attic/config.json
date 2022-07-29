@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #792 (Div. 1 + Div. 2)/C. Column Swapping/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Column Swapping",
+      "group": "Codeforces - Codeforces Round #792 (Div. 1 + Div. 2)",
+      "url": "https://codeforces.com/problemset/problem/1684/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

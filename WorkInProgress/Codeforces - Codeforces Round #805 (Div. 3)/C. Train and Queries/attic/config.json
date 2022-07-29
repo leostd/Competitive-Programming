@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #805 (Div. 3)/C. Train and Queries/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Train and Queries",
+      "group": "Codeforces - Codeforces Round #805 (Div. 3)",
+      "url": "https://codeforces.com/contest/1702/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 3000
+    }
+  }
+}

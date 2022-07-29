@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #794 (Div. 1)/A. Circular Local MiniMax/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Circular Local MiniMax",
+      "group": "Codeforces - Codeforces Round #794 (Div. 1)",
+      "url": "https://codeforces.com/problemset/problem/1685/A",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

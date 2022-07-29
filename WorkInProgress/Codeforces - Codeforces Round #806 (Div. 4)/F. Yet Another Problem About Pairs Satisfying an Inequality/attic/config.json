@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #806 (Div. 4)/F. Yet Another Problem About Pairs Satisfying an Inequality/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "F. Yet Another Problem About Pairs Satisfying an Inequality",
+      "group": "Codeforces - Codeforces Round #806 (Div. 4)",
+      "url": "https://codeforces.com/problemset/problem/1703/F",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

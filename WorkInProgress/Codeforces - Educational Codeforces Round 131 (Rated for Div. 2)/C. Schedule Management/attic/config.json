@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 131 (Rated for Div. 2)/C. Schedule Management/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Schedule Management",
+      "group": "Codeforces - Educational Codeforces Round 131 (Rated for Div. 2)",
+      "url": "https://codeforces.com/contest/1701/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

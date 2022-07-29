@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #806 (Div. 4)/D. Double Strings/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D. Double Strings",
+      "group": "Codeforces - Codeforces Round #806 (Div. 4)",
+      "url": "https://codeforces.com/problemset/problem/1703/D",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

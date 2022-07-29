@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #799 (Div. 4)/G. 2^Sort/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "G. 2^Sort",
+      "group": "Codeforces - Codeforces Round #799 (Div. 4)",
+      "url": "https://codeforces.com/problemset/problem/1692/G",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}
