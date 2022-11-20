@@ -13,7 +13,6 @@ using namespace std;
 #define fore(i, l, r) for(int i = int(l); i < int(r); ++i)
 #define correct(x, y, n, m) (0 <= x && x < n && 0 <= y && y < m)
 #define all(x) (x).begin(), (x).end()
-#define lsb(x) ((-x)&(x))
 #define fst first
 #define snd second
 #define endl "\n"
@@ -45,57 +44,16 @@ string to_string(bool b) {
     return (b ? "true" : "false");
 }
 
-template<typename A>
-string to_string(vector<A> v) {
-    bool first = true;
-    string res = "{";
-    for (const auto &x : v) {
-        if (!first) {
-            res += ", ";
-        }
-        first = false;
-        res += to_string(x);
-    }
-    res += "}";
-    return res;
+template <typename A, typename B, typename C>
+string to_string(tuple<A, B, C> t) {
+    return "(" + to_string(get<0>(t)) + ", " + to_string(get<1>(t)) + ", " + to_string(get<2>(t)) + ")";
 }
 
-template<typename A>
-string to_string(priority_queue<A> pq) {
-    bool first = true;
-    string res = "{";
-    int sz = pq.size();
-    forn(i, sz) {
-        if (!first) {
-            res += ", ";
-        }
-        first = false;
-        res += to_string(pq.top());
-        pq.pop();
-    }
-    res += "}";
-    return res;
+template <typename A, typename B>
+string to_string(pair<A, B> p) {
+    return "(" + to_string(p.first) + ", " + to_string(p.second) + ")";
 }
-
-template<typename A>
-string to_string(queue<A> q) {
-    bool first = true;
-    string res = "{";
-    int sz = q.size();
-    forn(i, sz) {
-        if (!first) {
-            res += ", ";
-        }
-        first = false;
-        res += to_string(q.front());
-        q.pop();
-    }
-    res += "}";
-    return res;
-
-}
-
-   
+    
 template <typename A>
 string to_string(A v) {
     bool first = true;
@@ -134,36 +92,61 @@ vector<T> make_unique(vector<T> v) {
     sort(all(v));
     return v.resize(unique(all(v)) - v.begin());
 }
- 
+
 int nxt() {
     int x;
     cin >> x;
     return x;
 }
- 
+
 const int dx[4] = {0, 0, 1, -1};
 const int dy[4] = {1, -1, 0, 0};
 const int dxKn[8] = {-2, -1, 1, 2,  2,  1, -1, -2};
 const int dyKn[8] = { 1,  2, 2, 1, -1, -2, -2, -1};
 const int dxK[8] = {0, 0, 1, -1, 1, 1, -1, -1};
 const int dyK[8] = {1, -1, 0, 0, 1, -1, 1, -1};
- 
+
 const int MOD = int(1e9) + 7;
 const int INF = int(1e9) + 100;
 const ll INF64 = 2e18;
 const ld PI = ld(3.1415926535897932384626433832795);
 const ld e = ld(2.7182818284590452353602874713527);
 const ld EPS = 1e-9;
- 
+
 //#############################
 const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
+
+void solve() {
+    cin >> n;
+    vector<int> a(n);
+    bool yes = false;
+    forn(i, n) cin >> a[i];
+    dbg(a);
+    vector<int> b(n);
+    b[0] = a[0];
+    for1(i, n) {
+        int a1 = b[i-1] + a[i];
+        int a2 = b[i-1] - a[i];
+        dbg(a1, a2);
+        if (a[i] != 0 && a2 >= 0) {
+            cout << -1 << endl;
+            return;
+        }
+        b[i] = a1;
+    }
+    forn(i, n) {
+        cout << b[i] << " ";
+    }
+    cout << endl;
+} 
 int main() {
     fastIO(); 
-    
+    int t;
+    cin >> t;
+    while(t--) {solve();}
     return 0;
 }
 

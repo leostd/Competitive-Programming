@@ -95,7 +95,16 @@ string to_string(queue<A> q) {
 
 }
 
-   
+template <typename A, typename B, typename C>
+string to_string(tuple<A, B, C> t) {
+    return "(" + to_string(get<0>(t)) + ", " + to_string(get<1>(t)) + ", " + to_string(get<2>(t)) + ")";
+}
+
+template <typename A, typename B>
+string to_string(pair<A, B> p) {
+    return "(" + to_string(p.first) + ", " + to_string(p.second) + ")";
+}
+    
 template <typename A>
 string to_string(A v) {
     bool first = true;
@@ -134,36 +143,72 @@ vector<T> make_unique(vector<T> v) {
     sort(all(v));
     return v.resize(unique(all(v)) - v.begin());
 }
- 
+
 int nxt() {
     int x;
     cin >> x;
     return x;
 }
- 
+
 const int dx[4] = {0, 0, 1, -1};
 const int dy[4] = {1, -1, 0, 0};
 const int dxKn[8] = {-2, -1, 1, 2,  2,  1, -1, -2};
 const int dyKn[8] = { 1,  2, 2, 1, -1, -2, -2, -1};
 const int dxK[8] = {0, 0, 1, -1, 1, 1, -1, -1};
 const int dyK[8] = {1, -1, 0, 0, 1, -1, 1, -1};
- 
+
 const int MOD = int(1e9) + 7;
 const int INF = int(1e9) + 100;
 const ll INF64 = 2e18;
 const ld PI = ld(3.1415926535897932384626433832795);
 const ld e = ld(2.7182818284590452353602874713527);
 const ld EPS = 1e-9;
- 
+
 //#############################
 const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
- 
+
+class FenwickTree {
+public:
+    int n;
+    vector<ll> t;
+
+    FenwickTree(int _n) {
+        n = _n+1; // to be safe
+        t.assign(n, 0);
+    }
+
+    void update(int idx, ll val) {
+        // watch out with idx = 0. if that's possible, then do idx++ before
+        while(idx < n) {
+            t[idx] += val;
+            idx += lsb(idx);
+        }
+    }
+
+    ll query(int idx) {
+        // watch out with idx = 0. if that's possible, then do idx++ before
+        ll ret = 0;
+        while(idx) {
+            ret += t[idx];
+            idx -= lsb(idx);
+        }
+        return ret;
+    }
+
+    
+};
+
+string to_string(const FenwickTree &ft) {
+    string res;
+    res = to_string(ft.n) + "\n" + to_string(ft.t);
+    return res;
+}
+
 int main() {
     fastIO(); 
-    
     return 0;
 }
 
