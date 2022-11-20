@@ -46,19 +46,7 @@ string to_string(bool b) {
 }
 
 template<typename A>
-string to_string(vector<A> v) {
-    bool first = true;
-    string res = "{";
-    for (const auto &x : v) {
-        if (!first) {
-            res += ", ";
-        }
-        first = false;
-        res += to_string(x);
-    }
-    res += "}";
-    return res;
-}
+string to_string(vector<A> v);
 
 template<typename A>
 string to_string(priority_queue<A> pq) {
