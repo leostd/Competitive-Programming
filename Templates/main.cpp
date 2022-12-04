@@ -45,6 +45,12 @@ string to_string(bool b) {
     return (b ? "true" : "false");
 }
 
+template<typename A, typename B>
+string to_string(pair<A, B> p) { return "(" + to_string(p.first) + ", " + to_string(p.second) + ")"; }
+
+template<typename A, typename B, typename C>
+string to_string(tuple<A, B, C> t) { return "(" + to_string(get<0>(t)) + ", " + to_string(get<1>(t)) +  ", " + to_string(get<2>(t)) + ")"; }
+
 template<typename A>
 string to_string(vector<A> v);
 
@@ -168,6 +174,6 @@ int main() {
     Checklist:
     - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
     - Reverse           - Brute force approach          - DP
-    - Sort input        - Greedy approach
+    - Sort input        - Greedy approach               - Split into cases: Even/odd cases
     - Check diagonals   - Divide and Conquer approach
 */
