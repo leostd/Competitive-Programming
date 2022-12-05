@@ -1,4 +1,4 @@
-            [F] [Q]         [Q]    
+        [F] [Q]         [Q]        
 [B]     [Q] [V] [D]     [S]        
 [S] [P] [T] [R] [M]     [D]        
 [J] [V] [W] [M] [F]     [J]     [J]
@@ -510,3 +510,4 @@ move 1 from 3 to 6
 move 4 from 5 to 4
 move 1 from 5 to 2
 move 8 from 4 to 9
+

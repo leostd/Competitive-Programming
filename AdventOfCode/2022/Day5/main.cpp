@@ -1,3 +1,4 @@
+#include <cstdlib>
 #pragma GCC diagnostic ignored "-Wunused-const-variable"
 
 #include <bits/stdc++.h>
@@ -153,13 +154,15 @@ const int MAXN = 1000005;
 ll n, m; // sizes
 vector<vector<int>> g; //graph, grid
 
-vector<char> st[4];
-vector<string> cs(9, "");
+const int NSTACKS = 9;
+const int MAXHEIGHT = 8;
+vector<char> st[NSTACKS];
+vector<string> cs(NSTACKS, "");
 
 void parse() {
-    forn(i, 3) 
+    forn(i, NSTACKS-1) 
         getline(cin, cs[i]);
-    for(int i = 7; i >= 0; i--) {
+    for(int i = MAXHEIGHT; i >= 0; i--) {
         int j = 1;
         while(j < (int)cs[i].size()) {
             if (cs[i][j] != ' ') {
@@ -168,16 +171,28 @@ void parse() {
             j += 4;
         }
     }
-    forn(k, 4) {
-        cout << k + 1 << ": ";
-        for(auto x : st[k]) {
-            cout << x << " ";
-        }
-        cout << endl;
+}
+
+void move2(int x, int from, int to) {
+    from--;
+    to--;
+    vector<char> aux;
+    forn(i,x) {
+        aux.pb(st[from].back());
+        st[from].pop_back();
     }
+    reverse(all(aux));
+    st[to].insert(st[to].end(), all(aux));
 }
 
 void move(int x, int from, int to) {
+    from--;
+    to--;
+    if(st[from].size() < x) {
+        dbg("from stack has not enough elements");
+        dbg(st[from].size(), x);
+        exit(-1);
+    }
     forn(i, x) {
         st[to].pb(st[from].back());
         st[from].pop_back();
@@ -192,22 +207,13 @@ int main() {
     getline(cin, ln);
     dbg(ln);
     string sk1,sk2,sk3;
-    while(getline(cin, ln)) {
-        stringstream ss(ln);
-        cin >> sk1 >> x >> sk2 >> from >> sk3 >> to;
+    while(cin >> sk1 >> x >> sk2 >> from >> sk3 >> to) {
         dbg(x,from, to);
-        move(x, from, to);
+        //move(x, from, to);
+        move2(x,from,to);
     }
     string ans = "";
-    forn(k, 3) {
-        cout << k + 1 << ": ";
-        for(auto y : st[k]) {
-            cout << y << " ";
-        }
-        cout << endl;
-    }
-    forn(i, 3) {
-        
+   forn(i, NSTACKS) {
         if (!st[i].empty()) {
             ans.pb(st[i].back());
         }
