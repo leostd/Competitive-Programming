@@ -203,6 +203,7 @@ void bf(int remTime, int ore, int clay, int obsidian, int geode, int oreRobot, i
 
     if (!flag && can(ore, clay, obsidian, 0) && ore + oreRobot*remTime < remTime*max({c[ORE_ROBOT_COST], c[CLAY_ROBOT_COST], c[OBSIDIAN_ROBOT_COST_1], c[GEODE_ROBOT_COST_1]})) {
         bf(remTime-1, nore - c[ORE_ROBOT_COST], nclay, nobsidian, ngeode, oreRobot+1, clayRobot, obsidianRobot, geodeRobot);
+         
     }
 
     if (!flag && can(ore, clay, obsidian, 1) && clay + clayRobot*remTime < remTime*c[OBSIDIAN_ROBOT_COST_2]) {
@@ -212,8 +213,6 @@ void bf(int remTime, int ore, int clay, int obsidian, int geode, int oreRobot, i
     if (!flag && can(ore, clay, obsidian, 2) && obsidian + obsidianRobot*remTime < remTime*c[GEODE_ROBOT_COST_2]) {
         bf(remTime-1, nore-c[OBSIDIAN_ROBOT_COST_1], nclay-c[OBSIDIAN_ROBOT_COST_2], nobsidian, ngeode, oreRobot, clayRobot, obsidianRobot+1, geodeRobot);
     }
-
-    
 
     if (!flag)
         bf(remTime-1, nore, nclay, nobsidian, ngeode, oreRobot, clayRobot, obsidianRobot, geodeRobot);
