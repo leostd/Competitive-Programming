@@ -154,6 +154,7 @@ const char NON_OPERATOR = 'n';
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
+vector<ll> vans;
 
 struct Monkey {
     bool isNum;
@@ -161,6 +162,8 @@ struct Monkey {
     ll num;
     string operand1;
     string operand2;
+    string id;
+    bool hpath;
 
     Monkey() {
         isNum = false;
@@ -168,7 +171,7 @@ struct Monkey {
         operand1 = operand2 = "";
     }
 
-    Monkey(bool _isNum, int _num, char _operator, string _operand1, string _operand2) {
+    Monkey(string _id, bool _isNum, int _num, char _operator, string _operand1, string _operand2) {
         isNum = _isNum;
         if (isNum) {
             num = _num;
@@ -176,6 +179,21 @@ struct Monkey {
         op = _operator;
         operand1 = _operand1;
         operand2 = _operand2;
+        id = _id;
+    }
+
+
+    bool setPath(map<string, Monkey> &gr) {
+        if (id == "humn") {
+            hpath = true;
+            return true;
+        } 
+        if (isNum)
+            return false;
+        bool a = gr[operand1].setPath(gr);
+        bool b = gr[operand2].setPath(gr);
+        hpath = a || b;
+        return hpath;
     }
 
     ll compute(map<string, Monkey> &gr) {
@@ -198,8 +216,85 @@ struct Monkey {
                 break;
         }
 
-        isNum = true;
+       // isNum = true;
         return num;
+    }
+
+    void compute2(map<string, Monkey> &gr, vector<ll> eqt) {
+        if (id == "humn") {
+            num = eqt[0];
+            vans = eqt;
+            return;
+        }
+        if (isNum) return;
+
+        ll a;
+        
+        dbg(id, gr[operand1].hpath, gr[operand2].hpath);
+        dbg(num, ""+op);
+        if (!gr[operand1].hpath && !gr[operand2].hpath) {
+            gr[id].compute(gr);
+            return;
+        }
+        if (id == "root") {
+            if (!gr[operand1].hpath) {
+                a = gr[operand1].compute(gr);
+                eqt.pb(a);
+                gr[operand2].compute2(gr, eqt);
+            }
+
+            if (!gr[operand2].hpath) {
+                a = gr[operand2].compute(gr);
+                eqt.pb(a);
+                gr[operand1].compute2(gr, eqt);
+            }
+
+            return;
+        }
+        
+        if (!gr[operand1].hpath) {
+            a = gr[operand1].compute(gr);
+            gr[operand2].compute2(gr, getNum(eqt, op, a, true));
+        }
+        if (!gr[operand2].hpath) {
+            a = gr[operand2].compute(gr);
+            gr[operand1].compute2(gr, getNum(eqt, op, a, false));
+        }
+        
+    }
+
+    vector<ll> getNum(vector<ll> eqt, char op, ll x, bool left) {
+        if (op == '+') {
+            for(auto &y : eqt) y -= x;
+        }
+        if (op == '-') {
+            if (left)
+                for(auto &y : eqt) y = x-y;
+            else 
+                for(auto &y : eqt) y += x;
+        }
+        if (op == '/') {
+            dbg("division", x, eqt);
+            if (left) {
+                for(auto &y : eqt) y = x/y;
+                return eqt;
+            }
+            int sz = eqt.size();
+            vector<ll> neqt;
+            forn(i, sz) {
+                ll aux = x * eqt[i];
+                forn(i, x) neqt.pb(aux+i);
+            }
+           sort(all(neqt));
+           neqt.resize(unique(all(neqt)) - neqt.begin());
+           dbg(neqt);
+           dbg(eqt.size(), neqt.size());
+           eqt = neqt;
+        }
+        if (op == '*') {
+            for(auto &y : eqt) y /= x;
+        }
+        return eqt;
     }
 };
 
@@ -232,11 +327,11 @@ void parse(string ln) {
     ss >> aux;
     Monkey nm;
     if (isdigit(aux[0]) || aux[0] == '-') {
-        nm = Monkey(true, stoi(aux), NON_OPERATOR, "", "");
+        nm = Monkey(id, true, stoi(aux), NON_OPERATOR, "", "");
     } else {
         string op, operand2;
         ss >> op >> operand2;
-        nm = Monkey(false, NON_NUM, op[0], aux, operand2);
+        nm = Monkey(id, false, NON_NUM, op[0], aux, operand2);
     }
 
     gr[id] = nm;
@@ -247,7 +342,11 @@ void solve1() {
     while(getline(cin, ln)) {
         parse(ln);
     }
+    gr["humn"].num = 8882214318977;
     ll ans = gr["root"].compute(gr);
+    string l = gr["root"].operand1;
+    string r = gr["root"].operand2;
+    cout << gr[l].num << " " << gr[r].num << endl;
     cout << ans << endl;
 }
 
@@ -265,30 +364,28 @@ void solve2() {
     while(getline(cin, ln)) {
         parse(ln);
     }
-    ll l = 0;
-    ll r = 1000;
-    ll mid;
-    ll ans = -1;
-    ll ref1;
-    while(r - l > 1) {
-        mid = (r-l)/2LL + l;
-        ref1 = f(mid);
-        dbg(mid, ref1);
-        if (ref1 == 0) {ans = mid; break;}
-        else if (f(mid+1) > ref1) {
-            r = mid-1;
-        } else {
-            l = mid+1;
-        }
-    }
-    dbg(mid, l, r, ref1);
+
+    gr["root"].setPath(gr);
+    vans.clear();
+    gr["root"].compute2(gr, vector<ll>());
+    ll ans = gr["humn"].num;
+    sort(all(vans));
+    vans.resize(unique(all(vans))-vans.begin());
+    dbg(vans);
     cout << ans << endl;
 }
 
 int main() {
     fastIO();
-    // solve1();
-    solve2();
+    solve1();
+    //solve2();
+    string l = gr["root"].operand1, r = gr["root"].operand2;
+    vector<ll> pos({3087390115719, 3087390115720, 3087390115721, 3087390115722});
+    for(auto x : pos) {
+        gr["humn"].num = x;
+        gr["root"].compute(gr);
+        cout << gr[l].num << " " << gr[r].num << endl;
+    }
     return 0;
 }
 
