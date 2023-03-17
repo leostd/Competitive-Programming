@@ -155,7 +155,7 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
  
-int main() {
+signed main() {
     fastIO(); 
     
     return 0;
