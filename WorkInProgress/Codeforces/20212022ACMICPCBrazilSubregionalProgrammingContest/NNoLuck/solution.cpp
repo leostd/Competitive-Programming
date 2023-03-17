@@ -120,30 +120,40 @@ int n, m; // sizes
 vector<vector<int>> g; //graph, grid
 vector<iii> ps;
 vector<int> y;
-ll t[MAXN];
-// vector<ll> t;
 
 inline int lsb(int x) {
     return (-x)&x;
 }
+class FenwickTree {
+public:
+    int n;
+    vector<ll> t;
 
-inline void update(int x, int v) {
-    x++;
-    while(x < MAXN) {
-        t[x] += v;
-        x += lsb(x);
+    FenwickTree(int _n) {
+        n = _n+1; // to be safe
+        t.assign(n, 0);
     }
-}
-inline ll query(int x) {
-    ll ret = 0;
-    x++;
-    while(x) {
-        ret += t[x];
-        x -= lsb(x);
-    }
-    return ret;
-}
 
+    void update(int idx, ll val) {
+        // watch out with idx = 0. if that's possible, then do idx++ before
+        idx++;
+        while(idx < n) {
+            t[idx] += val;
+            idx += lsb(idx);
+        }
+    }
+
+    ll query(int idx) {
+        // watch out with idx = 0. if that's possible, then do idx++ before
+        ll ret = 0;
+        idx++;
+        while(idx) {
+            ret += t[idx];
+            idx -= lsb(idx);
+        }
+        return ret;
+    }
+};
 ll ans[MAXN];
 vector<int> lidx[MAXN], ridx[MAXN];
 
@@ -152,12 +162,13 @@ int main() {
     cin >> n >> m; 
     dbg(m);
     // t.assign(MAXN, 0);
+    FenwickTree ft(MAXN);
     ps.assign(m, iii());
     y.assign(n, 0);
     forn(i, n){
         cin >> y[i];
-        update(y[i], 1);
-        dbg(query(y[i]));
+        ft.update(y[i], 1);
+        dbg(ft.query(y[i]));
     }
     int a,b,c;
     forn(i, m) {
@@ -191,18 +202,18 @@ int main() {
         forn(j, nn) {
             int idx = ridx[i+1][j];
             int p = get<1>(ps[idx]);
-            ll q = aux - query(p-1);
+            ll q = aux - ft.query(p-1);
             dbg(p, q);
             ans[idx] += q;
         }
         forn(j, mm) {
             int idx = lidx[i+1][j];
             int p = get<1>(ps[idx]);
-            ll q = aux - query(p-1);
+            ll q = aux - ft.query(p-1);
             dbg(p,q);
             ans[idx] -= q;
         }
-        update(y[i], -1);
+        ft.update(y[i], -1);
         aux--;
     } 
     forn(i, m) {

@@ -1,5 +1,5 @@
-#pragma GCC diagnostic ignored "-Wunused-const-variable"
 
+#pragma GCC diagnostic ignored "-Wunused-const-variable"
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -120,32 +120,35 @@ int n, m; // sizes
 vector<vector<int>> g; //graph, grid
 
 ll f(ll x) {
-    return x * (x-1) / 2;
+    return x * (x+1) / 2;
 }
 void solve() {
     cin >> n;
     vector<int> a(n+1);
     for1(i, n+1) cin >> a[i];
     vector<int> aux(n+1, 0);
-    for1(i, n+1) aux[i] = a[i] >= i;
     dbg(aux);
+    dbg(n);
     dbg(a);
     ll ans = 0;
-    int cur = 0;
-    for1(i, n+1) {
-        if (aux[i] == 1) cur++;
-        else {
-                ans += f(cur);
-                cur = 0;
-            }
-    }
-
-    ans += f(cur);
-
-    cout << ans << endl;
     
+    int cur = 1;
+    int i,j; i = j = 1;
+    dbg(a);
+    int prev = 1;
+    dbg(j, cur);
+    while(j <= n) {
+        dbg(i, j, cur);
+        while(j <= n && cur <= a[j]) cur++, j++;
+        dbg(j, cur);
+        ans += f(cur-1) - f(prev-i);
+        prev = j;
+        if (j > n) break;
+        while(i < j && a[j] < cur) cur--, i++;
+        dbg(i, cur);
+    }
+    cout << ans << endl;
 }
- 
 int main() {
     fastIO(); 
     int t = nxt();
@@ -154,7 +157,6 @@ int main() {
     }
     return 0;
 }
-
 /*
     RECALL CORNER CASES - e.g. n = 1, n = 0
     WRITE SOME STUFF
