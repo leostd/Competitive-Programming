@@ -152,62 +152,31 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
-
 void solve() {
-    cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
+    string s;
+    cin >> s;
+    dbg(s);
+    ll ans = 0;
+    if (s[0] == '0') {
+        cout << 0 << endl;
         return;
     }
-
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
+    n = s.size();
+    forn(i, n) {
+        if (i == 0 && s[0] == '?') ans += 9;
+        else if (i > 0 && s[i] == '?') ans *= 10;
+        else if (i == 0 && s[0] != '?') ans = 1;
     }
 
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
-    }
-    
+    cout << ans << endl;
 }
  
-int main() {
+signed main() {
     fastIO(); 
+
     int t = nxt();
     while(t--) {
-       solve(); 
+        solve();
     }
     
     return 0;

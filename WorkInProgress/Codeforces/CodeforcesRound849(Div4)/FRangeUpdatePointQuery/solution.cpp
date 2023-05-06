@@ -1,3 +1,4 @@
+
 #pragma GCC diagnostic ignored "-Wunused-const-variable"
 
 #include <bits/stdc++.h>
@@ -152,62 +153,80 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
+class FenwickTree {
+public:
+    int n;
+    vector<ll> t;
+
+    FenwickTree(int _n) {
+        n = _n+2; // to be safe
+        t.assign(n, 0);
+    }
+
+    void update(int idx, ll val) {
+        // watch out with idx = 0. if that's possible, then do idx++ before
+        while(idx < n) {
+            t[idx] += val;
+            idx += lsb(idx);
+        }
+    }
+
+    ll query(int idx) {
+        // watch out with idx = 0. if that's possible, then do idx++ before
+        ll ret = 0;
+        while(idx) {
+            ret += t[idx];
+            idx -= lsb(idx);
+        }
+        return ret;
+    }
+};
+
+int sumd(int x) {
+    int ret = 0;
+    while(x) {
+        ret += x%10;
+        x /= 10;
+    }
+    return ret;
+}
 
 void solve() {
-    cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
-        return;
+    int q;
+    cin >> n >> q;
+    vector<int> a(n);
+    forn(i, n) cin >> a[i];
+    dbg(a);
+    int l, r, t;
+    int x;
+    FenwickTree ft(n);
+    dbg(q);
+    forn(i, q) {
+       cin >> t;
+       if (t == 1) {
+           cin >> l >> r;
+           dbg(t, l, r);
+           ft.update(l, 1);
+           ft.update(r+1, -1);
+       } else {
+           cin >> x;
+           dbg(t, x);
+           int aux = ft.query(x);
+           int ans = a[x-1];
+           forn(i, min(aux, 3)) {
+               ans = sumd(ans);
+           }
+           cout << ans << endl;
+       }
     }
-
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
-    }
-    
 }
  
-int main() {
+signed main() {
     fastIO(); 
     int t = nxt();
+    dbg(t);
     while(t--) {
-       solve(); 
+        solve();
     }
     
     return 0;

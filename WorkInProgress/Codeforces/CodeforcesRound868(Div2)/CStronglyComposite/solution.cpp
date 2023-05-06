@@ -147,67 +147,55 @@ const ld e = ld(2.7182818284590452353602874713527);
 const ld EPS = 1e-9;
  
 //#############################
-const int MAXN = 1000005;
+const int MAXN = 1e7+5;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
+vector<int> spf(MAXN, INF);
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
+void sieve() {
+    fill(all(spf), INF);
+    spf[1] = spf[0] = 1;
+    for(int p = 2; p < MAXN; p++) {
+        if (spf[p] == INF) {
+            spf[p] = p;
+            for(int px = p+p; px < MAXN; px += p) spf[px] = min(p, spf[px]);
+        }
+    }
+}
 
 void solve() {
     cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
-        return;
+    vector<int> a(n);
+    forn(i, n) cin >> a[i];
+    map<int, int> pw;
+    forn(i, n) {
+        int x = a[i];
+        while(x > 1) {
+            pw[spf[x]]++;
+            x /= spf[x];
+        }
     }
 
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
+    ll ans = 0;
+    int aux = 0;
+    for(auto &p : pw) {
+        dbg(p);
+        ans += p.snd/2;
+        p.snd = p.snd%2;
+        aux += p.snd;
     }
 
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
-    }
-    
+    cout << ans + aux/3 << endl;
+
 }
  
-int main() {
+signed main() {
     fastIO(); 
+    sieve();
     int t = nxt();
     while(t--) {
-       solve(); 
+        solve();
     }
     
     return 0;

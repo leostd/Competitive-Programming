@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 #define mp make_pair
 #define mt make_tuple
 #define pb push_back
@@ -26,7 +27,6 @@ typedef long double ld;
 typedef tuple<int,int,int> iii;
 typedef tuple<ll, ll, ll> lll;
 typedef tuple<ld, ld, ld> ddd;
-
 template<typename T> inline T abs(T a){ return ((a < 0) ? -a : a); }
 template<typename T> inline T sqr(T a){ return a * a; }
 template<class T> T gcd(T a, T b) { return a ? gcd (b % a, a) : b; }
@@ -139,7 +139,7 @@ const int dyKn[8] = { 1,  2, 2, 1, -1, -2, -2, -1};
 const int dxK[8] = {0, 0, 1, -1, 1, 1, -1, -1};
 const int dyK[8] = {1, -1, 0, 0, 1, -1, 1, -1};
  
-const int MOD = int(1e9) + 7;
+const int MOD = 998244353;
 const int INF = int(1e9) + 100;
 const ll INF64 = 2e18;
 const ld PI = ld(3.1415926535897932384626433832795);
@@ -152,63 +152,125 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
 
-void solve() {
-    cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
-        return;
-    }
+ll sum(ll a, ll b) { return ((a%MOD) + (b%MOD)) % MOD; }   
+ll subtract(ll a, ll b) { return ((a%MOD) - (b%MOD) + MOD) % MOD; }
+ll mult(ll a, ll b) { return ((a%MOD) * (b%MOD)) % MOD; }
+ll mpow(ll a, ll b) {
+    ll ret = 1;
+    ll y = a;
+    while(b) {
+        if (b&1) {
+            ret = mult(ret, y);
+        }
 
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
+        y = mult(y, y);
+        b >>= 1;
     }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
-    }
-    
+    return ret;
 }
- 
-int main() {
-    fastIO(); 
-    int t = nxt();
-    while(t--) {
-       solve(); 
+
+/* MOD and x should be coprime */
+ll inv(ll x) {
+    return mpow(x, MOD-2);
+}
+
+ll factorial(ll x) {
+    ll ret = 1;
+    for1(i, x+1) ret = mult(ret, i);
+    return ret;
+}
+
+vector<vector<ll>> pascal(int l) {
+    vector<vector<ll>> ret(l+1, vector<ll>(l+1, 0));
+    ret[1][1] = 1;
+    fore(i, 2, l+1) {
+        for1(j, i) {
+            if (j == 1 || j == i) ret[i][j] = 1;
+            else ret[i][j] = sum(ret[i-1][j], ret[i-1][j-1]);
+        }
     }
+    return ret;
+}
+
+
+
+
+vector<ll> fact((int)1e6+5);
+vector<ll> factinv((int)1e6+5);
+vector<int> isPrime(MAXN, 1);
+vector<int> primes;
+map<int, ll> fq;
+vector<vector<ll>> memo;
+
+void sieve() {
+    isPrime[1] = 0;
+    fore(p, 2, MAXN) {
+        if (isPrime[p]) {
+            for(int px = (p << 1); px < MAXN; px+= p) isPrime[px] = false;
+        }
+    }
+}
+
+ll dp(int i, int rem) {
+    if (i == (int)primes.size()) return rem == 0;
+    
+    ll &ret = memo[i][rem];
+
+    if (ret != -1) return memo[i][rem];
+
+    int frq = fq[primes[i]];
+    ll a = mult(factinv[frq], dp(i+1, rem));
+    ll b = 0;
+    if (rem > 0)
+        b = mult(factinv[frq-1], dp(i+1, rem-1));
+
+    return ret = sum(a, b);
+}
+
+
+signed main() {
+    fastIO(); 
+    
+    dbg(pow(12, 2));
+    sieve();
+    fact[1] = fact[0] = 1;
+    fore(i, 2, MAXN) fact[i] = mult(fact[i-1], i);
+    factinv[0] = 1;
+
+    for1(i, MAXN) factinv[i] = inv(fact[i]);
+
+    cin >> n;
+    vector<ll> a(2*n);
+
+    forn(i, 2*n) cin >> a[i], fq[a[i]]++;
+
+    dbg(a);
+    int dprime = 0;
+    for(auto x : fq) {
+        if (isPrime[x.fst]) dprime++, primes.pb(x.fst);
+    }
+
+    dbg(primes);
+    if (dprime < n) {
+        cout << 0 << endl;
+        return 0;
+    }
+
+    ll ans = fact[n];
+    for(auto x : fq) {
+        if (!isPrime[x.fst]) ans = mult(ans, factinv[x.snd]);
+    }
+
+    memo.assign(2*n+1, vector<ll>(n+1, -1));
+    ll sum = dp(0, n);
+    dbg(ans);
+    dbg(sum);
+
+    ans = mult(ans, sum);
+
+
+    cout << ans << endl;
     
     return 0;
 }

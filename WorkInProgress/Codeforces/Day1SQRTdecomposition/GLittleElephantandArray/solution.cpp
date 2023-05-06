@@ -151,65 +151,63 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
-
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
-
-void solve() {
-    cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
-        return;
-    }
-
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
-    }
-    
-}
  
-int main() {
+const int K = 350;
+
+bool cmp(iii &a, iii &b) {
+    if  (get<0>(a)/K == get<0>(b)/K) return get<1>(a) < get<1>(b);
+    return get<0>(a)/K < get<0>(b)/K;
+}
+
+int curr, curl, curans;
+unordered_map<int, int> fq;
+
+void add(int x) {
+    if (fq[x] == x) curans--;
+    fq[x]++;
+    curans += fq[x] == x;
+}
+
+
+void del(int x) {
+    if (fq[x] == x) curans--;
+    fq[x]--;
+    curans += fq[x] == x;
+}
+
+signed main() {
     fastIO(); 
-    int t = nxt();
-    while(t--) {
-       solve(); 
+
+    cin >> n >> m;
+    vector<int> a(n+1);
+    for1(i, n+1) cin >> a[i];
+    vector<ll> ans(m);
+    vector<iii> qs;
+    forn(i, m) {
+        int ql, qr;
+        cin >> ql >> qr;
+        qs.pb(mt(ql, qr, i));
     }
+
+    sort(all(qs), cmp);
     
+    curl = curr = curans = 0;
+    curl = 1;
+    forn(i, m) {
+        int l,r,id;
+        tie(l,r,id) = qs[i];
+        dbg(curl, curr, l, r);
+        while(r > curr) add(a[curr+1]), curr++;
+        while(l > curl) del(a[curl]), curl++;
+        while(r < curr) del(a[curr]), curr--;
+        while(l < curl) add(a[curl-1]), curl--;
+        ans[id] = curans;
+        dbg(curl, curr, l, r);
+    }
+
+    for(auto x : ans) {
+        cout << x << endl;
+    }
     return 0;
 }
 

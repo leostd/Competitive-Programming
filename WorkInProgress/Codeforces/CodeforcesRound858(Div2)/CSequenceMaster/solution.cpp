@@ -151,65 +151,102 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
+vector<vector<int>> st;
+ 
+void gen(vector<int> x) {
+    if ((int) x.size() == 2*n) {
+        st.pb(x);
+        return;
+    } 
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
+    fore(i, -1, n+1) {
+        x.pb(i);
+        gen(x);
+        x.pop_back();
+    }
+}
+
+
+bool isGood(vector<int> x) {
+    for(int bitmask = 0; bitmask < (1 << (2*n)); bitmask++) {
+        if (__builtin_popcount(bitmask) == n) {
+            ll mult = 1;
+            ll sum = 0;
+            forn(bit, 2*n) {
+                if ((1 << bit) & bitmask) mult *= x[bit];
+                else sum += x[bit];
+            }
+            if (sum != mult) return false;
+        }
+    }
+
+    return true;
+}
+
+void pattern() {
+    n = 4;
+    vector<int> a;
+    gen(a);
+    for(auto x : st) {
+        if (isGood(x)) {
+            dbg(x);
+        }
+    }
+}
 
 void solve() {
     cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
+    vector<ll> p(2*n);
+    forn(i, 2* n) cin >> p[i];
+    sort(all(p));
+    if (n == 1) {
+        ll x = (p[0] + p[1]) / 2LL;
+        cout << abs(p[0]-p[1]) << endl; 
         return;
     }
 
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
+    if (n == 2) {
+        ll a = 0;
+        ll b = 0;
+        ll c = 0;
+        forn(i, 2*n-1) {
+            a += abs(p[i]-2);
+            b += abs(p[i]+1);
+            c += abs(p[i]);
+        }
+
+        a += abs(p.back()-2);
+        b += abs(p.back()-n);
+        c += abs(p.back());
+        cout << min({a,b,c}) << endl;
+        return;
     }
 
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
+    if (n % 2) {
+        ll a = 0;
+        forn(i, 2*n) a += abs(p[i]);
+        cout << a << endl;
+        return;
     }
-    
+
+    ll a= 0;
+    forn(i, 2*n) a += abs(p[i]);
+
+    ll b = 0;
+    forn(i, 2*n-1) b += abs(p[i]+1);
+
+    b += abs(p.back()-n);
+    cout << min(a, b) << endl;
+
 }
- 
 int main() {
     fastIO(); 
+    //pattern();
+    
     int t = nxt();
     while(t--) {
-       solve(); 
+        solve();
     }
-    
     return 0;
 }
 
@@ -229,4 +266,3 @@ int main() {
     - Sort input        - Greedy approach               - Split into cases: Even/odd cases
     - Check diagonals   - Divide and Conquer approach
 */
-

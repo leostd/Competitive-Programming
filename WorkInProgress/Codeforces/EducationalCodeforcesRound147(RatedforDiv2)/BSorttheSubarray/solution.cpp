@@ -152,62 +152,37 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
-
 void solve() {
     cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
-        return;
-    }
+    vector<int> a(n);
+    forn(i, n) cin >> a[i];
+    vector<int> d(n);
+    forn(i, n) cin >> d[i];
 
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
+    int l=-1, r, ansl = INF, ansr = -INF, ansdiff = 1;
+    forn(i, n) {
+        if (a[i] != d[i]) {
+            if (l == -1) l = i;
+            r = i;
+        }
     }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
+    ansl = l; ansr = r;
+    ansdiff = r-l+1;
+    dbg(l, r, ansdiff);
+    sort(a.begin()+l, a.begin()+r+1);
 
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
-    }
-    
+    while(l-1 >= 0 && a[l-1] <= a[l]) l--;
+    while(r+1 < n && a[r+1] >= a[r] ) r++;
+
+    cout <<  l+1 << " " << r+1 << endl;
 }
  
-int main() {
+signed main() {
     fastIO(); 
+    
     int t = nxt();
     while(t--) {
-       solve(); 
+        solve();
     }
     
     return 0;

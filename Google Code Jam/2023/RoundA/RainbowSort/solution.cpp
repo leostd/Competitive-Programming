@@ -152,63 +152,63 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
+bool isSorted(vector<int> a) {
+    for1(i, (int)a.size()) {
+        if (a[i] < a[i-1])
+            return false;
+    }
+
+    return true;
+}
+ 
 
 void solve() {
     cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
+    vector<int> c(n);
+    forn(i, n) cin >> c[i];
+    map<int, int> ctn;
+    int cur = 1;
+    vector<int> aux(n);
+    forn(i, n) {
+        if (ctn.count(c[i]))
+            aux[i] = ctn[c[i]];
+        else {
+            ctn[c[i]] = cur++;
+            aux[i] = ctn[c[i]];
+        } 
+    }
+
+    if (!isSorted((aux))) {
+        cout << "IMPOSSIBLE" << endl;
         return;
     }
 
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
+
+    vector<int> ans;
+    forn(i,n) {
+        if (ans.empty()) ans.pb(c[i]);
+        else {
+            if (ans.back() == c[i]) continue;
+            ans.pb(c[i]);
+        }
     }
 
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
+    for (auto x : ans) {
+        cout << x << " ";
+    }
+    cout << endl;
+
+}
+signed main() {
+    fastIO(); 
+
+    int t = nxt();
+    int tc = 1;
+    while(t--) {
+        cout << "Case #" << tc++ << ": ";
+        solve();
     }
     
-}
- 
-int main() {
-    fastIO(); 
-    int t = nxt();
-    while(t--) {
-       solve(); 
-    }
     
     return 0;
 }

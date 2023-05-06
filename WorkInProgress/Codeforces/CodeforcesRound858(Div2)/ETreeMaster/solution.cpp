@@ -148,67 +148,58 @@ const ld EPS = 1e-9;
  
 //#############################
 const int MAXN = 1000005;
+const int K = 100;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
+map<ll, ll> memo;
+vector<ll> dep, p, a;
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
-
-void solve() {
-    cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
-        return;
-    }
-
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
+ll f(int x, int y) {
+    if (x == y && x == 0) return a[0]*a[0];
+    ll id = x;
+    id <<= 32;
+    id |= y;
+    if (memo.count(id)) return memo[id];
     
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
+    if (dep[x] % K == 0) return memo[id] = f(p[x], p[y]) + a[x]*a[y];
 
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
-    }
-    
+    return f(p[x], p[y]) + a[x]*a[y];
 }
- 
-int main() {
-    fastIO(); 
-    int t = nxt();
-    while(t--) {
-       solve(); 
+
+void dfs(int root, int d) {
+    dep[root] = d;
+
+    for(auto v : g[root]) {
+        if (v != p[root]) dfs(v, d+1);
     }
+}
+
+ 
+signed main() {
+    fastIO(); 
+    int q;
+    cin >> n >> q;
+    a.assign(n, 0);
+    p.assign(n, 0);
+    dep.assign(n, 0);
+    g.assign(n+1, vector<int>());
+    forn(i, n) cin >> a[i];
+    forn(i, n-1) cin >> p[i+1], p[i+1]--, g[p[i+1]].pb(i+1), g[i+1].pb(p[i+1]);
+    dbg(g.size());
+    dbg(a);
+    dbg(p);
+    dbg(dep);
+    dbg(g);
+    dfs(0, 0);
+    int x, y;
+    forn(i, q) {
+        cin >> x >> y;
+        x--, y--;
+        ll ans = f(x, y);
+        cout << ans << endl;
+    }
+
     
     return 0;
 }

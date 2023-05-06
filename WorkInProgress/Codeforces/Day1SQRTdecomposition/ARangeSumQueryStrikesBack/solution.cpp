@@ -152,63 +152,79 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
 
-void solve() {
-    cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
-        return;
+class SqrtDec {
+public:
+    int sz;
+    int k = 350; // sqrt(1e5)
+    vector<ll> a;
+    vector<ll> b;
+
+    SqrtDec(vector<ll> _a) {
+        a = _a;
+        sz = a.size();
+        b.assign(sz/k+1, 0);
+        forn(i, sz) b[i/k] += a[i];
     }
 
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
+    void update(int x, ll y) {
+        dbg(x, y);
+        dbg(a, b);
+        int block = x / k;
+        dbg(block);
+        b[block] = b[block] - a[x] + y;
+        a[x] = y;
+        dbg(a, b);
+    }
+
     
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
+    ll query(int l, int r) {
+        dbg(l, r);
+        ll ret = 0;
+        int i = l;
+        while(i <= r) {
+            dbg(i, a[i]);
+            if (i % k == 0 && i + k - 1 <= r) {
+                ret += b[i/k];
+                i += k;
+            } else {
+                ret += a[i];
+                i++;
+            }
+        }
 
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
+        return ret;
     }
-    
-}
+};
+
  
-int main() {
+signed main() {
     fastIO(); 
-    int t = nxt();
-    while(t--) {
-       solve(); 
+    int q;
+    cin >> n >> q;
+    vector<ll> a(n);
+    forn(i, n) cin >> a[i];
+    dbg(a);
+    SqrtDec sqrtDec(a);
+    int t;
+    forn(i, q) {
+        cin >> t;
+        dbg(t);
+        if (t == 1) {
+            int x, y;
+            cin >> x >> y;
+            x--;
+            sqrtDec.update(x, y);
+        } else {
+            int l, r;
+            cin >> l >> r;
+            l--, r--;
+            dbg(l, r);
+            ll ans = sqrtDec.query(l, r);
+            cout << ans << endl;
+        }
     }
+
     
     return 0;
 }

@@ -139,7 +139,7 @@ const int dyKn[8] = { 1,  2, 2, 1, -1, -2, -2, -1};
 const int dxK[8] = {0, 0, 1, -1, 1, 1, -1, -1};
 const int dyK[8] = {1, -1, 0, 0, 1, -1, 1, -1};
  
-const int MOD = int(1e9) + 7;
+const int MOD = int(1e9);
 const int INF = int(1e9) + 100;
 const ll INF64 = 2e18;
 const ld PI = ld(3.1415926535897932384626433832795);
@@ -152,64 +152,101 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
+vector<ll> buffer;
+ll last = 0;
+unordered_set<int> vis;
 
-void solve() {
-    cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
-        return;
+class SqrtDec {
+public:
+    int sz;
+    int k = 600; // sqrt(1e5)
+    vector<ll> a;
+    vector<ll> b;
+    map<ll, int> idx;
+
+    SqrtDec() {
+        sz = 0;
+        a.pb(0);
     }
 
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
+    void add(vector<ll> buf) {
+        vector<ll> ret;
+        int x, y;
+        x = y = 0;
+        while(x < (int)a.size() || y < (int)buf.size()) {
+            ll xx = x < (int)a.size() ? a[x] : MOD+10;
+            ll yy = y < (int)buf.size() ? buf[y] : MOD+10;
+            if (xx <= yy) ret.pb(xx), x++;
+            else ret.pb(yy), y++;
+        }
 
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
+        a = ret;
+        a.resize(unique(all(a)) - a.begin());
+        sz = a.size();
+        b.assign(sz+1, 0);
+        for1(i, sz+1) b[i] += a[i] + b[i-1];
     }
     
+    ll query(int l, int r) {
+        if (a.size() == 1) return 0;
+        int lidx = lower_bound(all(a), l) - a.begin();
+        int ridx = upper_bound(all(a), r) - a.begin();
+        ridx--; 
+
+
+        ll ans = b[ridx] - b[max(0, lidx-1)];
+        return ans;
+    }
+
+    bool check(ll x) {
+        return binary_search(all(a), x);
+    }
+};
+
+
+SqrtDec sqd;
+
+void add(ll x) {
+    if (vis.count(x)) return;
+    buffer.pb(x);
+    vis.insert(x);
+    if ((int)buffer.size() == sqd.k) {
+        sort(all(buffer));
+        sqd.add(buffer);
+        buffer.clear();
+    }
 }
- 
-int main() {
+
+signed main() {
     fastIO(); 
-    int t = nxt();
-    while(t--) {
-       solve(); 
+    cin >> n;
+    string op;
+    ll l,r, x;
+    forn(i, n) {
+        cin >> op;
+        if (op == "+") {
+            cin >> x;
+            if (last != 0){
+                add((last+x)%MOD);
+                dbg((last+x)%MOD);
+
+            } else
+                add(x);
+            last = 0;
+            dbg(sqd.a);
+            dbg(buffer);
+        }
+        if (op == "?") {
+            cin >> l >> r;
+            dbg(l, r);
+            last = sqd.query(l, r);
+            for(auto xx : buffer) {
+                if (xx >= l && xx <= r) last += xx;
+            }
+            cout << last << endl;
+        }
     }
-    
+
     return 0;
 }
 

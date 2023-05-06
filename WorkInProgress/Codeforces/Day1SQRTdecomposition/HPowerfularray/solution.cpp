@@ -151,65 +151,83 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
+int k = 450;
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
+bool cmp(iii a, iii b) {
+    int x0, x1, y0, y1, z0, z1;
+    tie(x0, y0, z0) = a;
+    tie(x1, y1, z1) = b;
+    if (x0/k == x1/k) return y0 < y1;
+    return x0/k < x1/k;
+}
 
-void solve() {
-    cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
+vector<ll> fq(1e6+5, 0);
+int curl, curr;
+ll curans = 0;
+
+void add(ll x) {
+    dbg("add", x);
+    dbg(x, fq[x]);
+    if (fq[x] == 0) {
+        fq[x]++;
+        dbg(fq[x]);
+        curans += x;
         return;
     }
-
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
-    }
-    
+    curans -= sqr(fq[x])*x;
+    fq[x]++;
+    dbg(fq[x]);
+    curans += sqr(fq[x])*x;
+    dbg(curans);
 }
- 
-int main() {
-    fastIO(); 
-    int t = nxt();
-    while(t--) {
-       solve(); 
+
+void del(ll x) {
+    dbg("del", x);
+    if (fq[x] == 1) {
+        curans -= x;
+        fq[x]--;
+        return;
     }
+    curans -= sqr(fq[x])*x;
+    fq[x]--;
+    curans += sqr(fq[x])*x;
+}
+
+signed main() {
+    fastIO(); 
     
+    int t;
+    cin >> n >> t;
+    vector<ll> a(n+5, 0);
+    for1(i, n+1) cin >> a[i];
+    dbg(a);
+    curl = 0, curr = 0;
+    vector<iii> qs;
+    forn(i, t) {
+        int l, r;
+        cin >> l >> r;
+        qs.pb(mt(l, r, i));  
+    }
+
+    sort(all(qs), cmp);
+
+    vector<ll> ans(t);
+    dbg(qs);
+    int l, r, id;
+    forn(i, t){
+       tie(l, r, id) = qs[i]; 
+       dbg(l, r, curl, curr);
+       while(curr < r){add(a[curr+1]); curr++; dbg(curr);}
+       while(curl < l){del(a[curl]); curl++; dbg(curl);}
+       while(curr > r){del(a[curr]); curr--; dbg(curr);}
+       while(curl > l){add(a[curl-1]); dbg(curl); curl--;}
+       ans[id] = curans;
+       dbg(curl, curr);
+    }
+
+    forn(i, t) {
+        cout << ans[i] << endl;
+    }
     return 0;
 }
 

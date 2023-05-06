@@ -152,62 +152,46 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
-
 void solve() {
     cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
-        return;
+    vector<ll> len(n+1);
+    vector<ll> mx(n+1);
+    ll x;
+    vector<ll> a(n);
+    forn(i, n) {
+        cin >> a[i];
     }
+    dbg(a);
+    len[0] = 1;
+    len[1] = 1;
+    deque<int> dq;
+    forn(i, n) {
+        if (dq.empty()) {
 
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
+            dq.pb(a[i]);
+            cout << 1 << " ";
+            continue;
+        }
 
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
+        dq.pb(a[i]);
+        int sz = dq.size();
+        while(dq.front() < sz) {
+            dq.pop_front();
+            sz--;
+        }
+
+        cout << dq.size() << " ";
+
     }
-    
+    cout << endl;
 }
  
-int main() {
+signed main() {
     fastIO(); 
+
     int t = nxt();
     while(t--) {
-       solve(); 
+        solve();
     }
     
     return 0;

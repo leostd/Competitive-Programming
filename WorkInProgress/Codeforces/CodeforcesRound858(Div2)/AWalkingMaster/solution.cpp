@@ -152,64 +152,43 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
-
 void solve() {
-    cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
+    int diffx = c - a;
+    dbg(a,b);
+    dbg(c,d);
+    int ans = 0;
+    int diffy = d - b;
+    if (diffy < 0) {
+        cout << -1 << endl;
         return;
     }
 
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
+    a+= diffy;
+    b+= diffy;
+    dbg(a,b, 2);
+    ans += diffy;
+    diffx = c - a;
+    diffy = d - b;
+    if (diffx > 0) {
+        cout << -1 << endl;
+        return;
     }
 
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
-    }
-    
+    ans += abs(diffx);
+    cout << ans << endl;
+
+
 }
  
 int main() {
     fastIO(); 
+    
     int t = nxt();
     while(t--) {
-       solve(); 
+        solve();
     }
-    
     return 0;
 }
 
@@ -229,4 +208,5 @@ int main() {
     - Sort input        - Greedy approach               - Split into cases: Even/odd cases
     - Check diagonals   - Divide and Conquer approach
 */
+
 

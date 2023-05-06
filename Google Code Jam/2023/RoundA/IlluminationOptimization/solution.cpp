@@ -149,65 +149,87 @@ const ld EPS = 1e-9;
 //#############################
 const int MAXN = 1000005;
 
-int n, m; // sizes
+ll n, m; // sizes
 vector<vector<int>> g; //graph, grid
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
+void solve(){ 
+    ll R;
+    cin >> m >> R >> n;
+    vector<ll> a(n);
+    forn(i, n) cin >> a[i]; 
 
-void solve() {
-    cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
-        return;
+    ll l, r;
+    l = r = 0;
+    ll ans = 0;
+
+    int idx = 0;
+    forn(i, n) {
+       if (a[i] <= R) idx = i;
+       else break;
     }
 
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
+    fore(i,idx, n) {
+        if (i == idx) {
+            l = max(0LL, a[i]-R);
+            r = min(m, a[i]+R);
+            ans++;
+            dbg(l, r);
+            if (l > 0) {
+                cout << "IMPOSSIBLE" << endl;
+                return;
+            }
+            continue;
+        }
+
+        if (i == n-1) {
+            dbg("here");
+            if (r == m) {
+                break;
+            }
+
+            ll nl = max(0LL, a[i]-R);
+            ll nr = min(m, a[i]+R);
+            if (max(0LL, nl) > r) {
+                cout << "IMPOSSIBLE" << endl;
+                return;
+            }
+            r = nr;
+            ans++;
+            continue;
+        }
+
+        if (a[i] - r > R) {
+            cout << "IMPOSSIBLE" << endl;
+            return;
+        }
+        ll nl = max(0LL, a[i+1]-R);
+        ll nr = min(m, a[i+1]+R);
+        dbg(nl, nr);
+        if (max(0LL, nl) > r) {
+            r = min(m, a[i]+R);
+            ans++;
+        }
+        dbg(l, r, "cur");
+
     }
 
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
+    if (r == m) {
+        cout << ans << endl;
+    } else {
+        cout << "IMPOSSIBLE" << endl;
     }
-    
+
 }
  
-int main() {
+signed main() {
     fastIO(); 
+
     int t = nxt();
+    int tc = 1;
     while(t--) {
-       solve(); 
+        cout << "Case #" << tc++ << ": ";
+        solve();
+        
     }
     
     return 0;

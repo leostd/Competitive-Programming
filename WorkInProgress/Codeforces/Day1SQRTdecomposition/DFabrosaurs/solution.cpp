@@ -151,64 +151,76 @@ const int MAXN = 1000005;
 
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
+vector<ll> buf, a;
+const int k = 400;
+vector<map<ll, int>> in;
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
+void upd(int i, ll x) {
+    in[i/k][a[i]]--;
+    in[i/k][a[i]+x]++;
+    a[i] += x;
+}
 
-void solve() {
-    cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
-        return;
+void add(int l, int r, ll x) {
+    int i = l;
+    while(i < r) {
+        if (i % k == 0 && i + k < r) {
+            buf[i/k] += x;
+            i += k;
+        } else {
+            upd(i, x);
+            i++;
+        }
     }
+}
 
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
+void query(int l, int r, ll x) {
+    dbg(buf);
+    dbg(a);
+    int i = l;
+    dbg(l,r,x);
+    while(i < r) {
+        if (i % k == 0 && i + k < r) {
+            ll tgt = x - buf[i/k];
+            if (in[i/k][tgt]) {
+                cout << "YES" << endl;
+                return;
+            }
+            i += k;
+        } else {
+            if (a[i] + buf[i/k] == x) {
+                cout << "YES" << endl;
+                return;
+            }
+            i++;
+        }
     }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
-    }
-    
+    cout << "NO" << endl;
+    return;
 }
  
-int main() {
+signed main() {
     fastIO(); 
-    int t = nxt();
-    while(t--) {
-       solve(); 
+    cin >> n >> m;
+    a.assign(n, 0);
+    in.assign(n/k+1, map<ll, int>());
+    buf.assign(n/k+1, 0);
+    forn(i, n) {
+        cin >> a[i];
+        in[i/k][a[i]]++;
     }
+
+    int l, r, x;
+    char ch;
+    forn(i, m) {
+        cin >> ch >> l >> r >> x;
+        l--;
+        if ( ch == '+' )
+            add(l, r, x);
+        else if (ch == '?')
+            query(l,r,x);
+    }
+    
     
     return 0;
 }

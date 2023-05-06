@@ -152,64 +152,44 @@ const int MAXN = 1000005;
 int n, m; // sizes
 vector<vector<int>> g; //graph, grid
 
-// 1 2 3 4 5 6
-// 1 2
-// 1 2 3 4 5 6 7 8 9 10 => (1 + 9 = 10), (2 + 10 = 12), (3+8 = 11), (4 + 5 = 9) 
-//
-// 1 + 10 = 11
-// 2 + 8 = 10 
-// 3 + 9 = 12
-// 4 + 5 = 9
-// 7 + 6 = 13
-//
-// 1 + 6 = 7
-// 2 + 4 = 6
-// 5 + 3 = 8
-//
-//
-
 void solve() {
+    string a(30, 'x');
+    string aux;
+    forn(i, 26) cin >> aux, a[i] = aux[0]; 
+    dbg(a);
     cin >> n;
-    if (n % 2 == 0) {
-        cout << "No" << endl;
-        return;
+    map<string, int> fq;
+    forn(i, n) {
+        cin >> aux;
+        string cod;
+        forn(j, (int)aux.size()) {
+            cod.pb(a[aux[j]-'A']);
+        }
+        dbg(cod);
+        fq[cod]++;
     }
 
-    set<int> s;
-    for1(x, 2*n+1) s.insert(x);
-    vector<iii> ans;
-    ans.pb(mt(2*n+1, 1, 2*n));
-    s.erase(1); s.erase(2*n);
-    int l = 2*n;
-    int h = 2*n+2;
-    dbg(l, h);
-    bool flag = 1;
-    
-    int y = 2*n-1;
-    for(int x = 3; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
-    }
-    for(int x = 2; x <= n; x+=2) {
-        ans.pb(mt(x+y, x, y));
-        y--;
+
+    for(auto xx : fq) {
+        if (xx.snd > 1) {
+            cout << "YES" << endl;
+            return;
+        }
     }
 
-    sort(all(ans));
-    cout << "Yes" << endl;
-    for(auto x : ans) {
-        cout << get<1>(x) << " " << get<2>(x) << endl;
-    }
-    
+    cout << "NO" << endl;
+
 }
  
-int main() {
+signed main() {
     fastIO(); 
-    int t = nxt();
-    while(t--) {
-       solve(); 
-    }
     
+    int t = nxt();
+    int tc = 1;
+    while(t--) {
+        cout << "Case #" << tc++ << ": ";
+        solve();
+    }
     return 0;
 }
 
@@ -229,4 +209,5 @@ int main() {
     - Sort input        - Greedy approach               - Split into cases: Even/odd cases
     - Check diagonals   - Divide and Conquer approach
 */
+
 
