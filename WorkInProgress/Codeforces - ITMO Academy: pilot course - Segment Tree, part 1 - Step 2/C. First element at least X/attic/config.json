@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - ITMO Academy: pilot course - Segment Tree, part 1 - Step 2/C. First element at least X/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. First element at least X",
+      "group": "Codeforces - ITMO Academy: pilot course - Segment Tree, part 1 - Step 2",
+      "url": "https://codeforces.com/edu/course/2/lesson/4/2/practice/contest/273278/problem/C",
+      "memoryLimit": 1024,
+      "timeLimit": 1000
+    }
+  }
+}

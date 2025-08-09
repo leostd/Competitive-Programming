@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - CodeTON Round 2 (Div. 1 + Div. 2, Rated, Prizes!)/C. Virus/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Virus",
+      "group": "Codeforces - CodeTON Round 2 (Div. 1 + Div. 2, Rated, Prizes!)",
+      "url": "https://codeforces.com/contest/1704/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

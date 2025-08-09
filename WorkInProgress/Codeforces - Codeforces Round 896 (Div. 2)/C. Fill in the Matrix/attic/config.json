@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round 896 (Div. 2)/C. Fill in the Matrix/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Fill in the Matrix",
+      "group": "Codeforces - Codeforces Round 896 (Div. 2)",
+      "url": "https://codeforces.com/contest/1869/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - 2021-2022 ACM-ICPC Brazil Subregional Programming Contest/N. No Luck/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "N. No Luck",
+      "group": "Codeforces - 2021-2022 ACM-ICPC Brazil Subregional Programming Contest",
+      "url": "https://codeforces.com/gym/103388/problem/N",
+      "memoryLimit": 1024,
+      "timeLimit": 1000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #820 (Div. 3)/C. Jumping on Tiles/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Jumping on Tiles",
+      "group": "Codeforces - Codeforces Round #820 (Div. 3)",
+      "url": "https://codeforces.com/problemset/problem/1729/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Good Bye 2023/C. Training Before the Olympiad/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Training Before the Olympiad",
+      "group": "Codeforces - Good Bye 2023",
+      "url": "https://codeforces.com/problemset/problem/1916/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

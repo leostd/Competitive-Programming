@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round 907 (Div. 2)/C. Smilo and Monsters/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Smilo and Monsters",
+      "group": "Codeforces - Codeforces Round 907 (Div. 2)",
+      "url": "https://codeforces.com/contest/1891/problem/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

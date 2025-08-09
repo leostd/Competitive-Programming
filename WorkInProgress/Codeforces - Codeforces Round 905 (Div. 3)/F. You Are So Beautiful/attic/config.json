@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round 905 (Div. 3)/F. You Are So Beautiful/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "F. You Are So Beautiful",
+      "group": "Codeforces - Codeforces Round 905 (Div. 3)",
+      "url": "https://codeforces.com/contest/1883/problem/F",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

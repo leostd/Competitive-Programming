@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #762 (Div. 3)/C. Wrong Addition/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Wrong Addition",
+      "group": "Codeforces - Codeforces Round #762 (Div. 3)",
+      "url": "https://codeforces.com/problemset/problem/1619/C",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

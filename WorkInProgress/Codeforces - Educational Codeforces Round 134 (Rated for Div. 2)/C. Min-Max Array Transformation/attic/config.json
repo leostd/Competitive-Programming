@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 134 (Rated for Div. 2)/C. Min-Max Array Transformation/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "C. Min-Max Array Transformation",
+      "group": "Codeforces - Educational Codeforces Round 134 (Rated for Div. 2)",
+      "url": "https://codeforces.com/problemset/problem/1721/C",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

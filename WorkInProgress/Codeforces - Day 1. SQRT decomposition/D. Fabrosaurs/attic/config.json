@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Day 1. SQRT decomposition/D. Fabrosaurs/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D. Fabrosaurs",
+      "group": "Codeforces - Day 1. SQRT decomposition",
+      "url": "https://muscat2023b.contest.codeforces.com/group/cuULm9FF5q/contest/431343/problem/D",
+      "memoryLimit": 256,
+      "timeLimit": 4000
+    }
+  }
+}

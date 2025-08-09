@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round 847 (Div. 3)/E. Vlad and a Pair of Numbers/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "E. Vlad and a Pair of Numbers",
+      "group": "Codeforces - Codeforces Round 847 (Div. 3)",
+      "url": "https://codeforces.com/problemset/problem/1790/E",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

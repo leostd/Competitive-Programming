@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #835 (Div. 4)/E. Binary Inversions/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "E. Binary Inversions",
+      "group": "Codeforces - Codeforces Round #835 (Div. 4)",
+      "url": "https://codeforces.com/problemset/problem/1760/E",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}
