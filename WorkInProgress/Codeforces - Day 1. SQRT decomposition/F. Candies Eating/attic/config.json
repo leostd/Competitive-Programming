@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Day 1. SQRT decomposition/F. Candies Eating/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "F. Candies Eating",
+      "group": "Codeforces - Day 1. SQRT decomposition",
+      "url": "https://muscat2023b.contest.codeforces.com/group/cuULm9FF5q/contest/431343/problem/F",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Day 2. Gaussian elimination, XOR, XOR-basis/1A. Gaussian elimination/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "1A. Gaussian elimination",
+      "group": "Codeforces - Day 2. Gaussian elimination, XOR, XOR-basis",
+      "url": "https://muscat2023b.contest.codeforces.com/group/cuULm9FF5q/contest/431570/problem/1A",
+      "memoryLimit": 64,
+      "timeLimit": 2000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round 905 (Div. 3)/G1. Dances (Easy version)/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "G1. Dances (Easy version)",
+      "group": "Codeforces - Codeforces Round 905 (Div. 3)",
+      "url": "https://codeforces.com/contest/1883/problem/G1",
+      "memoryLimit": 256,
+      "timeLimit": 3000
+    }
+  }
+}

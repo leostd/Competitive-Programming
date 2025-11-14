@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #783 (Div. 1)/A. Make it Increasing/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Make it Increasing",
+      "group": "Codeforces - Codeforces Round #783 (Div. 1)",
+      "url": "https://codeforces.com/problemset/problem/1667/A",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Dytechlab Cup 2022/B. Ela's Fitness and the Luxury Number/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Ela's Fitness and the Luxury Number",
+      "group": "Codeforces - Dytechlab Cup 2022",
+      "url": "https://codeforces.com/contest/1737/problem/B",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}

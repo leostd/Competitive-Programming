@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Educational Codeforces Round 126 (Rated for Div. 2)/B. Getting Zero/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "B. Getting Zero",
+      "group": "Codeforces - Educational Codeforces Round 126 (Rated for Div. 2)",
+      "url": "https://codeforces.com/problemset/problem/1661/B",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

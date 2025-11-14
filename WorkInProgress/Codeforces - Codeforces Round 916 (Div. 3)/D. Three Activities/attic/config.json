@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round 916 (Div. 3)/D. Three Activities/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "D. Three Activities",
+      "group": "Codeforces - Codeforces Round 916 (Div. 3)",
+      "url": "https://codeforces.com/problemset/problem/1914/D",
+      "memoryLimit": 256,
+      "timeLimit": 2000
+    }
+  }
+}

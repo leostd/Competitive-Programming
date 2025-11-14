@@ -154,6 +154,7 @@ const ld EPS = 1e-9;
 const int MAXN = 1000005;
 const int ROUNDS = 10000;
 vector<ll> mods;
+ll mmod;
 
 class Monkey {
 public:
@@ -176,41 +177,43 @@ public:
     }
 
     void play(vector<Monkey> &monkeys) {
-        for (auto &x : ritems) {
+        for (auto &x : items) {
             inspect(x);
             // x /= 3;
-            monkeys[to[t(x)]].ritems.pb(x);
+            monkeys[to[t(x)]].items.pb(x);
             rank++;
         }
-        ritems.clear();
+        items.clear();
     }
 
-    void inspect(vector<ll> &x) {
+    void inspect(ll &x) {
         // dbg("Monkey", id);
         // dbg(x, "1");
         stringstream ss(operation);
         string s1, s2, s3;
         ss >> s1 >> s2 >> s3;
-        vector<ll> a = parse(s1, x);
-        vector<ll> b = parse(s3, x);
-        if (s2 == "*") {
-            int m = mods.size();
-            forn(i, m) {
-                x[i] = (a[i]%mods[i]) * (b[i]%mods[i]);
-                x[i] %= mods[i];
-            }
-        }
+        // vector<ll> a = parse(s1, x);
+        // vector<ll> b = parse(s3, x);
+        // if (s2 == "*") {
+        //     int m = mods.size();
+        //     forn(i, m) {
+        //         x[i] = (a[i]%mods[i]) * (b[i]%mods[i]);
+        //         x[i] %= mods[i];
+        //     }
+        // }
 
-        if (s2 == "+") {
-            int m = mods.size();
-            forn(i, m) {
-                x[i] = (a[i]%mods[i]) + (b[i]%mods[i]);
-                x[i] %= mods[i];
-            }
-        }
-        // if (s2 == "*") ret = ((ret%MOD) * (parse(s3, x)%MOD))%MOD;
-        // if (s2 == "+") ret += ((ret%MOD) + (parse(s3, x)%MOD))%MOD;
+        // if (s2 == "+") {
+        //     int m = mods.size();
+        //     forn(i, m) {
+        //         x[i] = (a[i]%mods[i]) + (b[i]%mods[i]);
+        //         x[i] %= mods[i];
+        //     }
+        // }
+        ll ret = parse(s1, x);
+        if (s2 == "*") ret = ((ret%mmod) * (parse(s3, x)%mmod))%mmod;
+        if (s2 == "+") ret = ((ret%mmod) + (parse(s3, x)%mmod))%mmod;
         // dbg(x, "2");
+        x = ret;
     }
 
     vector<ll> parse(string s, vector<ll> x) {
@@ -350,7 +353,10 @@ int main() {
     int n = monkeys.size();
     forn(i, n) mods.pb(monkeys[i].getMod());
     dbg(mods);
-    forn(i, n) monkeys[i].convertItems();
+    // forn(i, n) monkeys[i].convertItems();
+    mmod = 1;
+    forn(i, n) mmod *= mods[i];
+    dbg(mmod);
     forn(i, ROUNDS) {
         forn(j, n) {
             monkeys[j].play(monkeys);

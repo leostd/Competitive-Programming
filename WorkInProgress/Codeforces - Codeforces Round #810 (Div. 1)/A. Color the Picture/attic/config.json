@@ -1,0 +1,17 @@
+{
+  "mainSolution": {
+    "value": "/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #810 (Div. 1)/A. Color the Picture/main.cpp"
+  },
+  "bruteSolution": {},
+  "generator": {},
+  "checker": {},
+  "companionConfig": {
+    "value": {
+      "name": "A. Color the Picture",
+      "group": "Codeforces - Codeforces Round #810 (Div. 1)",
+      "url": "https://codeforces.com/problemset/problem/1710/A",
+      "memoryLimit": 256,
+      "timeLimit": 1000
+    }
+  }
+}
