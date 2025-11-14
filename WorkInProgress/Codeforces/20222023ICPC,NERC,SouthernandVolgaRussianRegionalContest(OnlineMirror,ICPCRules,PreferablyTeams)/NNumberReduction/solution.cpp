@@ -157,42 +157,42 @@ void solve() {
     string s;
     cin >> s >> k;
     dbg(s);
-    string ans = "";
     int sz = s.size();
-    bool first = true;
-    int lst = 0, prev;
-    int it = 0;
-    while(lst < sz) {
-        dbg(lst, it, 0);
-        prev = k;
-        if (k == 0){
-            ans += s.substr(lst, string::npos);
-            break;
-        }
-        for(int x = (first ? 1 : 0); x <= 9; x++) {
-            bool flag = false;
-            forn(i, k+1) {
-                if (lst+i > sz) break;
-                if (s[lst+i]-'0' == x) {
-                    dbg(x, lst+i, k, ans);
-                    ans.pb(s[lst+i]);
-                    lst = lst+i+1;
-                    k-=i;
-                    flag = true;
-                    break;
-                }
+    vector<int> a(sz);
+    vector<int> idx[10];
+    forn(i, sz) a[i] = s[i] -'0', idx[a[i]].pb(i);
+    vector<int> ans;
+    int i = 0;
+    while(i < sz) {
+        forn(x, 10) {
+            if (x == 0 && i == 0) continue; // no leading zeroes
+            if (x == a[i] || k == 0) {
+                ans.pb(a[i]);
+                break;
             }
-            if (flag) break;
+
+            auto it = lower_bound(all(idx[x]), i);
+            if (it == idx[x].end()) continue;
+            
+            int j = *it;
+            dbg(j, j-i);
+            int tod = j - i;
+            if (tod <= k) {
+                k -= tod;
+                i = j;
+                ans.pb(x);
+                break;
+            }
         }
-        dbg(lst, it, 1);
-        it++;
-        first = false;
+        i++;
     }
-    dbg(lst, k, ans);
-    while(ans.size() > 1 && k) {
-        ans.pop_back(), k--;
+
+    while(k && (int)ans.size() > 1) ans.pop_back(), k--;
+
+    for(auto y : ans) {
+        cout << y;
     }
-    cout << ans << endl;
+    cout << endl;
 }
  
 int main() {
