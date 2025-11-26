@@ -143,88 +143,57 @@ const string abc = "abcdefghijklmnopqrstuvwxyz";
 // #############################
 const int MAXN = 200005;
 
-ll n, m;              // sizes
-vector<vector<ll>> g; // graph, grid
-ll memo[2][MAXN];
+ll n, m; // sizes
+vector<vector<ll>> g;
 
-ll dp(int i, int j) {
-  if (i == 1 && j == n - 1)
-    return g[i][j];
+set<int> unvis[2];
+map<int, vector<pii>> idx;
 
-  if (memo[i][j] != -1)
-    return memo[i][j];
+bool check() {
+  if (unvis[0].count(0))
+    return false;
+  if (unvis[1].count(n - 1))
+    return false;
+  if (*unvis[0].begin() - 1 <= *unvis[1].rbegin())
+    return false;
 
-  ll ret = g[i][j];
-  ll a = INF, b = INF;
-  if (i == 0)
-    a = dp(i + 1, j);
-  if (j < n - 1)
-    b = dp(i, j + 1);
-
-  return memo[i][j] = max(ret, min(a, b));
+  return true;
 }
-
-bool f(int x) {
-  queue<pii> q;
-  vector<vector<int>> vis(2, vector<int>(n, 0));
-  if (g[0][0] < x)
-    return 0;
-
-  q.push(mp(0, 0));
-  vis[0][0] = 1;
-
-  while (!q.empty()) {
-    pii a = q.front();
-    q.pop();
-    if (a.fst == 1 && a.snd == n - 1) {
-
-      return true;
-    }
-    if (a.fst == 0) {
-      pii na = mp(a.fst + 1, a.snd);
-      if (g[1][na.snd] >= x && !vis[1][na.snd]) {
-        q.push(na);
-        vis[1][a.snd] = 1;
-      }
-    }
-
-    if (a.snd < n - 1) {
-      pii na = mp(a.fst, a.snd + 1);
-      if (g[a.fst][a.snd + 1] >= x && !vis[a.fst][na.snd]) {
-        q.push(na);
-        vis[na.fst][na.snd] = 1;
-      }
-    }
-  }
-
-  return false;
-}
-
 void solve() {
+  unvis[0].clear();
+  unvis[1].clear();
+  unvis[0].insert(INF);
+  unvis[1].insert(-INF);
+  idx.clear();
+
   cin >> n;
   g.assign(2, vector<ll>(n, 0));
-  forn(i, 2) forn(j, n) cin >> g[i][j], memo[i][j] = -1;
+  forn(i, 2) forn(j, n) cin >> g[i][j];
 
-  ll mn = dp(0, 0);
+  forn(i, 2) forn(j, n) unvis[i].insert(j);
 
-  int l = 1, r = 2 * n + 1;
-  while (r - l > 1) {
-    int mid = (l + r) / 2;
+  forn(i, 2) forn(j, n) idx[g[i][j]].pb(mp(i, j));
 
-    int fmid = f(mid);
-    dbg(mid, fmid);
-    if (fmid)
-      l = mid;
-    else
-      r = mid;
+  int l = 1, r = 0;
+
+  ll ans = 0;
+  for (; l <= 2 * n; l++) {
+    while (r < 2 * n && !check()) {
+      r++;
+      for (auto [i, j] : idx[r])
+        unvis[i].erase(j);
+    }
+
+    if (check()) {
+      dbg(l, r);
+      ans += (2 * n - r + 1);
+      dbg(ans);
+      for (auto [i, j] : idx[l])
+        unvis[i].insert(j);
+    } else {
+      break;
+    }
   }
-
-  ll aux = f(r) ? r : l;
-
-  dbg(aux);
-  dbg(mn);
-
-  ll ans = (ll)(aux) * (ll)(2LL * n - mn + 1);
 
   cout << ans << endl;
 }
