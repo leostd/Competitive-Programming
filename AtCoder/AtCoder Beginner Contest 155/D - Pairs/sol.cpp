@@ -82,48 +82,74 @@ void fastIO() {
     cin.tie(0);
 }
 
+ll div_floor(ll a, ll b) {
+	return a / b - (((a ^ b) < 0) and a % b);
+}
+ll div_ceil(ll a, ll b) {
+	return a / b + (((a ^ b) >= 0) and a % b);
+}
+
 
 int XMOV[4] = {0, 0, 1, -1};
 int YMOV[4] = {1, -1, 0, 0};
 
 //#############################
 const int MAXN = 1000005;
+ll n, k, x;
+vector<ll> a;
+bool isNeg;
+int neg, pos, zero;
+vector<ll> poss, negs;
 
-int main() {
-
-    ll n, k, x;
-
-    cin >> n >> k;
-    vector<ll> a(n+1, 0), neg, pos;
-
-    for (int i = 1; i <= n; i++)
-        cin >> x, (x >= 0)? pos.pb(x) : neg.pb(x), a.pb(x);
-
-    sort(pos.begin(), pos.end());
-    sort(neg.begin(), neg.end());
-
-    cout << to_string(pos)<< endl;
-    cout << to_string(neg)<< endl;
-
-    ll cur = 0;
-    for (int i = 1; i < n; i++) {
-        if (k <= cur + (n-i)) {
-            ll offset = k  - cur;
-            cout << "cur: " << cur << endl;
-            cout << "offset: " << offset << endl;
-            cout << "i: " << i << endl;
-            if (a[i] < 0)
-                cout << a[i] * a[n-offset];
-            else
-            {
-                cout << a[i] * a[i+offset];
-            }
-            
-            return 0;
+ll f(ll x) {
+    ll count = 0;
+    for(int i = 0; i < n; i++){
+        if (a[i] == 0 && x >= 0){
+                count += n-1;
         }
-        cur = cur + (n-i);
+        else if(a[i] > 0) {
+            // a[i] * z <= x ==> z <= x / a[i]
+            ll z = int(upper_bound(a.begin(), a.end(), div_floor(x, a[i])) - a.begin());
+            if (z > i)
+                count += z - 1;
+            else
+                count += z;
+        } else if (a[i] < 0) {
+            // a[i] * z <= x ==> z >= x / a[i]
+
+            ll z = int(lower_bound(a.begin(), a.end(), div_ceil(x, a[i])) - a.begin());
+
+            if (z <= i)
+                count += n - z -1;
+            else
+                count += n - z;
+        }
     }
 
+
+    return count / 2;
+}
+
+int main() {
+    fastIO();
+    cin >> n >> k;
+    a = vector<ll>(n, 0);
+    neg = pos = zero = 0;
+
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
+    sort(a.begin(), a.end());
+    ll l(-1e18-1), r = (1e18+1);
+    while (abs(r - l) >= 1) {
+        ll mid = l + (r - l) / 2;
+        ll guess = f(mid);
+        if (guess >= k)
+            r = mid;
+        else
+            l = mid+1;
+    }
+
+    cout << r << endl;
 
     return 0;
 }

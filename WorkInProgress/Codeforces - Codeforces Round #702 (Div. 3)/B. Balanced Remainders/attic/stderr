@@ -1,4 +1,0 @@
-[01m[K/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #702 (Div. 3)/B. Balanced Remainders/main.cpp:[m[K In function ‘[01m[Kint main()[m[K’:
-[01m[K/home/lstd/ws/Competitive-Programming/WorkInProgress/Codeforces - Codeforces Round #702 (Div. 3)/B. Balanced Remainders/main.cpp:164:17:[m[K [01;31m[Kerror: [m[K‘[01m[Kmoves[m[K’ was not declared in this scope
-  164 |         cout << [01;31m[Kmoves[m[K << endl;
-      |                 [01;31m[K^~~~~[m[K

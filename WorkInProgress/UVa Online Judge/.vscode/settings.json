@@ -1,9 +1,0 @@
-{
-    "files.associations": {
-        "iomanip": "cpp",
-        "memory": "cpp",
-        "utility": "cpp",
-        "algorithm": "cpp",
-        "random": "cpp"
-    }
-}

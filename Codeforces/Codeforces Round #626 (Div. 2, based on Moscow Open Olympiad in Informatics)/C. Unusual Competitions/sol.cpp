@@ -1,3 +1,7 @@
+// #pragma comment(linker, "/stack:200000000")
+// #pragma GCC optimize("O3") 
+// #pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native")
+
 #include <iostream>
 #include <vector>
 #include <set>
@@ -89,37 +93,43 @@ int YMOV[4] = {1, -1, 0, 0};
 //#############################
 const int MAXN = 1000005;
 
+
 int main() {
+    fastIO();
     int n;
     cin >> n;
-    int ans = 0;
     string s;
     cin >> s;
-
-    int closing = 0, opening = 0, mismatched = 0;
-    REP(i, n)
-        closing += s[i] == ')', opening += s[i] == '(';
     
-    if (closing != opening) {
+    int open = 0, close = 0;
+    vector<int> balance(n+1, 0);
+
+    for (int i = 0; i < n; i++)
+        open += s[i] == '(', close += s[i] == ')';
+    
+    if (open != close){
         cout << -1 << endl;
         return 0;
     }
-    
-    cout << s << endl;
-    REP(i, n){
-        if (s[i] == ')' && opening == 0)
-            mismatched++, closing++;
-        else if(s[i] == ')' && opening > 0)
-            opening--;
 
-        if (s[i] == '(')
-            opening++;
+    for (int i = 1; i <= n; i++) {
+        balance[i] = balance[i-1] + (s[i-1] == ')'? -1 : 1);
     }
 
-    cout << closing << endl;
-    cout << opening << endl;
-    cout << mismatched << endl;
-
-    
+    int i = 1, j = 1;
+    int ans = 0;
+    // cout << to_string(balance) << endl;
+    while(i < n) {
+        while(i < n && balance[i] >= 0)
+            i++;
+        if(i >= n)
+            break;
+        j = i;
+        while(j < n && balance[j] < 0)
+            j++;
+        ans += j-i+1;
+        i = j;
+    }
+    cout << ans << endl;
     return 0;
 }

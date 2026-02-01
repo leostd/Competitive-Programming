@@ -90,47 +90,35 @@ int YMOV[4] = {1, -1, 0, 0};
 const int MAXN = 1000005;
 
 int l, r, cur;
-vector<pii> g[MAXN];
+vector<int> g[MAXN];
 
-int inc(){
-    int ans;
-    if (cur == 1){
-        ans = l;
-        l++;
-        cur = 0;
-    }
-    else {
-        ans = r;
-        r--;
-        cur = 1;
-    }
-
-    return ans;
-}
 int main() {
     fastIO();
     int n;
     cin >> n;
 
     int x,y;
-    REP(i,n){
+    vector<int> ans(MAXN);
+    RE(i,n-1){
         cin >> x >> y;
-        g[x].pb(pii(y, i));
+        g[x].pb(i);
+        g[y].pb(i);
+        ans[i] = -1;
     }
 
-    vector<int> ans(n-1);
-    l = 0; r  = n-2; cur = 1;
-
-    for(int i = 1; i <= n; i++) {
-        if (g[i].empty())
-            continue;
-        for (int j = 0; j < g[i].size(); j++){
-            ans[g[i][j].snd] = inc();
-        }
-    }
+    pii mx = mp(-1,-1);
+    for(int i = 1; i <= n; i++)
+        mx = max(mx, mp((int)g[i].size(), i));
     
-    for (auto x : ans){
-        cout << x << " " << "\n";
+    int cur = 0;
+    for(int i : g[mx.snd]){
+        ans[i] = cur++;
+    }
+
+    for (int i = 1; i < n; i++) {
+        if (ans[i] == -1)
+            ans[i] = cur++;
+        cout << ans[i] << "\n";       
     }
 
     return 0;

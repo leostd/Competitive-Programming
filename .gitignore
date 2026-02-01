@@ -33,3 +33,17 @@ relative/path/to/dir/anotherfile
 .Rhistory
 .vscode
 .DS_Store
+
+# Build artifacts
+*.o
+*.obj
+*.exe
+*.dSYM
+*.dSYM/*
+*.md5
+a.out
+
+# Editor/OS temp files
+*.swp
+*.swo
+*.tmp

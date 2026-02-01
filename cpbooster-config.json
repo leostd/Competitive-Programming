@@ -1,0 +1,14 @@
+{
+  "contestsDirectory": ".",
+  "port": 1327,
+  "editor": "nvim",
+  "preferredLang": "cpp",
+  "cloneInCurrentDir": true,
+  "languages": {
+    "cpp": {
+      "template": "Templates/main.cpp",
+      "type": "compiled",
+      "commentString": "//"
+    }
+  }
+}
