@@ -2,7 +2,9 @@
 My competitive programming archive: solutions, templates, and training material.
 
 ## Structure (current)
-- `Codeforces/`, `AtCoder/`, `UVa/`, `SPOJ/`, `HackerRank/`, `LeetCode/`, etc.
+- Platforms: `Codeforces/`, `AtCoder/`, `UVa/`, `SPOJ/`, `HackerRank/`, `LeetCode/`,
+  `CodeChef/`, `Kattis/`, `Timus/`, `ProjectEuler/`, `MetaHackerCup/`,
+  `AdaByron/`, `AER/`, `VirtualJudge/`, `ICPC Live Archive/`, etc.
   - Contest or problem folders with `sol.cpp` (or problem name) and optional `testcases/`.
 - `Library/`
   - Reusable algorithms and data structures, organized by topic.
@@ -10,9 +12,6 @@ My competitive programming archive: solutions, templates, and training material.
   - Base templates, generators, and utilities.
 - `Problemsetting/`
   - Problem statements and test data (`.in`, `.ans`).
-- `WorkInProgress/` and `Unordered/`
-  - Mixed/temporary content that should be triaged into the right platform.
-
 ## Workflow (neovim + cpbooster + UltiSnippets)
 - `cpbooster-config.json` is the repo default config (editor `nvim`, C++ template `Templates/main.cpp`).
 - With `cloneInCurrentDir: true`, run `cpb clone` from inside the target platform folder
@@ -34,6 +33,4 @@ My competitive programming archive: solutions, templates, and training material.
 - Keep input/output testcases under `testcases/`.
 
 ## Next organization pass
-- Move `Unordered/` files into their correct platform folders.
-- Split `WorkInProgress/` into `Inbox/` (new work) and `Archive/` (old/unused).
 - For Codeforces, consolidate either `Problems/` or `Rounds/` to a single scheme.
