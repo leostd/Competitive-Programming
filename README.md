@@ -17,6 +17,8 @@ My competitive programming archive: solutions, templates, and training material.
 - With `cloneInCurrentDir: true`, run `cpb clone` from inside the target platform folder
   to keep a flat per-contest layout (e.g., `Codeforces/<Contest>/A.cpp`, `B.cpp`, ...).
 - Use UltiSnippets to paste the C++ template on new files as usual.
+- **Snippets** are under `Snippets/UltiSnippets/` and version controlled. On a new Mac, run
+  `./scripts/setup-ultisnips.sh` once to link nvim’s UltiSnips to this repo (see `Snippets/README.md`).
 - Compile aliases used in this repo:
   - `dbg`: compile with debug flags (prints debug statements).
   - `comp`: release compile (no debug output).

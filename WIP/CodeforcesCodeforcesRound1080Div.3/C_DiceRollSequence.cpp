@@ -1,37 +1,11 @@
-snippet sieve "Erathostenes Sieve"
-/*
- Erathostenes Sieve
-
- O(NlogN)
-*/
-const int NPRIMES = 1e7; // max size for this algorithm
-vector<int> primes;
-bool isPrime[NPRIMES];
-void sieve() {
-    // assume all numbers are prime at the begining
-    memset(isPrime, 1, sizeof(isPrime));
-    
-    // start from 2 as 1 is not considered a prime number
-    for(int x = 2; x < NPRIMES; x++) {
-        if (isPrime[x]) {
-            primes.push_back(x);
-
-            // mark as not primes all the multiples of current prime number
-            for(int y = x+x; y < NPRIMES; y+=x) {
-                isPrime[y] = false;
-            }
-        }
-    }
-}
-endsnippet
-
-snippet cpt "Competitive programming base templated"
+// time-limit: 2000
+// problem-url: https://codeforces.com/contest/2195/problem/C
 #pragma GCC diagnostic ignored "-Wunused-const-variable"
- 
+
 #include <bits/stdc++.h>
- 
+
 using namespace std;
- 
+
 #define mp make_pair
 #define mt make_tuple
 #define pb push_back
@@ -46,7 +20,7 @@ using namespace std;
 #define fst first
 #define snd second
 #define endl "\n"
- 
+
 typedef long long ll;
 typedef pair<int, int> pii;
 typedef pair<ll, int> pli;
@@ -55,29 +29,29 @@ typedef long double ld;
 typedef tuple<int, int, int> iii;
 typedef tuple<ll, ll, ll> lll;
 typedef tuple<ld, ld, ld> ddd;
- 
+
 template <typename T> inline T abs(T a) { return ((a < 0) ? -a : a); }
 template <typename T> inline T sqr(T a) { return a * a; }
 template <class T> T gcd(T a, T b) { return a ? gcd(b % a, a) : b; }
 template <class T> T lcm(T a, T b) { return a / gcd(b % a, a) * b; }
 template <class T> T sign(T a) { return a > 0 ? 1 : (a < 0 ? -1 : 0); }
- 
+
 string to_string(string s) { return '"' + s + '"'; }
- 
+
 string to_string(const char *s) { return to_string((string)s); }
- 
+
 string to_string(bool b) { return (b ? "true" : "false"); }
- 
+
 template <typename A, typename B> string to_string(pair<A, B> p) {
   return "(" + to_string(p.first) + ", " + to_string(p.second) + ")";
 }
- 
+
 template <typename A, typename B, typename C>
 string to_string(tuple<A, B, C> t) {
   return "(" + to_string(get<0>(t)) + ", " + to_string(get<1>(t)) + ", " +
          to_string(get<2>(t)) + ")";
 }
- 
+
 template <typename A> string to_string(priority_queue<A> pq) {
   bool first = true;
   string res = "{";
@@ -93,7 +67,7 @@ template <typename A> string to_string(priority_queue<A> pq) {
   res += "}";
   return res;
 }
- 
+
 template <typename A> string to_string(queue<A> q) {
   bool first = true;
   string res = "{";
@@ -109,7 +83,7 @@ template <typename A> string to_string(queue<A> q) {
   res += "}";
   return res;
 }
- 
+
 template <typename A> string to_string(A v) {
   bool first = true;
   string res = "{";
@@ -123,42 +97,42 @@ template <typename A> string to_string(A v) {
   res += "}";
   return res;
 }
- 
+
 void dbg() { cout << endl; }
 template <typename Head, typename... Tail> void dbg(Head H, Tail... T) {
   cout << " " << to_string(H);
   dbg(T...);
 }
- 
+
 #ifdef DEBUG
 #define dbg(...) cout << "(" << #__VA_ARGS__ << "):", dbg(__VA_ARGS__)
 #else
 #define dbg(...)
 #endif
- 
+
 void fastIO() {
   cin.sync_with_stdio(false);
   cin.tie(0);
 }
- 
+
 template <typename T> vector<T> make_unique(vector<T> v) {
   sort(all(v));
   return v.resize(unique(all(v)) - v.begin());
 }
- 
+
 int nxt() {
   int x;
   cin >> x;
   return x;
 }
- 
+
 const int dx[4] = {0, 0, 1, -1};
 const int dy[4] = {1, -1, 0, 0};
 const int dxKn[8] = {-2, -1, 1, 2, 2, 1, -1, -2};
 const int dyKn[8] = {1, 2, 2, 1, -1, -2, -2, -1};
 const int dxK[8] = {0, 0, 1, -1, 1, 1, -1, -1};
 const int dyK[8] = {1, -1, 0, 0, 1, -1, 1, -1};
- 
+
 const int MOD = int(1e9) + 7;
 const int INF = int(1e9) + 100;
 const ll INF64 = 2e18;
@@ -168,35 +142,43 @@ const ld EPS = 1e-9;
 const string abc = "abcdefghijklmnopqrstuvwxyz";
 // #############################
 const int MAXN = 1000005;
- 
+
 int n, m;              // sizes
 vector<vector<int>> g; // graph, grid
- 
 
 void solve() {
-	${0}
+  cin >> n;
+  vector<int> a(n);
+  forn(i, n) cin >> a[i];
+  int ans = 0;
+  for (int i = 1; i < n; i++) {
+    // Invalid pair: same face or opposite (sum 7). Fix by changing a[i], count 1, skip next.
+    if (a[i] + a[i - 1] == 7 || a[i] == a[i - 1])
+      ans++, i++;
+  }
+  cout << ans << endl;
 }
- 
+
 signed main() {
   fastIO();
   int t = nxt();
   while (t--) {
     solve();
   }
- 
+
   return 0;
 }
- 
+
 /*
     RECALL CORNER CASES - e.g. n = 1, n = 0
     WRITE SOME STUFF
- 
+
     think first, always -
     1. concretely
     2. graphically
     3. abstractly
     4. algebraically
- 
+
     Checklist:
     - I/O make sense?   - Exclusion/inclusion           - Is a known sequence?
     - Reverse           - Brute force approach          - DP
@@ -204,4 +186,3 @@ signed main() {
    Even/odd cases
     - Check diagonals   - Divide and Conquer approach
 */
-endsnippet
